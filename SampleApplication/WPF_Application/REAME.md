@@ -8,7 +8,10 @@ The application might required latest .Net framework version 4.8. To run, double
 
 ![github-large](https://github.com/mtran21081990/WinAppAutomation/blob/master/SampleApplication/WPF_Application/sample_wpf_application_form.png)
 
-All Controls are created with unique Name and AutomationId attributes, except some Controls to simulate some situation in automation testing.
+All Controls are created with unique Name and AutomationId attributes to be used in automation testing.
 
 ![github-large](https://github.com/mtran21081990/WinAppAutomation/blob/master/SampleApplication/WPF_Application/attribute_screenshot.png)
 
+Some Controls have same or empty AutomationId to simulate difficult situation in automation.
+
+![github-large](https://github.com/mtran21081990/WinAppAutomation/blob/master/SampleApplication/WPF_Application/details_screenshot.png)
