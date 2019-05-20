@@ -1,6 +1,6 @@
 # Sample automation test project using White Library (and Sikuli Library as a helper)
 
-This is a sample automation test project which will create a user-defined Library extended from WhiteLibrary (also included SikuliLibrary). For more information regarding included libraries:
+This is a sample automation test project which will create an user-defined Library extended from WhiteLibrary (also included SikuliLibrary). For more information regarding the 2 included libraries:
 
 [WhiteLibrary](https://github.com/Omenia/robotframework-whitelibrary)
 
@@ -8,11 +8,20 @@ This is a sample automation test project which will create a user-defined Librar
 
 ## How to run
 
-1. Pull/Download the project from Git. Also pull/download the sample application.
+1. Install Python 3.7 or newer version. Might require to install latest .Net framework to run sample WPF application.
 
-2. Open Python IDE (prefered PyCharm), open the WhiteLibraryAutomation project. Create a new Interpreter for this project in File > Settings > Project Interpreter. Restart IDE (if need).
+2. Pull/Download the project from Git. Also pull/download the sample WPF application (more sample application will be updated later) [WPF_Application](https://github.com/mtran21081990/WinAppAutomation/tree/master/SampleApplication/WPF_Application)
 
-3. Install all required package by executing file "install_required_package.bat". The file will install robotframework, robotframework-SikuliLibrary, robotframework-whitelibrary and pyyaml.
+3. Open a Python IDE (prefered PyCharm), then open the WhiteLibraryAutomation project. Create a new Interpreter for this project in File > Settings > Project Interpreter. Restart IDE (if need).
 
-4. Copy {This_GitHub_URL}/WinAppAutomation/Prerequisites/WhiteLibrary/bin folder and paste into {Project_URL}\WinAppAutomation\venv\Lib\site-packages\WhiteLibrary. Doing this will copy the 2 required library dll files of WhiteLibrary.
+4. Install all required packages by executing file "required_packages.bat". The file will install: robotframework, robotframework-SikuliLibrary, robotframework-whitelibrary and pyyaml.
 
+5. Copy 02 required White library dll files in [Prerequisites/WhiteLibrary/bin](https://github.com/mtran21081990/WinAppAutomation/tree/master/Prerequisites/WhiteLibrary/bin) and paste into {Project_URL}\WinAppAutomation\venv\Lib\site-packages\WhiteLibrary\bin. 
+
+6. Run test suite in Tests\Suites. There are 02 sample test suites for now. 
++ sample_test.robot: Contains test cases which require input in Tests/Data/settings.yaml: MAIN_WINDOW_NAME: "Untitled - Paint"; PATH: "C:\\Windows\\System32\\mspaint.exe"
+  - Test case "Test Sample Case With Wait 1s" with tag "sample_1": Open a Paint and draw a rectangle then save.
+  - Test case "Test Sample Case With Wait 1s No Draw" with tag "sample_2": Open a Paint and then save.
++ sample_test_not_use_settings.robot: Contains test cases which don't need to input anything more. 
+  - Test case "User automates on Paint application" with tag "sample_no_1": Open a Paint and draw a rectangle then save.
+  - Test case "Test Sample Wpf Application" with tag "sample_no_2": Open the dowloaded WPF application and verify/click on all controls.
