@@ -1,0 +1,17 @@
+APPLICATION:
+  TYPE: "wpf"
+  ALREADY_OPENED: "No"
+  #APPLICATION_NAME: "18744"
+  #MAIN_WINDOW_NAME: "Calculator"
+  #
+  # Test Paint Application
+  #APPLICATION_NAME: "Paint"
+  #MAIN_WINDOW_NAME: "Untitled - Paint"
+  #PATH: "C:\\Windows\\System32\\mspaint.exe"
+  #
+  # Test Sample Wpf Application
+  MAIN_WINDOW_NAME: "MainWindow"
+  PATH: "D:\\Automation\\WPF_Sample_Application\\WpfTestApplication.exe"
+  #
+  DEFAULT_USERNAME: "admin"
+  DEFAULT_PASSWORD: "password"

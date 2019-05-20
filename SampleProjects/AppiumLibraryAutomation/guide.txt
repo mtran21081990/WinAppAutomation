@@ -1,0 +1,2 @@
+1. Install all required package by using install_required_package.bat
+2. Add environment variable "DISABLE_SIKULI_LOG" = 1 to disable sikuli's log files
