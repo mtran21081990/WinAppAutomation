@@ -30,7 +30,6 @@ class WinAppLibrary(WhiteLibrary):
         self.implicit_wait = timestr_to_secs(implicit_wait)
         self.speed = 0.0
         self.run_on_failure_keyword = run_on_failure
-        self.ROBOT_LIBRARY_LISTENER = LibraryListener()
         ####################################################################################
         # Make sure pydevd installed: pip install pydevd
         # AND Uncomment following codes to enable debug mode
