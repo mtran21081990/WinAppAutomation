@@ -233,6 +233,7 @@ User Can Input On Each Textbox In List
     :FOR    ${textbox}    IN    @{list}
     \  Input Text To Textbox  ${textbox}  Input Sample Text
     \  Sleep  1s
+    \  Verify Text In Textbox  ${textbox}  Input Sample Text
 
 User Can Verify Tooltip
     Click Button  id=button-1
@@ -252,6 +253,7 @@ User Can Expand
 User Can Select Combobox
     Select Combobox Value  id=combobox-1  ComboBox Item #3
     Sleep  1s
+    Verify Combobox Selection  id=combobox-1  ComboBox Item #3
 
 User Can Select Date Picker
     Click Button  text=Show Calendar
