@@ -18,6 +18,13 @@ class ElementManagementKeywords(LibraryComponent):
     @keyword
     def element_should_be_visible(self, locator):
         item = self.element_management.get_item(locator)
-        if item is None:
+        if not item.Visible:
             return False
         return True
+
+    @keyword
+    def element_should_not_be_visible(self, locator):
+        item = self.element_management.get_item(locator)
+        if item.Visible:
+            return True
+        return False

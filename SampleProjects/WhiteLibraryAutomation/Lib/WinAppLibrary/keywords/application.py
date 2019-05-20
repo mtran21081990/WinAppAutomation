@@ -50,13 +50,6 @@ class ApplicationManagementKeywords(LibraryComponent):
         else:
             self.application_management.launch_application(application_path)
 
-        try:
-            list_windows = self.get_windows()
-            logging.info("List of Windows: ")
-            logging.info(list_windows)
-        except Exception:
-            logging.debug("Exception on getting list of windows")
-
     @staticmethod
     def _is_process_id(temp):
         try:

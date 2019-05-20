@@ -19,35 +19,6 @@ class WindowManagementKeywords(LibraryComponent):
     def attach_main_window(self, settings):
         main_window_name = settings.get(_APPLICATION_MAIN_WINDOW_NAME_KEY, None)
         self.window_management.attach_window(main_window_name)
-        """try:
-            item = self.window_management.state.window.Get(SearchCriteria.ByText("Item1"))
-            logging.info("Using UIItem. Item with text = Item1: ")
-            logging.info(item)
-            logging.info("Using UIItem. Bound of Item1: ")
-            logging.info(item.Bounds)
-        except Exception:
-            logging.debug("Using UIItem. Exception on getting Item1")
-        try:
-            itemTemp = self.window_management.state.window.AutomationElement.FindAll(TreeScope.Subtree, PropertyCondition(
-                AutomationElement.NameProperty, "Item1"))
-            item = itemTemp[0]
-            logging.info("Using AutomationItem. Item with text = Item1: ")
-            logging.info(item)
-            logging.info("Using AutomationItem. Bound of Item1: ")
-            logging.info(item.BoundingRectangleProperty)
-        except Exception:
-            logging.debug("Using AutomationItem. Exception on getting Item1")
-        """
-        try:
-            items = self.window_management.state.window.AutomationElement.FindAll(TreeScope.Descendants, Condition.TrueCondition)
-            #logging.info("List of Items: ")
-            #logging.info(items)
-            logging.info("Total Items: " + str(items.Count))
-            logging.info("Name of every Items: ")
-            for itm in items:
-                logging.info(str(itm.Current.Name))
-        except Exception:
-            logging.debug("Exception on getting list of items")
 
     @keyword
     def get_window_full_title(self):
@@ -65,5 +36,12 @@ class WindowManagementKeywords(LibraryComponent):
     def window_title_should_equal_to(self, title):
         full_title = self.get_window_full_title()
         if full_title == title:
+            return True
+        return False
+
+    @keyword
+    def window_tooltip_should_equal_to(self, title):
+        tooltip = self.window_management.state.window.ToolTip.Text
+        if tooltip == title:
             return True
         return False
