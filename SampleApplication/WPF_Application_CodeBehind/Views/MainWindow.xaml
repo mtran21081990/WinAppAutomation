@@ -4,10 +4,13 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:prism="http://prismlibrary.com/"
         xmlns:Control="clr-namespace:SampleWpfApplication"
+        xmlns:local="clr-namespace:SampleWpfApplication.Views"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="Test WPF Application" Name="MainWindow1" Height="750" Width="1000" Loaded="Window_Loaded">
+        Title="Test WPF Application" Name="MainPageWindow" Height="750" Width="1000" MinWidth="1000" MinHeight="750" Loaded="MainPageWindow_Loaded">
 
     <Window.Resources>
+        <local:AddNewlineConverter x:Key="GenerateID" />
+        
         <!-- Take some simple data -->
         <XmlDataProvider x:Key="SampleData" XPath="Orchestra/Instrument">
             <x:XData>
@@ -27,10 +30,11 @@
         </CollectionViewSource>
     </Window.Resources>
 
+
     <DockPanel LastChildFill = "True" Grid.RowSpan="2">
         <StackPanel DockPanel.Dock = "Top" Margin="0 0 0 10">
-            <TextBlock FontSize="24" FontWeight="Bold">Test Wpf Application created by Prism Library</TextBlock>
-            <Menu AutomationProperties.AutomationId="menu-1" Name="Menu1">
+            <TextBlock Name="MainPageTitle" FontSize="24" FontWeight="Bold">Main Page</TextBlock>
+            <Menu Name="MainPageMenu">
                 <Menu.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VirtualizingStackPanel Orientation="Horizontal" />
@@ -50,37 +54,33 @@
                     <MenuItem Header="Item 3" Click="MenuItem_Click"/>
                 </MenuItem>
                 <MenuItem Header="Menu 2">
-                    <MenuItem Header="Item 4" IsCheckable="true" />
-                    <MenuItem Header="Item 5" IsCheckable="true">
+                    <MenuItem Header="Item 4"/>
+                    <MenuItem Header="Item 5">
                         <MenuItem Header="Sub Item 1">
-                            <MenuItem Header="Sub Item 2" IsCheckable="true" />
-                            <MenuItem Header="Sub Item 3" IsCheckable="true" />
-                            <MenuItem Header="Sub Item 4" IsCheckable="true" />
+                            <MenuItem Header="Sub Item 2"/>
+                            <MenuItem Header="Sub Item 3"/>
+                            <MenuItem Header="Sub Item 4"/>
                         </MenuItem>
                         <MenuItem Header="Sub Item 5"/>
                     </MenuItem>
-                    <MenuItem Header="Item 6" IsCheckable="true" />
+                    <MenuItem Header="Item 6"/>
                 </MenuItem>
             </Menu>
         </StackPanel>
         <StackPanel>
-            <TabControl AutomationProperties.AutomationId="tab-control-1" Name="TabControl1">
+            <TabControl Name="MainPageTabControl">
                 <TabItem Header="General WPF Control">
                     <Grid>
                         <Grid.Resources>
                             <Style TargetType="StackPanel" >
-                                <Setter Property="Margin" Value="0 0 0 10" />
+                                <Setter Property="Margin" Value="0 10 0 10" />
                             </Style>
                         </Grid.Resources>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*" />
-                            <ColumnDefinition Width="2*" />
                             <ColumnDefinition Width="1*" />
-                            <ColumnDefinition Width="2*" />
                             <ColumnDefinition Width="1*" />
-                            <ColumnDefinition Width="2*" />
                             <ColumnDefinition Width="1*" />
-                            <ColumnDefinition Width="2*" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="1*" />
@@ -98,60 +98,42 @@
                             <RowDefinition Height="1*" />
                         </Grid.RowDefinitions>
 
-                        <StackPanel Grid.Row="0" Grid.Column="0">
-                            <TextBlock FontWeight="Bold" TextWrapping="Wrap" HorizontalAlignment="Right">ListBox (select single):</TextBlock>
-                        </StackPanel>
-                        <StackPanel Grid.Row="0" Grid.Column="1">
-                            <ListBox Name="ListBox1" SelectionMode="Single" Height="120" Loaded="ListBox1_Loaded">
-                                <ListBoxItem Content="Coffie"/>
-                                <ListBoxItem Content="Tea"></ListBoxItem>
-                                <ListBoxItem Content="Orange Juice"></ListBoxItem>
-                                <ListBoxItem Content="Milk"></ListBoxItem>
-                                <ListBoxItem Content="Iced Tea"></ListBoxItem>
-                                <ListBoxItem Content="Mango Shake"></ListBoxItem>
-                                <ListBoxItem Content="Coffie"></ListBoxItem>
-                                <ListBoxItem Content="Tea"></ListBoxItem>
-                                <ListBoxItem Content="Orange Juice"></ListBoxItem>
-                                <ListBoxItem Content="Milk"></ListBoxItem>
-                                <ListBoxItem Content="Iced Tea"></ListBoxItem>
-                                <ListBoxItem Content="Mango Shake"></ListBoxItem>
+                        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                            <TextBlock HorizontalAlignment="Right" Margin="0 0 10 0" MaxWidth="100" FontWeight="Bold" TextWrapping="Wrap">Select One Drink</TextBlock>
+                            <ListBox Name="SelectOneDrinkListBox" VerticalAlignment="Top" SelectionMode="Single" MaxHeight="120" MinWidth="120">
+                                <ListBoxItem Content="Coffee"/>
+                                <ListBoxItem Content="Tea"/>
+                                <ListBoxItem Content="Orange Juice"/>
+                                <ListBoxItem Content="Milk"/>
+                                <ListBoxItem Content="Iced Tea"/>
+                                <ListBoxItem Content="Mango Shake"/>
                             </ListBox>
                         </StackPanel>
 
-                        <StackPanel Grid.Row="0" Grid.Column="2">
-                            <TextBlock FontWeight="Bold" TextWrapping="Wrap" HorizontalAlignment="Right">ListBox (select multiple):</TextBlock>
+                        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                            <TextBlock HorizontalAlignment="Right" Margin="0 0 10 0" MaxWidth="100" FontWeight="Bold" TextWrapping="Wrap">Select Some Dishes</TextBlock>
+                            <ListBox Name="SelectSomeDishesListBox" VerticalAlignment="Top" SelectionMode="Multiple" Height="120" MinWidth="120">
+                                <ListBoxItem Content="Pizza"/>
+                                <ListBoxItem Content="Omelette"/>
+                                <ListBoxItem Content="Rice"/>
+                                <ListBoxItem Content="Spaghetti"/>
+                                <ListBoxItem Content="Triple Cheese Twists"/>
+                                <ListBoxItem Content="Hamburger"/>
+                            </ListBox>
                         </StackPanel>
+
+                        <StackPanel Grid.Row="0" Grid.Column="2" >
+                            <TextBlock Margin="0 0 0 5" FontWeight="Bold" TextWrapping="Wrap">Select An Available Date</TextBlock>
+                            <Calendar Name="SelectAnAvailableDateCalendar" HorizontalAlignment="Left" SelectedDatesChanged="SelectAnAvailableDateCalendar_SelectedDatesChanged"/>
+                            <TextBox Name="SelectAnAvailableDateTextBox" HorizontalAlignment="Left" IsEnabled="False" Width="180" BorderBrush="Black" Margin="0 0 0 0"/>
+                        </StackPanel>
+
                         <StackPanel Grid.Row="0" Grid.Column="3">
-                            <ListBox AutomationProperties.AutomationId="listbox2" Name="ListBox2" SelectionMode="Multiple">
-                                <ListBoxItem Content="Coffie"></ListBoxItem>
-                                <ListBoxItem Content="Tea"></ListBoxItem>
-                                <ListBoxItem Content="Orange Juice"></ListBoxItem>
-                                <ListBoxItem Content="Milk"></ListBoxItem>
-                                <ListBoxItem Content="Iced Tea"></ListBoxItem>
-                                <ListBoxItem Content="Mango Shake"></ListBoxItem>
-                            </ListBox>
-                        </StackPanel>
-
-                        <StackPanel Grid.Row="0" Grid.Column="4">
-                            <TextBlock FontWeight="Bold" HorizontalAlignment="Right" Margin="0 0 10 0">Calendar:</TextBlock>
-                        </StackPanel>
-                        <StackPanel Grid.Row="0" Grid.Column="5">
-                            <Calendar AutomationProperties.AutomationId="calendar1" Name="Calendar1" SelectedDatesChanged="Calendar_SelectedDatesChanged"/>
-                            <TextBox AutomationProperties.AutomationId="calendar-textbox-1" Name="CalendarTextbox1" Height="20" TextWrapping="Wrap" Width="Auto" BorderBrush="Black" Margin="0 5 0 0"/>
-                        </StackPanel>
-
-                        <StackPanel Grid.Row="0" Grid.Column="6">
-                            <TextBlock FontWeight="Bold" HorizontalAlignment="Right" Margin="0 0 10 0" TextWrapping="Wrap">Radio Buttons:</TextBlock>
-                            <TextBlock FontWeight="Bold" HorizontalAlignment="Right" Margin="0 50 10 0" TextWrapping="Wrap">Viewbox:</TextBlock>
-                        </StackPanel>
-                        <StackPanel Grid.Row="0" Grid.Column="7" Grid.ColumnSpan="2">
+                            <TextBlock FontWeight="Bold" HorizontalAlignment="Left" Margin="0 0 0 5" TextWrapping="Wrap">Choose Free Dessert</TextBlock>
                             <RadioButton GroupName="Os" AutomationProperties.AutomationId="radio-button-1" Content="Windows XP" IsChecked="True"/>
                             <RadioButton GroupName="Os" AutomationProperties.AutomationId="radio-button-1" Content="Windows 7" />
                             <RadioButton GroupName="Office" AutomationProperties.AutomationId="radio-button-2" Content="Microsoft Office 2007" IsChecked="True"/>
                             <RadioButton GroupName="Office" AutomationProperties.AutomationId="radio-button-2" Content="Microsoft Office 2003"/>
-                            <Viewbox AutomationProperties.AutomationId="view-box-1" Name="ViewBox1" Margin="0 20 0 0">
-                                <Button AutomationProperties.AutomationId="view-box-button-1" Name="ViewBoxButton1" Content="Viewbox Button"/>
-                            </Viewbox>
                         </StackPanel>
 
                         <Rectangle Grid.Row="1" Grid.ColumnSpan="8" Height="2" Stretch="UniformToFill" Fill="Black" Stroke="Black" VerticalAlignment="Top" />

@@ -8,20 +8,18 @@ This is a sample automation test project which will create an user-defined Libra
 
 ## How to run
 
-1. Install Python 3.7 or newer version. Might require to install latest .Net framework to run sample WPF application.
+1. Download & Install Python 3.7 or newer version. Might require to install latest .Net framework to run sample WPF application.
 
-2. Pull/Download the project from Git. Also pull/download the sample WPF application (more sample application will be updated later) [WPF_Application](https://github.com/mtran21081990/WinAppAutomation/tree/master/SampleApplication/WPF_Application)
+2. Download & Install Appium Desktop application at [Appium GitHub Release Link](https://github.com/appium/appium-desktop/releases/tag/v1.13.0). This is the automation server which will receive JSONWireProtocol messages and then use WinAppDriver to automate on application-under-test.
 
-3. Open a Python IDE (prefered PyCharm), then open the WhiteLibraryAutomation project. Create a new Interpreter for this project in File > Settings > Project Interpreter. Restart IDE (if need).
+3. Download & Install Windows Application Driver (WinAppDriver) at [WinAppDriver GitHub Release Link](https://github.com/Microsoft/WinAppDriver/releases). This is a service to support Selenium-like UI Test Automation on Windows Applications. This service supports testing Universal Windows Platform (UWP), Windows Forms (WinForms), Windows Presentation Foundation (WPF), and Classic Windows (Win32) apps on Windows 10 PCs. WinAppDriver complies to the JSON Wire Protocol standard and some application management functionalities defined by Appium.
 
-4. Install all required packages by executing file "required_packages.bat". The file will install: robotframework, robotframework-SikuliLibrary, robotframework-whitelibrary and pyyaml.
+4. Pull/Download the project from Git. Also pull/download the sample WPF application (more sample application will be updated later) [Sample WPF Application GitHub Link](https://github.com/mtran21081990/WinAppAutomation/tree/master/SampleApplication/WPF_Application)
 
-5. Copy 02 required White library dll files in [Prerequisites/WhiteLibrary/bin](https://github.com/mtran21081990/WinAppAutomation/tree/master/Prerequisites/WhiteLibrary/bin) and paste into {Project_URL}\WinAppAutomation\venv\Lib\site-packages\WhiteLibrary\bin. 
+5. Open a Python IDE (prefered PyCharm), then open the AppiumLibraryAutomation project. Create a new Interpreter for this project in File > Settings > Project Interpreter. Restart IDE (if need).
 
-6. Run test suite in Tests\Suites. There are 02 sample test suites for now. 
-+ sample_test.robot: Contains test cases which require input in Tests/Data/settings.yaml: MAIN_WINDOW_NAME: "Untitled - Paint"; PATH: "C:\\Windows\\System32\\mspaint.exe"
-  - Test case "Test Sample Case With Wait 1s" with tag "sample_1": Open a Paint and draw a rectangle then save.
-  - Test case "Test Sample Case With Wait 1s No Draw" with tag "sample_2": Open a Paint and then save.
-+ sample_test_not_use_settings.robot: Contains test cases which don't need to input anything more. 
-  - Test case "User automates on Paint application" with tag "sample_no_1": Open a Paint and draw a rectangle then save.
-  - Test case "Test Sample Wpf Application" with tag "sample_no_2": Open the dowloaded WPF application and verify/click on all controls.
+6. Install all required packages by executing file "required_packages.bat". The installed libraries are: robotframework, robotframework-SikuliLibrary, robotframework-appiumlibrary and pyyaml.
+
+7. Add environment variable "DISABLE_SIKULI_LOG" = 1 to disable sikuli's log files
+
+8. Run test suite in Tests\Suites. There are 01 sample test suites for now. 

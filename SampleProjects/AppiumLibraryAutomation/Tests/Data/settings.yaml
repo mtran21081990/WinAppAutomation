@@ -1,9 +1,8 @@
 APPLICATION:
   APPIUM_URL: "http://localhost:4723/wd/hub"
-  APPLICATION_NAME: "Paint"
+  APPLICATION_NAME: "Test WPF Application"
   MAIN_WINDOW_NAME: "Untitled - Paint"
   #PATH: "Microsoft.WindowsCalculator_8wekyb3d8bbwe!App"
-  PATH: "C:\\Windows\\System32\\mspaint.exe"
-  #PATH: "C:\\Windows\\System32\\calc.exe"
+  PATH: "D:\GitHub\WinAppAutomation\SampleApplication\WPF_Application"
   DEFAULT_USERNAME: "admin"
   DEFAULT_PASSWORD: "password"

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Globalization;
 using System.Threading;
 using System.Windows;
 using System.Windows.Automation;
@@ -20,17 +21,14 @@ namespace SampleWpfApplication.Views
             InitializeComponent();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void MainPageWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            this.Title = "Sample WPF Application";
-            /// Thread.Sleep(5000);
             this.WindowState = System.Windows.WindowState.Maximized;
-
         }
 
-        private void Calendar_SelectedDatesChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void SelectAnAvailableDateCalendar_SelectedDatesChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            CalendarTextbox1.Text = Calendar1.SelectedDate.ToString();
+            SelectAnAvailableDateTextBox.Text = SelectAnAvailableDateCalendar.SelectedDate.ToString();
         }
 
         private void DatePicker1_SelectedDateChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -103,12 +101,6 @@ namespace SampleWpfApplication.Views
             inputDialog.Show();
         }
 
-        private void ListBox1_Loaded(object sender, RoutedEventArgs e)
-        {
-            ListBoxItem item = (ListBoxItem) ListBox1.Items[3];
-            item.IsSelected = true;
-        }
-
         private void Lb_SampleBinding_Loaded(object sender, RoutedEventArgs e)
         {
             Dictionary<string, string> items = new Dictionary<string, string>();
@@ -168,5 +160,19 @@ namespace SampleWpfApplication.Views
             set { }
         }
     }
-        
+
+    public class AddNewlineConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            string original = System.Convert.ToString(value);
+            return original.Replace(" ", "");
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
 }
