@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Globalization;
-using System.Threading;
 using System.Windows;
 using System.Windows.Automation;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace SampleWpfApplication.Views
 {
@@ -26,106 +27,38 @@ namespace SampleWpfApplication.Views
             this.WindowState = System.Windows.WindowState.Maximized;
         }
 
-        private void SelectAnAvailableDateCalendar_SelectedDatesChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void AvailableDateCalendar_SelectedDatesChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            SelectAnAvailableDateTextBox.Text = SelectAnAvailableDateCalendar.SelectedDate.ToString();
+            AvailableDateTextBox.Text = AvailableDateCalendar.SelectedDate.ToString();
         }
 
-        private void DatePicker1_SelectedDateChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void WindowColorMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            DatePickerTextbox1.Text = DatePicker1.SelectedDate.ToString();
-        }
-
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            MenuItem itm = (MenuItem)sender;
-            if (itm.Header.ToString() == "Item 1")
+            MenuItem itm = (MenuItem) sender;
+            switch(itm.Header.ToString())
             {
-                MessageBox.Show("Menu Item 1 clicked");
-            }
-            else if (itm.Header.ToString() == "Item 3")
-            {
-                MessageBoxResult result = MessageBox.Show("Sample Yes No Question", "Sample Yes No Dialog", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-            }
-        }
-
-        private void ProgressBarButton1_Click(object sender, RoutedEventArgs e)
-        {
-            BackgroundWorker worker = new BackgroundWorker();
-            worker.WorkerReportsProgress = true;
-            worker.DoWork += worker_DoWork;
-            worker.ProgressChanged += worker_ProgressChanged;
-            worker.RunWorkerAsync();
-        }
-
-        void worker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            for (int i = 0; i < 100; i++)
-            {
-                (sender as BackgroundWorker).ReportProgress(i);
-                Thread.Sleep(100);
+                case "Yellow":
+                    MainPageWindow.Background = Brushes.Yellow;
+                    MainPageGrid.Background = Brushes.Yellow;
+                    break;
+                case "Orange": MainPageWindow.Background = Brushes.Orange;
+                    MainPageGrid.Background = Brushes.Orange;
+                    break;
+                case "Red": MainPageWindow.Background = Brushes.Red;
+                    MainPageGrid.Background = Brushes.Red;
+                    break;
+                default: MainPageWindow.Background = Brushes.White;
+                    MainPageGrid.Background = Brushes.White;
+                    break;
             }
         }
 
-        void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private void RegularCustomerRegisterButton_Click(object sender, RoutedEventArgs e)
         {
-            ProgressBar1.Value = e.ProgressPercentage;
-        }
-        private void ProgressBar1_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            ProgressBar1.Visibility = (ProgressBar1.Value == 0 || ProgressBar1.Value == 99.0) ? Visibility.Hidden : Visibility.Visible;
+            RegisterDialog dialog = new RegisterDialog();
+            dialog.Show();
         }
 
-        private void TextBox1_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            TextBox1.Clear();
-        }
-
-        private void TextBox2_GotFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox2.Clear();
-        }
-
-        private void ToggleButtonPopup1_Checked(object sender, RoutedEventArgs e)
-        {
-            if(!Popup1.IsOpen)
-                Popup1.IsOpen = true;
-            else
-                Popup1.IsOpen = false;
-        }
-
-        private void ButtonDialog1_Click(object sender, RoutedEventArgs e)
-        {
-            Dialog1 inputDialog = new Dialog1();
-            inputDialog.Show();
-        }
-
-        private void Lb_SampleBinding_Loaded(object sender, RoutedEventArgs e)
-        {
-            Dictionary<string, string> items = new Dictionary<string, string>();
-            items.Add("item_1", "Binding Sample 1");
-            items.Add("item_2", "Binding Sample 2");
-            items.Add("item_3", "Binding Sample 3");
-
-            List<ListBoxItem> list = new List<ListBoxItem>();
-
-            foreach (KeyValuePair<string, string> itm in items)
-            {
-                AddListBoxItemWithId(list, itm.Value, itm.Key);
-            }
-
-            ICollectionView view = CollectionViewSource.GetDefaultView(list);
-            lb_SampleBinding.ItemsSource = view;
-        }
-
-        private void AddListBoxItemWithId(List<ListBoxItem> list, string content, string id)
-        {
-            ListBoxItem newLBI = new ListBoxItem();
-            newLBI.Content = content;
-            newLBI.SetValue(AutomationProperties.AutomationIdProperty, id);
-            list.Add(newLBI);
-        }
         private void DgUsers_Loaded(object sender, RoutedEventArgs e)
         {
             List<BirthdayMember> BirthdayList = new List<BirthdayMember>();
@@ -138,6 +71,37 @@ namespace SampleWpfApplication.Views
         private void DgUsers_LoadingRow(object sender, DataGridRowEventArgs e)
         {
             e.Row.Header = (e.Row.GetIndex() + 1).ToString();
+        }
+
+        private void ViewToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            ToggleButton tgb = (ToggleButton) sender;
+            if (tgb.IsChecked.Value)
+            {
+                tgb.Background = new LinearGradientBrush(Colors.Black, Colors.SlateBlue, 90);
+            }
+            else
+            {
+                tgb.Background = new LinearGradientBrush(Colors.LightBlue, Colors.SlateBlue, 90);
+            }
+        }
+
+        private void ViewToggleButton_Loaded(object sender, RoutedEventArgs e)
+        {
+            ToggleButton tgb = (ToggleButton)sender;
+            tgb.Background = new LinearGradientBrush(Colors.LightBlue, Colors.SlateBlue, 90);
+        }
+
+        private void DatePersonCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox cbx = (ComboBox) sender;
+            ComboBoxItem item = (ComboBoxItem) cbx.SelectedItem;
+            string text = item.Content.ToString();
+            //BitmapImage bi3 = new BitmapImage();
+            //bi3.BeginInit();
+            //bi3.UriSource = new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\Image\\" + text + ".jpg", UriKind.Relative);
+            //bi3.EndInit();
+            //DatePersonImage.Source = bi3;
         }
     }
     public class ListBoxItemSampleBinding
@@ -169,6 +133,28 @@ namespace SampleWpfApplication.Views
             return original.Replace(" ", "");
         }
 
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class ImageConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            try
+            {
+                ComboBoxItem item = (ComboBoxItem)value;
+                string text = item.Content.ToString();
+                var path = string.Format(@"{0}Image\{1}.jpg", AppDomain.CurrentDomain.BaseDirectory, text);
+                return new BitmapImage(new Uri(path));
+            }
+            catch (Exception)
+            {
+                return null; // or some default image
+            }
+        }
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();

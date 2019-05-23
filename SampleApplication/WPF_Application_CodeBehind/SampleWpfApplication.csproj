@@ -86,20 +86,13 @@
     <Compile Include="LabeledComboBoxNoAutomated.cs" />
     <Compile Include="LabeledComboBox.cs" />
     <Compile Include="MyItemsControl.cs" />
-    <Compile Include="UserControl1.xaml.cs">
-      <DependentUpon>UserControl1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Dialog1.xaml.cs">
-      <DependentUpon>Dialog1.xaml</DependentUpon>
+    <Compile Include="Views\RegisterDialog.xaml.cs">
+      <DependentUpon>RegisterDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Page1.xaml.cs">
       <DependentUpon>Page1.xaml</DependentUpon>
     </Compile>
-    <Page Include="UserControl1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Dialog1.xaml">
+    <Page Include="Views\RegisterDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
