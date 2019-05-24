@@ -14,7 +14,7 @@ This is a sample automation test project which will create an user-defined Libra
 
 3. Download & Install Windows Application Driver (WinAppDriver) at [WinAppDriver GitHub Release Link](https://github.com/Microsoft/WinAppDriver/releases). This is a service to support Selenium-like UI Test Automation on Windows Applications. This service supports testing Universal Windows Platform (UWP), Windows Forms (WinForms), Windows Presentation Foundation (WPF), and Classic Windows (Win32) apps on Windows 10 PCs. WinAppDriver complies to the JSON Wire Protocol standard and some application management functionalities defined by Appium.
 
-4. Pull/Download the project from Git. Also pull/download the sample WPF application (more sample application will be updated later) [Sample WPF Application GitHub Link](https://github.com/mtran21081990/WinAppAutomation/tree/master/SampleApplication/WPF_Application)
+4. Pull/Download the project from Git. Also pull/download the sample WPF application (more sample application will be updated later) [Restaurant_Order_Application GitHub Link](https://github.com/mtran21081990/WinAppAutomation/tree/master/SampleApplication/Restaurant_Order_Application)
 
 5. Open a Python IDE (prefered PyCharm), then open the AppiumLibraryAutomation project. Create a new Interpreter for this project in File > Settings > Project Interpreter. Restart IDE (if need).
 
@@ -22,4 +22,4 @@ This is a sample automation test project which will create an user-defined Libra
 
 7. Add environment variable "DISABLE_SIKULI_LOG" = 1 to disable sikuli's log files
 
-8. Run test suite in Tests\Suites. There are 01 sample test suites for now. 
+8. Run test suite in Tests\Suites. There are 02 sample tests suites for now. 
