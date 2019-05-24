@@ -7,7 +7,7 @@ User Should See Main Page Appears
 	Main Page Title Should Be Correct
 	Main Page Content Should Appears
 
-User Move To Sub Page
+User Click On Main Page Next Button
 	Click Main Pape Next Button
 
 

@@ -17,11 +17,13 @@ namespace SampleWpfApplication.Views
     /// </summary>
     public partial class MainWindow : Window
     {
-        public Window Sub;
+        public SubWindow Sub;
+        public bool IsClosing { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
+            IsClosing = false;
         }
 
         private void MainPageWindow_Loaded(object sender, RoutedEventArgs e)
@@ -114,9 +116,12 @@ namespace SampleWpfApplication.Views
 
         private void MainPageWindow_Closing(object sender, CancelEventArgs e)
         {
-            if (Sub != null)
+            IsClosing = true;
+
+            if (Sub != null && !Sub.IsClosing)
             {
                 Sub.Close();
+                Sub = null;
             }
         }
     }

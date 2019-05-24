@@ -2,13 +2,13 @@
 Library  AppiumAppLibrary
 Resource  ../Tests/Base_Test.robot
 
-Suite Setup  User Prepare Test Environment For [This Module]
+Suite Setup  User Prepare Test Environment For Main Page
 
-#Test Setup  Setup [This Module] Test Case
+#Test Setup  Setup Main Page Test Case
 
-Test Teardown    User Cleanup [This Module] Test Case
+Test Teardown    User Cleanup Main Page Test Case
 
-Suite Teardown    User Cleanup Test Environment For [This Module]
+Suite Teardown    User Cleanup Test Environment For Main Page
 
 Force Tags  mainpage
 
@@ -18,19 +18,19 @@ Force Tags  mainpage
 User Can Move To Sub Page From Main Page
     [Tags]  mainpage_1
     Sleep  5s
-    User Move To Sub Page
+
 
 
 *** Keywords ***
 
-User Prepare Test Environment For [This Module]
+User Prepare Test Environment For Main Page
 	User Prepare The Test Environment
 
-Setup [This Module] Test Case
-    User Setup Test Case
+Setup Main Page Test Case
+	User Setup Test Case
 
-User Cleanup [This Module] Test Case
+User Cleanup Main Page Test Case
 	User Cleanup Test Case
 
-User Cleanup Test Environment For [This Module]
+User Cleanup Test Environment For Main Page
 	User Cleanup The Test Environment

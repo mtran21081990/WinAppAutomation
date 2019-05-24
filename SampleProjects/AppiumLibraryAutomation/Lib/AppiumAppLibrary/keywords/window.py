@@ -1,4 +1,3 @@
-from AppiumLibrary.keywords.keywordgroup import KeywordGroup
 from AppiumLibrary.keywords._element import _ElementKeywords
 
 __version__ = '1.0.0'

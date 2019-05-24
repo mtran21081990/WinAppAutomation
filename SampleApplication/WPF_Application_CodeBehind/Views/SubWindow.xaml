@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SampleWpfApplication.Views"
         mc:Ignorable="d"
-        Title="Sub Window" Name="SubWindow1" Height="720" Width="1000" MinWidth="1000" MinHeight="720">
+        Title="Sub Window" Name="SubWindow1" Height="720" Width="1000" MinWidth="1000" MinHeight="720" Closing="SubWindow1_Closing">
     <Grid>
         <DockPanel LastChildFill = "True">
             <StackPanel DockPanel.Dock = "Top" Margin="0 0 0 10">
@@ -45,8 +45,14 @@
             </StackPanel>
             <StackPanel>
                 <StackPanel Height="550">
-                    <TextBlock Text="Sub Window TextBox" FontWeight="Bold" Margin="20 20 20 5"/>
-                    <TextBox Name="SubWindowTextBox" HorizontalAlignment="Left" Width="200" Margin="20 0 20 0"/>
+                    <TextBlock Text="Sub Window TextBox 1" FontWeight="Bold" Margin="20 20 20 5"/>
+                    <TextBox Name="SubWindowTextBox1" HorizontalAlignment="Left" Width="200" Margin="20 0 20 0"/>
+                    <TextBlock Text="Sub Window TextBox 2" FontWeight="Bold" Margin="20 20 20 5"/>
+                    <TextBox Name="SubWindowTextBox2" HorizontalAlignment="Left" Width="200" Margin="20 0 20 0"/>
+                    <TextBlock Text="Sub Window TextBox 3" FontWeight="Bold" Margin="20 20 20 5"/>
+                    <TextBox Name="SubWindowTextBox3" HorizontalAlignment="Left" Width="200" Margin="20 0 20 0"/>
+                    <TextBlock Text="Sub Window TextBox 4" FontWeight="Bold" Margin="20 20 20 5"/>
+                    <TextBox Name="SubWindowTextBox4" HorizontalAlignment="Left" Width="200" Margin="20 0 20 0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
                     <Button Name="PreviousButton" Content="Previous" FontSize="20" FontWeight="Bold" Margin="10" Width="200" Height="50" Click="PreviousButton_Click"/>

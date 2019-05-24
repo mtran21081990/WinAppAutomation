@@ -7,14 +7,16 @@ namespace SampleWpfApplication.Views
     /// </summary>
     public partial class SubWindow : Window
     {
-        public Window Main;
+        public MainWindow Main;
+        public bool IsClosing { get; set; }
 
         public SubWindow()
         {
             InitializeComponent();
+            IsClosing = false;
         }
 
-        public SubWindow(Window main)
+        public SubWindow(MainWindow main)
         {
             InitializeComponent();
             Main = main;
@@ -22,8 +24,18 @@ namespace SampleWpfApplication.Views
 
         private void PreviousButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            this.Hide();
             Main.Show();
+        }
+
+        private void SubWindow1_Closing(object sender, System.EventArgs e)
+        {
+            IsClosing = true;
+
+            if (!Main.IsClosing)
+            {
+                Main.Close();
+            }
         }
     }
 }
