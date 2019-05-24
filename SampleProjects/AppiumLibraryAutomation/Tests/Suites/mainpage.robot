@@ -15,9 +15,9 @@ Force Tags  mainpage
 
 *** Test Cases ***
 
-User Can Move To Sub Page From Main Page
+User Can Interact With Controls On Main Page
     [Tags]  mainpage_1
-    Sleep  5s
+    User Can Interact Controls On Main Page
 
 
 
