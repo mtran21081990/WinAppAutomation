@@ -8,7 +8,7 @@ Suite Setup  User Prepare Test Environment For [This Module]
 
 Test Teardown    User Cleanup [This Module] Test Case
 
-Suite Teardown    User Cleanup Test Environment For [This Module]
+#Suite Teardown    User Cleanup Test Environment For [This Module]
 
 Force Tags  mainpage
 
@@ -17,6 +17,7 @@ Force Tags  mainpage
 
 User Can Move To Sub Page From Main Page
     [Tags]  mainpage_1
+    Sleep  5s
     User Move To Sub Page
 
 

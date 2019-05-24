@@ -6,9 +6,9 @@ __version__ = '1.0.0'
 
 class SikuliWrapperKeywords(KeywordGroup):
 
-    def __init__(self, ctx):
+    def __init__(self):
         self.sikuli = SikuliLibrary()
-        self.context = ctx
+        #self.context = ctx
 
     def add_image_path(self, path):
         arguments = [path]

@@ -1,5 +1,5 @@
 *** Settings ***
-Resource          MainPage_Variables.robot
+Resource  MainPage_Variables.robot
 
 *** Keywords ***
 
@@ -12,7 +12,7 @@ Main Pape Content Should Appears
 	Element Text Should Be  ${MAINPAGE_HEADER_ID}   ${MAINPAGE_HEADER_TEXT}
 
 Click Main Pape Next Button
-	Click Button  ${MAINPAGE_NEXT_ID}
+	Click Element  ${MAINPAGE_NEXT_ID}
 
 
 

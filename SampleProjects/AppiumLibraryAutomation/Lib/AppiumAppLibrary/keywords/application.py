@@ -1,4 +1,5 @@
 from AppiumLibrary.keywords.keywordgroup import KeywordGroup
+from AppiumLibrary.keywords._applicationmanagement import _ApplicationManagementKeywords
 
 __version__ = '1.0.0'
 
@@ -6,10 +7,10 @@ _APPLICATION_APPIUM_URL_KEY = "APPIUM_URL"
 _APPLICATION_PATH_KEY = "PATH"
 
 
-class ApplicationManagementKeywords(KeywordGroup):
+class ApplicationManagementKeywords(_ApplicationManagementKeywords):
 
-    def __init__(self, ctx):
-        self.context = ctx
+    def __init__(self):
+        _ApplicationManagementKeywords.__init__(self)
 
     def setup_application(self, settings):
         """
@@ -27,5 +28,6 @@ class ApplicationManagementKeywords(KeywordGroup):
         appium_url = settings.get(_APPLICATION_APPIUM_URL_KEY).strip().lower()
         application_path = settings.get(_APPLICATION_PATH_KEY, None)
         kwargs = {"platformName": "Windows", "deviceName": "tbd", "app": application_path}
-        self.context.open_application(appium_url, None, **kwargs)
+        self.open_application(appium_url, None, **kwargs)
+
 

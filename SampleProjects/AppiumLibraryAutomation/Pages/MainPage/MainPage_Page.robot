@@ -1,5 +1,5 @@
 *** Settings ***
-Resource          MainPage_Actions.robot
+Resource  MainPage_Actions.robot
 
 *** Keywords ***
 

@@ -27,6 +27,7 @@ namespace SampleWpfApplication.Views
         private void MainPageWindow_Loaded(object sender, RoutedEventArgs e)
         {
             //this.WindowState = System.Windows.WindowState.Maximized;
+            this.Activate();
         }
 
         private void AvailableDateCalendar_SelectedDatesChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -106,6 +107,14 @@ namespace SampleWpfApplication.Views
                 Sub = new SubWindow(this);
             }
             Sub.Show();
+        }
+
+        private void MainPageWindow_Closing(object sender, CancelEventArgs e)
+        {
+            if (Sub != null)
+            {
+                Sub.Close();
+            }
         }
     }
 

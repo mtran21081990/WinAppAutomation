@@ -9,8 +9,8 @@ ${MAINPAGE_HEADER_TEXT}  Main Page
 
 ${MAINPAGE_ID}  accessibility_id=MainPageWindow
 ${MAINPAGE_HEADER_ID}  accessibility_id=MainPageTitle
-${MAINPAGE_NEXT_ID}  accessibility_id=PreviousButton
-${MAINPAGE_PREVIOUS_ID}  accessibility_id=NextButton
+${MAINPAGE_NEXT_ID}  accessibility_id=NextButton
+${MAINPAGE_PREVIOUS_ID}  accessibility_id=PreviousButton
 
 # Order Tab Locators
 

@@ -22,7 +22,7 @@ namespace SampleWpfApplication.Views
 
         private void PreviousButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            this.Close();
             Main.Show();
         }
     }

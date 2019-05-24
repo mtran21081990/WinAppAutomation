@@ -6,7 +6,7 @@ import sys
 __version__ = '1.0.0'
 
 
-class AppiumAppLibrary(AppiumLibrary):
+class AppiumAppLibrary(AppiumLibrary, SikuliWrapperKeywords, ApplicationManagementKeywords, WindowManagementKeywords):
 
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
     ROBOT_LIBRARY_VERSION = __version__
@@ -19,9 +19,9 @@ class AppiumAppLibrary(AppiumLibrary):
         self.speed = 0.0
 
         AppiumLibrary.__init__(self, self.timeout)
-        self.sikuli = SikuliWrapperKeywords(self)
-        self.application = ApplicationManagementKeywords(self)
-        self.window = WindowManagementKeywords(self)
+        SikuliWrapperKeywords.__init__(self)
+        ApplicationManagementKeywords.__init__(self)
+        WindowManagementKeywords.__init__(self)
 
         ####################################################################################
         # Make sure pydevd installed: pip install pydevd

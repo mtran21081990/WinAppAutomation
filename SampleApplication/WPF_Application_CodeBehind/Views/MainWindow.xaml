@@ -5,7 +5,7 @@
         xmlns:Control="clr-namespace:SampleWpfApplication"
         xmlns:local="clr-namespace:SampleWpfApplication.Views"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="Restaurant Order Application" Name="MainPageWindow" Height="720" Width="1000" MinWidth="1000" MinHeight="720" Loaded="MainPageWindow_Loaded">
+        Title="Restaurant Order Application" Name="MainPageWindow" Height="720" Width="1000" MinWidth="1000" MinHeight="720" Loaded="MainPageWindow_Loaded" Closing="MainPageWindow_Closing">
 
     <Window.Resources>
         <local:AddNewlineConverter x:Key="GenerateID" />
