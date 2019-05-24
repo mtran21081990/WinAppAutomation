@@ -5,7 +5,7 @@
         xmlns:Control="clr-namespace:SampleWpfApplication"
         xmlns:local="clr-namespace:SampleWpfApplication.Views"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="Restaurant Order Application" Name="MainPageWindow" Height="700" Width="1000" MinWidth="1000" MinHeight="700" Loaded="MainPageWindow_Loaded">
+        Title="Restaurant Order Application" Name="MainPageWindow" Height="720" Width="1000" MinWidth="1000" MinHeight="720" Loaded="MainPageWindow_Loaded">
 
     <Window.Resources>
         <local:AddNewlineConverter x:Key="GenerateID" />
@@ -67,7 +67,7 @@
                 </MenuItem>
             </Menu>
         </StackPanel>
-        <StackPanel>
+        <StackPanel >
             <TabControl Name="MainPageTabControl">
                 <TabItem Name="OrderTabItem" Header="Order Tab">
                     <Grid Name="MainPageGrid">
@@ -154,7 +154,7 @@
                                 <ComboBoxItem Content="Jennifer Aniston"/>
                             </ComboBox>
                         </StackPanel>
-                        
+
                         <StackPanel Grid.Row="2" Grid.Column="2">
                             <Image Name="DatePersonImage" HorizontalAlignment="Left" Width="150" Height="200" Stretch="UniformToFill" Source="{Binding SelectedItem, ElementName=DatePersonCombobox, Converter={StaticResource ImageConverter}}" Margin="15 0 0 0"/>
                         </StackPanel>
@@ -198,7 +198,7 @@
                         <StackPanel Grid.Row="4" Grid.Column="2">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0 0 0 0">
                                 <TextBlock FontWeight="Bold" HorizontalAlignment="Left" Margin="5 0 0 5" TextWrapping="Wrap">Rate our service</TextBlock>
-                                <TextBox Name="RateSliderScoreTextBox" IsEnabled="False" TextAlignment="Center" Margin="10 0 0 0" Text="{Binding ElementName=RateSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" Width="40" />
+                                <TextBox Name="RateScoreTextBox" IsEnabled="False" TextAlignment="Center" Margin="10 0 0 0" Text="{Binding ElementName=RateSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" Width="40" />
                                 <TextBlock HorizontalAlignment="Left" Margin="5 0 0 5">Star</TextBlock>
                             </StackPanel>
                             <Slider Name="RateSlider" Maximum="5" Width="200" HorizontalAlignment="Left" TickPlacement="TopLeft" TickFrequency="1" IsSnapToTickEnabled="True" />
@@ -276,6 +276,10 @@
                     </StackPanel>
                 </TabItem>
             </TabControl>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                <Button Name="PreviousButton" Content="Previous" IsEnabled="False" FontSize="20" FontWeight="Bold" Margin="10" Width="200" Height="50"/>
+                <Button Name="NextButton" Content="NEXT" FontSize="20" FontWeight="Bold" Margin="10" Width="200" Height="50" Click="NextButton_Click"/>
+            </StackPanel>
         </StackPanel>
     </DockPanel>
 

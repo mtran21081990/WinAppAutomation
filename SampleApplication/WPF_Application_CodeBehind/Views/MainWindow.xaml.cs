@@ -103,6 +103,11 @@ namespace SampleWpfApplication.Views
             //bi3.EndInit();
             //DatePersonImage.Source = bi3;
         }
+
+        private void NextButton_Click(object sender, RoutedEventArgs e)
+        {
+            //SubWindow sub = new
+        }
     }
     public class ListBoxItemSampleBinding
     {
