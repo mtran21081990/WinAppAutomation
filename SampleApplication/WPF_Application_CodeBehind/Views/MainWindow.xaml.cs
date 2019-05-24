@@ -17,6 +17,8 @@ namespace SampleWpfApplication.Views
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Window Sub;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -24,7 +26,7 @@ namespace SampleWpfApplication.Views
 
         private void MainPageWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            this.WindowState = System.Windows.WindowState.Maximized;
+            //this.WindowState = System.Windows.WindowState.Maximized;
         }
 
         private void AvailableDateCalendar_SelectedDatesChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -92,27 +94,19 @@ namespace SampleWpfApplication.Views
             tgb.Background = new LinearGradientBrush(Colors.LightBlue, Colors.SlateBlue, 90);
         }
 
-        private void DatePersonCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ComboBox cbx = (ComboBox) sender;
-            ComboBoxItem item = (ComboBoxItem) cbx.SelectedItem;
-            string text = item.Content.ToString();
-            //BitmapImage bi3 = new BitmapImage();
-            //bi3.BeginInit();
-            //bi3.UriSource = new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\Image\\" + text + ".jpg", UriKind.Relative);
-            //bi3.EndInit();
-            //DatePersonImage.Source = bi3;
-        }
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
-            //SubWindow sub = new
+            // Hide the Main window
+            this.Hide();
+
+            // Initiate and show the Sub window
+            if (Sub == null)
+            {
+                Sub = new SubWindow(this);
+            }
+            Sub.Show();
         }
-    }
-    public class ListBoxItemSampleBinding
-    {
-        public int ItemId { get; set; }
-        public string ItemContent { get; set; }
     }
 
     public class BirthdayMember
