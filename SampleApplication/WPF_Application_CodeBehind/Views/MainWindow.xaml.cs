@@ -28,6 +28,9 @@ namespace SampleWpfApplication.Views
         {
             //this.WindowState = System.Windows.WindowState.Maximized;
             this.Activate();
+            this.Focus();
+            this.WindowState = System.Windows.WindowState.Maximized;
+            this.WindowState = System.Windows.WindowState.Normal;
         }
 
         private void AvailableDateCalendar_SelectedDatesChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)

@@ -1,17 +1,16 @@
 *** Settings ***
-Resource          SubPage_Variables.robot
+Resource  SubPage_Variables.robot
 
 *** Keywords ***
 
 # Veriify Home Page
 
 Sub Page Title Should Be Correct
-	Window Title Should Equal To  ${APPLICATION_TITLE}
+	Window Title Should Equal To  ${SUBPAGE_ID}  ${SUBPAGE_TITLE}
 
-Application Home Page Content Should Be Appeared
-	#Element Should Be Visible  ${APPLICATION_MENU}
-	Element Should Be Visible  ${APPLICATION_ELEMENT}
+Sub Page Content Should Appears
+	Element Text Should Be  ${SUBPAGE_HEADER_ID}   ${SUBPAGE_HEADER_TEXT}
 
-Wait Unil Home Page Appeared
-	#Wait Until Element Is Visible  ${APPLICATION_MENU}
-	#Wait Until Element Is Visible  ${APPLICATION_ELEMENT}
+Input Text Into Sub Page Text Box
+	[Arguments]  ${value}
+	Input Text  ${SUBPAGE_TEXTBOX_ID}  ${value}

@@ -1,8 +1,12 @@
 *** Settings ***
-Resource          Home_Page_Actions.robot
+Resource  SubPage_Actions.robot
 
 *** Keywords ***
 
-User Should See Application Home Page
-    Application Title Should Be Correct
-    Application Home Page Content Should Be Appeared
+User Should See Sub Page Appears
+	Sub Page Title Should Be Correct
+	Sub Page Content Should Appears
+
+User Input Into Sub Page Text Box
+	[Arguments]  ${value}
+	Input Text Into Sub Page Text Box  ${value}

@@ -30,3 +30,13 @@ class AppiumAppLibrary(AppiumLibrary, SikuliWrapperKeywords, ApplicationManageme
         # import pydevd
         # pydevd.settrace('localhost', port=12345, stdoutToServer=True, stderrToServer=True)
         ####################################################################################
+
+    def switch_to_new_window(self, new_window_locator, new_window_alias):
+        self.switch_application("Root")
+        new_window = self._element_find(new_window_locator, True, True)
+        new_window_handle = new_window.get_attribute("NativeWindowHandle")
+        hex_handle = hex(int(new_window_handle))
+        kwargs = {"platformName": "Windows", "deviceName": "tbd", "appTopLevelWindow": hex_handle}
+        self.open_application(self.appium_url, new_window_alias, **kwargs)
+
+

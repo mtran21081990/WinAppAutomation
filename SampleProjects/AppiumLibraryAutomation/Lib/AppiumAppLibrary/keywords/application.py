@@ -1,5 +1,6 @@
 from AppiumLibrary.keywords.keywordgroup import KeywordGroup
 from AppiumLibrary.keywords._applicationmanagement import _ApplicationManagementKeywords
+#from AppiumLibrary.keywords._element import _ElementKeywords
 
 __version__ = '1.0.0'
 
@@ -11,6 +12,7 @@ class ApplicationManagementKeywords(_ApplicationManagementKeywords):
 
     def __init__(self):
         _ApplicationManagementKeywords.__init__(self)
+        self.appium_url = ""
 
     def setup_application(self, settings):
         """
@@ -24,10 +26,16 @@ class ApplicationManagementKeywords(_ApplicationManagementKeywords):
           DEFAULT_USERNAME: admin
           DEFAULT_PASSWORD: password
         """
-        # init application
-        appium_url = settings.get(_APPLICATION_APPIUM_URL_KEY).strip().lower()
-        application_path = settings.get(_APPLICATION_PATH_KEY, None)
-        kwargs = {"platformName": "Windows", "deviceName": "tbd", "app": application_path}
-        self.open_application(appium_url, None, **kwargs)
 
+        # Get setting value
+        self.appium_url = settings.get(_APPLICATION_APPIUM_URL_KEY).strip().lower()
+        application_path = settings.get(_APPLICATION_PATH_KEY, None)
+
+        # init desktop session
+        kwargs = {"platformName": "Windows", "deviceName": "tbd", "app": "Root"}
+        self.open_application(self.appium_url, "Root", **kwargs)
+
+        # Init application-under-test
+        kwargs = {"platformName": "Windows", "deviceName": "tbd", "app": application_path}
+        self.open_application(self.appium_url, "Main", **kwargs)
 
