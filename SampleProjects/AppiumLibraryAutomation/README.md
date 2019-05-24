@@ -1,4 +1,4 @@
-# Sample automation test project using White Library (and Sikuli Library as a helper)
+# Sample automation test project using AppiumLibrary (and SikuliLibrary as a helper)
 
 This is a sample automation test project which will create an user-defined Library extended from WhiteLibrary (also included SikuliLibrary). For more information regarding the 2 included libraries:
 
