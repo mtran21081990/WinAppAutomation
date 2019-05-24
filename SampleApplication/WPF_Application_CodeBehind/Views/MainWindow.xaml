@@ -156,7 +156,7 @@
                         </StackPanel>
 
                         <StackPanel Grid.Row="2" Grid.Column="2">
-                            <Image Name="DatePersonImage" HorizontalAlignment="Left" Width="150" Height="200" Stretch="UniformToFill" Source="{Binding SelectedItem, ElementName=DatePersonCombobox, Converter={StaticResource ImageConverter}}" Margin="15 0 0 0"/>
+                            <Image Name="DatePersonImage" HorizontalAlignment="Left" Width="150" Height="200"  Stretch="UniformToFill" Source="{Binding SelectedItem, ElementName=DatePersonCombobox, Converter={StaticResource ImageConverter}}" Margin="15 0 0 0"/>
                         </StackPanel>
 
                         <StackPanel Grid.Row="2" Grid.Column="3">
@@ -177,8 +177,8 @@
                         <GridSplitter Grid.Row="3" Grid.ColumnSpan="4" Height="2" HorizontalAlignment="Stretch" Background="Black" VerticalAlignment="Top" />
 
                         <StackPanel Grid.Row="4" Grid.Column="0">
-                            <TextBlock FontWeight="Bold" HorizontalAlignment="Left" Margin="10 0 0 5" TextWrapping="Wrap">Tree View</TextBlock>
-                            <TreeView AutomationProperties.AutomationId="tree-view-1" Name="TreeView1" Margin="10 0 20 0">
+                            <TextBlock FontWeight="Bold" HorizontalAlignment="Left" Margin="10 0 0 5" TextWrapping="Wrap">Guideline</TextBlock>
+                            <TreeView Name="GuidelineTreeView" Margin="10 0 20 0">
                                 <TreeViewItem Header="Level 1">
                                     <TreeViewItem Header="Level 2.1" />
                                     <TreeViewItem Header="Level 2.2">

@@ -1,17 +1,31 @@
-from AppiumLibrary.keywords import _ApplicationManagementKeywords
 from AppiumLibrary.keywords.keywordgroup import KeywordGroup
 
-__version__ = '1.0.1'
+__version__ = '1.0.0'
 
 _APPLICATION_APPIUM_URL_KEY = "APPIUM_URL"
 _APPLICATION_PATH_KEY = "PATH"
-_APPLICATION_NAME_KEY = "APPLICATION_NAME"
-_APPLICATION_MAIN_WINDOW_NAME_KEY = "MAIN_WINDOW_NAME"
-_APPLICATION_DEFAULT_USERNAME_KEY = "DEFAULT_USERNAME"
-_APPLICATION_DEFAULT_PASSWORD_KEY = "DEFAULT_PASSWORD"
 
 
 class ApplicationManagementKeywords(KeywordGroup):
 
-    def __init__(self):
-        self.application_management = _ApplicationManagementKeywords()
+    def __init__(self, ctx):
+        self.context = ctx
+
+    def setup_application(self, settings):
+        """
+        Open application or attach the already-opened application
+        :settings: dictionary of browser setting. Sample:
+        APPLICATION:
+          TYPE: wpf
+          ALREADY_OPENED: No
+          NAME: WpfTestApplication
+          PATH: absolute/path/to/app.exe
+          DEFAULT_USERNAME: admin
+          DEFAULT_PASSWORD: password
+        """
+        # init application
+        appium_url = settings.get(_APPLICATION_APPIUM_URL_KEY).strip().lower()
+        application_path = settings.get(_APPLICATION_PATH_KEY, None)
+        kwargs = {"platformName": "Windows", "deviceName": "tbd", "app": application_path}
+        self.context.open_application(appium_url, None, **kwargs)
+

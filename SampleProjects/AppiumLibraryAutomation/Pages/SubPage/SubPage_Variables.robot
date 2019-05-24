@@ -2,10 +2,13 @@
 
 # Variables
 
-${APPLICATION_TITLE}  Untitled - Paint
-
+${SUBPAGE_TITLE}  Sub Window
+${SUBPAGE_HEADER_TEXT}  Sub Page
 
 # Locators
 
-${APPLICATION_ELEMENT}  text=Pencil
-#${APPLICATION_MENU}  MenuBar
+${SUBPAGE_ID}  accessibility_id=SubWindow1
+${SUBPAGE_HEADER_ID}  accessibility_id=SubPageTitle
+${SUBPAGE_TEXTBOX_ID}  accessibility_id=SubWindowTextBox
+${SUBPAGE_NEXT_ID}  accessibility_id=PreviousButton
+${SUBPAGE_PREVIOUS_ID}  accessibility_id=NextButton

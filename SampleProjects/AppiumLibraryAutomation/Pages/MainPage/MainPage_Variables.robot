@@ -2,10 +2,60 @@
 
 # Variables
 
-${APPLICATION_TITLE}  Untitled - Paint
-
+${MAINPAGE_TITLE}  Restaurant Order Application
+${MAINPAGE_HEADER_TEXT}  Main Page
 
 # Locators
 
-${APPLICATION_ELEMENT}  text=Pencil
-#${APPLICATION_MENU}  MenuBar
+${MAINPAGE_ID}  accessibility_id=MainPageWindow
+${MAINPAGE_HEADER_ID}  accessibility_id=MainPageTitle
+${MAINPAGE_NEXT_ID}  accessibility_id=PreviousButton
+${MAINPAGE_PREVIOUS_ID}  accessibility_id=NextButton
+
+# Order Tab Locators
+
+${MAINPAGE_ORDER_TAB_DRINK_LISTBOX}  accessibility_id=DrinkListBox
+${MAINPAGE_ORDER_TAB_DISHES_LISTBOX}  accessibility_id=DishesListBox
+${MAINPAGE_ORDER_TAB_AVAILABLE_DATE_CALENDAR}  accessibility_id=AvailableDateCalendar
+${MAINPAGE_ORDER_TAB_AVAILABLE_DATE_TEXTBOX}  accessibility_id=AvailableDateTextBox
+${MAINPAGE_ORDER_TAB_BANANA_DESSERT_RADIOBUTTON}  accessibility_id=BananaDessertRadioButton
+${MAINPAGE_ORDER_TAB_WATERMELON_DESSERT_RADIOBUTTON}  accessibility_id=WatermelonDessertRadioButton
+${MAINPAGE_ORDER_TAB_PINEAPPLE_DESSERT_RADIOBUTTON}  accessibility_id=PineappleDessertRadioButton
+${MAINPAGE_ORDER_TAB_GUAVA_DESSERT_RADIOBUTTON}  accessibility_id=GuavaDessertRadioButton
+${MAINPAGE_ORDER_TAB_MANGO_DESSERT_RADIOBUTTON}  accessibility_id=MangoDessertRadioButton
+${MAINPAGE_ORDER_TAB_ORANGE_DESSERT_RADIOBUTTON}  accessibility_id=OrangeDessertRadioButton
+${MAINPAGE_ORDER_TAB_ICE_CREAM_DESSERT_RADIOBUTTON}  accessibility_id=IceCreamDessertRadioButton
+${MAINPAGE_ORDER_TAB_YAOURT_DESSERT_RADIOBUTTON}  accessibility_id=YaourtDessertRadioButton
+${MAINPAGE_ORDER_TAB_TOP_SEAT_VIEW_TOGGLEBUTTON}  accessibility_id=SeatViewTopToggleButton
+${MAINPAGE_ORDER_TAB_BOTTOM_SEAT_VIEW_TOGGLEBUTTON}  accessibility_id=SeatViewBottomToggleButton
+${MAINPAGE_ORDER_TAB_LEFT_SEAT_VIEW_TOGGLEBUTTON}  accessibility_id=SeatViewLeftToggleButton
+${MAINPAGE_ORDER_TAB_RIGHT_SEAT_VIEW_TOGGLEBUTTON}  accessibility_id=SeatViewRightToggleButton
+${MAINPAGE_ORDER_TAB_CENTER_SEAT_VIEW_TOGGLEBUTTON}  accessibility_id=SeatViewCenterToggleButton
+${MAINPAGE_ORDER_TAB_DATE_PERSON_COMBOBOX}  accessibility_id=DatePersonCombobox
+${MAINPAGE_ORDER_TAB_OPTIONAL_REQUESTS_EXPANDER}  accessibility_id=OptionalRequestExpander
+${MAINPAGE_ORDER_TAB_ARRIVE_LATE_OPTIONAL_REQUESTS_CHECKBOX}  accessibility_id=ArriveLateOptionalRequestCheckBox
+${MAINPAGE_ORDER_TAB_ARRIVE_EARLY_OPTIONAL_REQUESTS_CHECKBOX}  accessibility_id=ArriveEarlyOptionalRequestCheckBox
+${MAINPAGE_ORDER_TAB_MORE_SEAT_OPTIONAL_REQUESTS_CHECKBOX}  accessibility_id=MoreSeatOptionalRequestCheckBox
+${MAINPAGE_ORDER_TAB_MORE_DRINK_OPTIONAL_REQUESTS_CHECKBOX}  accessibility_id=MoreDrinkOptionalRequestCheckBox
+${MAINPAGE_ORDER_TAB_MORE_DISHES_OPTIONAL_REQUESTS_CHECKBOX}  accessibility_id=MoreDishesOptionalRequestCheckBox
+${MAINPAGE_ORDER_TAB_CHANGE_DATE_PERSON_OPTIONAL_REQUESTS_CHECKBOX}  accessibility_id=ChangeDatePersontOptionalRequestCheckBox
+${MAINPAGE_ORDER_TAB_CHANGE_SEAT_VIEW_OPTIONAL_REQUESTS_CHECKBOX}  accessibility_id=ChangeSeatViewOptionalRequestCheckBox
+${MAINPAGE_ORDER_TAB_CHANGE_DESSERT_OPTIONAL_REQUESTS_CHECKBOX}  accessibility_id=ChangeDessertOptionalRequestCheckBox
+${MAINPAGE_ORDER_TAB_GUIDELINE_TREEVIEW}  accessibility_id=GuidelineTreeView
+${MAINPAGE_ORDER_TAB_REGULAR_CUSTOMER_REGISTER_BUTTON}  accessibility_id=RegularCustomerRegisterButton
+${MAINPAGE_ORDER_TAB_RATE_SLIDER}  accessibility_id=RateSlider
+${MAINPAGE_ORDER_TAB_RATE_SCORE_TEXTBOX}  accessibility_id=RateScoreTextBox
+${MAINPAGE_ORDER_TAB_CHANGE_WINDOW_COLOR_BUTTON}  accessibility_id=ChangeWindowColorButton
+
+# Summary Tab Locators
+
+${MAINPAGE_SUMMARY_TAB_TABLE}  accessibility_id=dgUsers
+
+# Register Dialog  Locators
+
+${REGISTER_DIALOG_TITLE}  Regular Customer Information
+${REGISTER_DIALOG_ID}  accessibility_id=RegisterDialogWindow
+${REGISTER_DIALOG_NAME_TEXTBOX}  accessibility_id=CustomerNameTextBox
+${REGISTER_DIALOG_BIRTHDAY_TEXTBOX}  accessibility_id=CustomerBirthdayTextBox
+${REGISTER_DIALOG_OK_BUTTON}  accessibility_id=RegisterDialogOKButton
+${REGISTER_DIALOG_CANCEL_BUTTON}  accessibility_id=RegisterDialogCancelButton

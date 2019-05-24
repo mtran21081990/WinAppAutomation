@@ -1,17 +1,34 @@
 *** Settings ***
-Resource          Home_Page_Variables.robot
+Resource          MainPage_Variables.robot
 
 *** Keywords ***
 
 # Veriify Home Page
 
-Application Title Should Be Correct
-	Window Title Should Equal To  ${APPLICATION_TITLE}
+Main Pape Title Should Be Correct
+	Window Title Should Equal To  ${MAINPAGE_ID}  ${MAINPAGE_TITLE}
 
-Application Home Page Content Should Be Appeared
-	#Element Should Be Visible  ${APPLICATION_MENU}
-	Element Should Be Visible  ${APPLICATION_ELEMENT}
+Main Pape Content Should Appears
+	Element Text Should Be  ${MAINPAGE_HEADER_ID}   ${MAINPAGE_HEADER_TEXT}
 
-Wait Unil Home Page Appeared
-	#Wait Until Element Is Visible  ${APPLICATION_MENU}
-	#Wait Until Element Is Visible  ${APPLICATION_ELEMENT}
+Click Main Pape Next Button
+	Click Button  ${MAINPAGE_NEXT_ID}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

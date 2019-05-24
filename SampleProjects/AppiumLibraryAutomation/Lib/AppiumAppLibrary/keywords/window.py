@@ -1,36 +1,27 @@
-from ..base import keyword, LibraryComponent
-from WhiteLibrary.keywords import WindowKeywords
+from AppiumLibrary.keywords.keywordgroup import KeywordGroup
 
-__version__ = '1.0.1'
+__version__ = '1.0.0'
+
 _APPLICATION_MAIN_WINDOW_NAME_KEY = "MAIN_WINDOW_NAME"
 
 
-class WindowManagementKeywords(LibraryComponent):
+class WindowManagementKeywords(KeywordGroup):
 
     def __init__(self, ctx):
-        LibraryComponent.__init__(self, ctx)
-        self.window_management = WindowKeywords(ctx)
+        self.context = ctx
 
-    @keyword
-    def attach_main_window(self, settings):
-        main_window_name = settings.get(_APPLICATION_MAIN_WINDOW_NAME_KEY, None)
-        self.window_management.attach_window(main_window_name)
+    def _is_window_control(self, locator):
+        return self.context.element_attribute_should_match(locator, "className", "Window")
 
-    @keyword
-    def get_window_full_title(self):
-        title = self.window_management.get_window_title()
-        if title is not None or title != '':
-            return title
+    def get_window_title(self, locator):
+        if self._is_window_control(locator):
+            return self.context.get_element_attribute(locator, "Name")
+        else:
+            raise AssertionError("Element with locator '%s' is not a Window" % locator)
 
-        title = self.window_management.state.window.Name
-        if title is not None or title != '':
-            return title
+    def window_title_should_equal_to(self, locator, title):
+        actual = str(self.get_window_title('locator'))
+        if str(title) != actual:
+            raise AssertionError("Window '%s' with Title should be '%s' " "but it is '%s'." % locator, title, actual)
+        return True
 
-        return ""
-
-    @keyword
-    def window_title_should_equal_to(self, title):
-        full_title = self.get_window_full_title()
-        if full_title == title:
-            return True
-        return False

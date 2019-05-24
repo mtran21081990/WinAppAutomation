@@ -1,8 +1,22 @@
 *** Settings ***
-Resource          Home_Page_Actions.robot
+Resource          MainPage_Actions.robot
 
 *** Keywords ***
 
-User Should See Application Home Page
-    Application Title Should Be Correct
-    Application Home Page Content Should Be Appeared
+User Should See Main Page Appears
+	Main Pape Title Should Be Correct
+	Main Pape Content Should Appears
+
+User Move To Sub Page
+	Click Main Pape Next Button
+
+
+
+
+
+
+
+
+
+
+
