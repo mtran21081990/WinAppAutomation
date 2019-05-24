@@ -10,8 +10,6 @@ This is a sample automation test project which will create an user-defined Libra
 
 1. Download & Install Python 3.7 or newer version. Might require to install latest .Net framework to run sample WPF application.
 
-2. Download & Install Appium Desktop application at [Appium GitHub Release Link](https://github.com/appium/appium-desktop/releases/tag/v1.13.0). This is the automation server which will receive JSONWireProtocol messages and then use WinAppDriver to automate on application-under-test.
-
 3. Download & Install Windows Application Driver (WinAppDriver) at [WinAppDriver GitHub Release Link](https://github.com/Microsoft/WinAppDriver/releases). This is a service to support Selenium-like UI Test Automation on Windows Applications. This service supports testing Universal Windows Platform (UWP), Windows Forms (WinForms), Windows Presentation Foundation (WPF), and Classic Windows (Win32) apps on Windows 10 PCs. WinAppDriver complies to the JSON Wire Protocol standard and some application management functionalities defined by Appium.
 
 4. Pull/Download the project from Git. Also pull/download the sample WPF application (more sample application will be updated later) [Restaurant_Order_Application GitHub Link](https://github.com/mtran21081990/WinAppAutomation/tree/master/SampleApplication/Restaurant_Order_Application)
