@@ -18,8 +18,7 @@ User Prepare The Test Environment
     User Access To Application Home Page
 
 User Cleanup The Test Environment
-    #Click Element  name=Close
-    Close All Applications
+    Close Application
 
 User Setup Test Case
     # Setup here
