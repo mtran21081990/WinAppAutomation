@@ -16,10 +16,6 @@ User Can Interact Controls On Main Page
     Click On Left Seat View Button
     Click On Right Seat View Button
     Click On Center Seat View Button
-    #Select Value In Date Person Combobox  Angelina Jolie
-    #Select Value In Date Person Combobox  Brad Pitt
-    #Select Value In Date Person Combobox  Tom Cruise
-    #Select Value In Date Person Combobox  Jennifer Aniston
     Click On Watermelon Dessert Radio Button
     Click On Banana Dessert Radio Button
     Click On Pinapple Dessert Radio Button
