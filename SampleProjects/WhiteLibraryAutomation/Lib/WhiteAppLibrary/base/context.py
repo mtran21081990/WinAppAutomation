@@ -21,6 +21,6 @@ class ContextAware(object):
         """Base class exposing attributes from the common context.
 
         :param ctx: The library itself as a context object.
-        :type ctx: WinAppLibrary.WinAppLibrary
+        :type ctx: WhiteAppLibrary.WhiteAppLibrary
         """
         self.ctx = ctx

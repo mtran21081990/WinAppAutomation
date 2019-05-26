@@ -1,12 +1,13 @@
 *** Settings ***
-Library   WinAppLibrary
+Library   WhiteAppLibrary
 Library  Collections
-Resource  ../Pages/Home_Page/Home_Page.robot
+Resource  ../Pages/MainPage/MainPage_Page.robot
 Variables  Data/settings.yaml
 
+
 *** Keywords ***
+
 User Open Application
-    #Sleep  5s
     Setup Application Under Test
 
 Setup Application Under Test
@@ -15,7 +16,7 @@ Setup Application Under Test
 
 User Prepare The Test Environment
     User Open Application
-    #User Access To Application Home Page
+    User Access To Application Home Page
 
 User Cleanup The Test Environment
     Close Application
@@ -24,8 +25,7 @@ User Setup Test Case
     # Setup here
 
 User Cleanup Test Case
-    Capture Screen
+    Take Desktop Screenshot
 
 User Access To Application Home Page
-    User Should See Application Home Page
-
+    User Should See Main Page Appears

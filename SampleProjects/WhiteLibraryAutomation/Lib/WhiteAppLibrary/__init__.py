@@ -7,7 +7,7 @@ import sys
 __version__ = '1.0.0'
 
 
-class WinAppLibrary(WhiteLibrary):
+class WhiteAppLibrary(WhiteLibrary):
 
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
     ROBOT_LIBRARY_VERSION = __version__

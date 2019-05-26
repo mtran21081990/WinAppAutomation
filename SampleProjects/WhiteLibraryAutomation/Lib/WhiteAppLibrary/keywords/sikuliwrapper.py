@@ -9,7 +9,7 @@ __disable_sikuli_log_file__ = True
 class SikuliWrapperKeywords(LibraryComponent):
 
     def __init__(self, ctx):
-        self.sikuli = SikuliLibrary()
+        self.sikuli = SikuliLibrary(mode='NEW')
         LibraryComponent.__init__(self, ctx)
 
     @keyword

@@ -14,7 +14,7 @@ This is a sample automation test project which will create an user-defined Libra
 
 4. Pull/Download the project from Git. Also pull/download the sample WPF application (more sample application will be updated later) [Restaurant_Order_Application GitHub Link](https://github.com/mtran21081990/WinAppAutomation/tree/master/SampleApplication/Restaurant_Order_Application)
 
-5. Open a Python IDE (prefered PyCharm), then open the AppiumLibraryAutomation project. Create a new Interpreter for this project in File > Settings > Project Interpreter. Restart IDE (if need).
+5. Open a Python IDE (prefered PyCharm), then open the WhiteLibraryAutomation project. Create a new Interpreter for this project in File > Settings > Project Interpreter. Restart IDE (if need).
 
 6. Install all required packages by executing file "required_packages.bat". The installed libraries are: robotframework, robotframework-SikuliLibrary, robotframework-appiumlibrary and pyyaml.
 

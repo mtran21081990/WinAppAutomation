@@ -2,8 +2,8 @@ APPLICATION:
   TYPE: "wpf"
   ALREADY_OPENED: "No"
   # Test Sample Wpf Application
-  MAIN_WINDOW_NAME: "Untitled - Paint"
-  PATH: "C:\\Windows\\System32\\mspaint.exe"
-  #
+  MAIN_WINDOW_NAME: "Restaurant Order Application"
+  PATH: "E:\\GitHub\\WinAppAutomation\\SampleApplication\\Restaurant_Order_Application\\SampleWpfApplication.exe"
+  # Default Username and Password
   DEFAULT_USERNAME: "admin"
   DEFAULT_PASSWORD: "password"
