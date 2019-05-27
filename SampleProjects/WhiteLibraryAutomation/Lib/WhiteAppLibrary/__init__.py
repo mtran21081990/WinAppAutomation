@@ -16,10 +16,10 @@ class WhiteAppLibrary(WhiteLibrary):
 
         WhiteLibrary.__init__(self)
 
-        self.application = ApplicationManagementKeywords(self)
-        self.window = WindowManagementKeywords(self)
-        self.element = ElementManagementKeywords(self)
-        self.sikuli = SikuliWrapperKeywords(self)
+        self.application = ApplicationManagement(self)
+        self.window = WindowManagement(self)
+        self.element = ElementManagement(self)
+        self.sikuli = SikuliWrapper(self)
         self.utils = Utilities()
 
         arr_libraries = [self.sikuli, self.application, self.window, self.element]

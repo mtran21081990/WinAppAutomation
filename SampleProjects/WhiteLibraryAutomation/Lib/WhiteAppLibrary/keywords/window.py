@@ -7,7 +7,7 @@ __version__ = '1.0.1'
 _APPLICATION_MAIN_WINDOW_NAME_KEY = "MAIN_WINDOW_NAME"
 
 
-class WindowManagementKeywords(LibraryComponent):
+class WindowManagement(LibraryComponent):
 
     def __init__(self, ctx):
         LibraryComponent.__init__(self, ctx)

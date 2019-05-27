@@ -6,7 +6,7 @@ __version__ = '1.0.0'
 __disable_sikuli_log_file__ = True
 
 
-class SikuliWrapperKeywords(LibraryComponent):
+class SikuliWrapper(LibraryComponent):
 
     def __init__(self, ctx):
         self.sikuli = SikuliLibrary(mode='NEW')

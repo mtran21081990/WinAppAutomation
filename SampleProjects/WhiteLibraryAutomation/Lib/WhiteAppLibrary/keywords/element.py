@@ -5,7 +5,7 @@ from WhiteLibrary.keywords.items import UiItemKeywords
 __version__ = '1.0.1'
 
 
-class ElementManagementKeywords(LibraryComponent):
+class ElementManagement(LibraryComponent):
 
     def __init__(self, ctx):
         LibraryComponent.__init__(self, ctx)

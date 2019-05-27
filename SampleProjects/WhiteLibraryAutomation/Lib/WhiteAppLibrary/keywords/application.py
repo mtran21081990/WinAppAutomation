@@ -15,7 +15,7 @@ _APPLICATION_DEFAULT_USERNAME_KEY = "DEFAULT_USERNAME"
 _APPLICATION_DEFAULT_PASSWORD_KEY = "DEFAULT_PASSWORD"
 
 
-class ApplicationManagementKeywords(LibraryComponent):
+class ApplicationManagement(LibraryComponent):
 
     def __init__(self, ctx):
         LibraryComponent.__init__(self, ctx)
