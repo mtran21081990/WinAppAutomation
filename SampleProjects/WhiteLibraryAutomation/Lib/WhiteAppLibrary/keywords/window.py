@@ -2,8 +2,6 @@ from ..base import LibraryComponent
 import logging
 from WhiteLibrary.keywords.robotlibcore import keyword
 from WhiteLibrary.keywords import WindowKeywords
-from TestStack.White.UIItems.Finders import SearchCriteria
-from System.Windows.Automation import AutomationElement, PropertyCondition, TreeScope, Condition
 
 __version__ = '1.0.1'
 _APPLICATION_MAIN_WINDOW_NAME_KEY = "MAIN_WINDOW_NAME"

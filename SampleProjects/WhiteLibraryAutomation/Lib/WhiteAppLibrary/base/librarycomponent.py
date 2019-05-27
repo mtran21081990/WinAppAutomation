@@ -21,14 +21,13 @@ from robot.libraries.BuiltIn import BuiltIn, RobotNotRunningError
 
 from ..utils import is_noney, timestr_to_secs
 
-from .context import ContextAware
 from WhiteLibrary.keywords.robotlibcore import PY2
 
 
-class LibraryComponent(ContextAware):
+class LibraryComponent(object):
 
     def __init__(self, ctx):
-        ContextAware.__init__(self, ctx)
+        self.ctx = ctx
 
     def info(self, msg, html=False):
         logger.info(msg, html)

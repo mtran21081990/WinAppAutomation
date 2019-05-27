@@ -3,7 +3,6 @@ import logging
 from ..base import LibraryComponent
 from WhiteLibrary.keywords.robotlibcore import keyword
 from WhiteLibrary.keywords import ApplicationKeywords
-from WhiteLibrary.keywords import WindowKeywords
 
 __version__ = '1.0.1'
 
@@ -21,7 +20,6 @@ class ApplicationManagementKeywords(LibraryComponent):
     def __init__(self, ctx):
         LibraryComponent.__init__(self, ctx)
         self.application_management = ApplicationKeywords(ctx)
-        self.window_management = WindowKeywords(ctx)
 
     @keyword
     def run_or_attach_application(self, settings):
