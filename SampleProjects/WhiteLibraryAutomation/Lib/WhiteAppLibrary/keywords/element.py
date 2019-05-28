@@ -1,3 +1,4 @@
+from TestStack.White.UIItems import UIItem
 from ..base import LibraryComponent
 from WhiteLibrary.keywords.robotlibcore import keyword
 from WhiteLibrary.keywords.items import UiItemKeywords
@@ -52,3 +53,9 @@ class ElementManagement(LibraryComponent):
     @keyword
     def item_should_be_disabled(self, locator):
         self.element_management.item_should_be_disabled(locator)
+
+    def get_child_ui_item(self, ui_item, child_locator):
+        criteria = self.ctx.get_search_criteria(child_locator)
+        child_automation_element = ui_item.GetElement(criteria)
+        child_ui_element = UIItem(child_automation_element, None)
+        return child_ui_element
