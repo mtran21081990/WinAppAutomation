@@ -2,7 +2,6 @@ from ..base import LibraryComponent
 from WhiteLibrary.keywords.robotlibcore import keyword
 from WhiteLibrary.keywords.items import LabelKeywords
 from WhiteLibrary.utils.click import Clicks
-from WhiteLibrary.utils.click import Clicks
 from TestStack.White.UIItems import Label
 
 __version__ = '1.0.1'

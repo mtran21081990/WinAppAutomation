@@ -12,6 +12,11 @@ User Click On Main Page Next Button
 
 User Can Interact Controls On Main Page
     #Click On Regular Customer Register Button
+    Select Item In Drink List Box  Tea
+    Select Item In Drink List Box  Milk
+    Select Item In Drink List Box  Coffee
+    Select Item In Dishes List Box  Pizza
+    Select Item In Dishes List Box  Hamburger
     Toggle On Top Seat View Toggle Button
     Top Seat View Toggle Button State Is On
     Toggle On Bottom Seat View Toggle Button
@@ -22,6 +27,14 @@ User Can Interact Controls On Main Page
     Right Seat View Toggle Button State Is On
     Toggle On Center Seat View Toggle Button
     Center Seat View Toggle Button State Is On
+    Select Value In Date Person Combobox  Brad Pitt
+    Date Person Combobox Selection Value Should Be  Brad Pitt
+    Select Value In Date Person Combobox  Angelina Jolie
+    Date Person Combobox Selection Value Should Be  Angelina Jolie
+    Select Value In Date Person Combobox  Tom Cruise
+    Date Person Combobox Selection Value Should Be  Tom Cruise
+    Select Value In Date Person Combobox  Jennifer Aniston
+    Date Person Combobox Selection Value Should Be  Jennifer Aniston
     Click On Watermelon Dessert Radio Button
     Click On Banana Dessert Radio Button
     Click On Pinapple Dessert Radio Button

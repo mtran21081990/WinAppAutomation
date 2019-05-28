@@ -22,12 +22,13 @@ class WhiteAppLibrary(WhiteLibrary):
         self.element_manager = ElementManagement(self)
         self.button_manager = ButtonManagement(self)
         self.label_manager = LabelManagement(self)
+        self.list_manager = ListManagement(self)
         self.sikuli_manager = SikuliWrapper(self)
         self.screenshot_manager = ScreenshotManagement(self)
         self.utils = Utilities()
 
         arr_libraries = [self.sikuli_manager, self.application_manager, self.window_manager, self.label_manager,
-                         self.element_manager, self.button_manager, self.screenshot_manager]
+                         self.element_manager, self.button_manager, self.screenshot_manager, self.list_manager]
         self.libraries.append(arr_libraries)
         self.add_library_components(arr_libraries)
 

@@ -14,6 +14,16 @@ Main Page Content Should Appears
 Click Main Pape Next Button
 	Click Button  ${MAINPAGE_NEXT_ID}
 
+Select Item In Drink List Box
+	[Arguments]  ${value}
+    Select ListBox Value  ${MAINPAGE_ORDER_TAB_DRINK_LISTBOX}  ${value}
+    ${selection}  Get ListBox Single Selection  ${MAINPAGE_ORDER_TAB_DRINK_LISTBOX}
+
+Select Item In Dishes List Box
+	[Arguments]  ${value}
+    Select ListBox Value  ${MAINPAGE_ORDER_TAB_DISHES_LISTBOX}  ${value}
+    ${selection}  Get ListBox Multiple Selection  ${MAINPAGE_ORDER_TAB_DRINK_LISTBOX}
+
 Toggle On Top Seat View Toggle Button
 	Toggle Button  ${MAINPAGE_ORDER_TAB_TOP_SEAT_VIEW_TOGGLEBUTTON}
 
@@ -47,6 +57,10 @@ Center Seat View Toggle Button State Is On
 Select Value In Date Person Combobox
 	[Arguments]  ${value}
 	Select Combobox Value  ${MAINPAGE_ORDER_TAB_DATE_PERSON_COMBOBOX}  ${value}
+
+Date Person Combobox Selection Value Should Be
+	[Arguments]  ${value}
+	Verify Combobox Selection  ${MAINPAGE_ORDER_TAB_DATE_PERSON_COMBOBOX}  ${value}
 
 Click On Banana Dessert Radio Button
 	Click Radio Button Text  ${MAINPAGE_ORDER_TAB_BANANA_DESSERT_RADIOBUTTON}
