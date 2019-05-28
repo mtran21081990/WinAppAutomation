@@ -53,3 +53,6 @@ class WhiteAppLibrary(WhiteLibrary):
 
     def get_typed_item_by_locator(self, item_type, locator):
         return self._get_typed_item_by_locator(item_type, locator)
+
+    def get_search_criteria(self, locator):
+        return self._get_search_criteria(locator)
