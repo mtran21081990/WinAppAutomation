@@ -9,7 +9,7 @@ Main Page Title Should Be Correct
 	Window Title Should Be  ${MAINPAGE_TITLE}
 
 Main Page Content Should Appears
-	Verify Label  ${MAINPAGE_HEADER_ID}   ${MAINPAGE_HEADER_TEXT}
+	Label Text Should Be  ${MAINPAGE_HEADER_ID}   ${MAINPAGE_HEADER_TEXT}
 
 Click Main Pape Next Button
 	Click Button  ${MAINPAGE_NEXT_ID}

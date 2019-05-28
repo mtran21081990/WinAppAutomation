@@ -151,9 +151,19 @@ class ButtonManagement(LibraryComponent):
         Clicks.right_click(radio_button, x_offset, y_offset)
 
     @keyword
+    def right_click_radio_button_text(self, locator):
+        radio_button = self._get_radio_button(locator)
+        Clicks.right_click(radio_button, 1, 1)
+
+    @keyword
     def double_click_radio_button(self, locator, x_offset=0, y_offset=0):
         radio_button = self._get_radio_button(locator)
         Clicks.double_click(radio_button, x_offset, y_offset)
+
+    @keyword
+    def double_click_radio_button_text(self, locator):
+        radio_button = self._get_radio_button(locator)
+        Clicks.double_click(radio_button, 1, 1)
 
     @keyword
     def radio_button_text_should_be(self, locator, expected_text, case_sensitive=True):
@@ -251,9 +261,19 @@ class ButtonManagement(LibraryComponent):
         Clicks.right_click(check_box, x_offset, y_offset)
 
     @keyword
+    def right_click_check_box_text(self, locator):
+        check_box = self._get_check_box(locator)
+        Clicks.right_click(check_box, 1, 1)
+
+    @keyword
     def double_click_check_box(self, locator, x_offset=0, y_offset=0):
         check_box = self._get_check_box(locator)
         Clicks.double_click(check_box, x_offset, y_offset)
+
+    @keyword
+    def double_click_check_box_text(self, locator):
+        check_box = self._get_check_box(locator)
+        Clicks.double_click(check_box, 1, 1)
 
     @keyword
     def check_box_text_should_be(self, locator, expected_text, case_sensitive=True):
