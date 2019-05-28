@@ -12,10 +12,6 @@ class ElementManagement(LibraryComponent):
         self.element_management = UiItemKeywords(ctx)
 
     @keyword
-    def click_item_on_application(self, locator):
-        self.element_management.click_item(locator)
-
-    @keyword
     def element_should_be_visible(self, locator):
         item = self.element_management.get_item(locator)
         if not item.Visible:
@@ -28,3 +24,31 @@ class ElementManagement(LibraryComponent):
         if item.Visible:
             return True
         return False
+
+    @keyword
+    def click_item(self, locator, x_offset=0, y_offset=0):
+        self.element_management.click_item(locator, x_offset, y_offset)
+
+    @keyword
+    def right_click_item(self, locator, x_offset=0, y_offset=0):
+        self.element_management.right_click_item(locator, x_offset, y_offset)
+
+    @keyword
+    def double_click_item(self, locator, x_offset=0, y_offset=0):
+        self.element_management.double_click_item(locator, x_offset, y_offset)
+
+    @keyword
+    def get_items(self, locator):
+        return self.element_management.get_items(locator)
+
+    @keyword
+    def get_item(self, locator):
+        return self.element_management.get_item(locator)
+
+    @keyword
+    def item_should_be_enabled(self, locator):
+        self.element_management.item_should_be_enabled(locator)
+
+    @keyword
+    def item_should_be_disabled(self, locator):
+        self.element_management.item_should_be_disabled(locator)

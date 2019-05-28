@@ -1,7 +1,8 @@
+from robot.utils import is_truthy
 from WhiteLibrary import WhiteLibrary
-from WhiteLibrary.keywords.robotlibcore import keyword
 from .keywords import *
 from .utils import *
+
 import sys
 
 __version__ = '1.0.0'
@@ -12,24 +13,26 @@ class WhiteAppLibrary(WhiteLibrary):
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
     ROBOT_LIBRARY_VERSION = __version__
 
-    def __init__(self, timeout=5.0, implicit_wait=0.0, run_on_failure='Capture Screen'):
+    def __init__(self, timeout=5.0, implicit_wait=0.0):
 
         WhiteLibrary.__init__(self)
 
-        self.application = ApplicationManagement(self)
-        self.window = WindowManagement(self)
-        self.element = ElementManagement(self)
-        self.sikuli = SikuliWrapper(self)
+        self.application_manager = ApplicationManagement(self)
+        self.window_manager = WindowManagement(self)
+        self.element_manager = ElementManagement(self)
+        self.button_manager = ButtonManagement(self)
+        self.sikuli_manager = SikuliWrapper(self)
+        self.screenshot_manager = ScreenshotManagement(self)
         self.utils = Utilities()
 
-        arr_libraries = [self.sikuli, self.application, self.window, self.element]
+        arr_libraries = [self.sikuli_manager, self.application_manager, self.window_manager,
+                         self.element_manager, self.button_manager, self.screenshot_manager]
         self.libraries.append(arr_libraries)
         self.add_library_components(arr_libraries)
 
         self.timeout = timestr_to_secs(timeout)
         self.implicit_wait = timestr_to_secs(implicit_wait)
         self.speed = 0.0
-        self.run_on_failure_keyword = run_on_failure
         ####################################################################################
         # Make sure pydevd installed: pip install pydevd
         # AND Uncomment following codes to enable debug mode
@@ -38,14 +41,15 @@ class WhiteAppLibrary(WhiteLibrary):
         # pydevd.settrace('localhost', port=12345, stdoutToServer=True, stderrToServer=True)
         ####################################################################################
 
-    @keyword
-    def setup_application(self, settings):
-        # Run or Attach application depends on Setting file
-        self.application.run_or_attach_application(settings)
+    def _end_keyword(self, name, attrs):
+        if self.screenshot_type == 'desktop' and self.screenshots_enabled:
+            self.screenshot_manager.take_window_screenshot()
 
-        # Attach main window
-        self.window.attach_main_window(settings)
+    def verify_string_value(self, expected, actual, case_sensitive=True):
+        self._verify_string_value(expected, actual, case_sensitive)
 
-    @keyword
-    def get_applicable_name(self, name):
-        return name + "_" + self.utils.get_current_datetime_as_name()
+    def verify_value(self, expected, actual):
+        self._verify_value(expected, actual)
+
+    def get_typed_item_by_locator(self, item_type, locator):
+        return self._get_typed_item_by_locator(item_type, locator)

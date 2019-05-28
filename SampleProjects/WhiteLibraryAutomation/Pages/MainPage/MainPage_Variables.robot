@@ -11,7 +11,7 @@ ${MAINPAGE_ID}  id=MainPageWindow
 ${MAINPAGE_HEADER_ID}  id=MainPageTitle
 ${MAINPAGE_NEXT_ID}  id=NextButton
 ${MAINPAGE_PREVIOUS_ID}  id=PreviousButton
-${MAINPAGE_TABCONTROL}  id=
+${MAINPAGE_TABCONTROL}  id=MainPageTabControl
 ${MAINPAGE_ORDER_TAB}  Order Tab
 ${MAINPAGE_SUMMARY_TAB}  Summary Tab
 

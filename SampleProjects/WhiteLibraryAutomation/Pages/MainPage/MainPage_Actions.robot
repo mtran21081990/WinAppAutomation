@@ -14,20 +14,35 @@ Main Page Content Should Appears
 Click Main Pape Next Button
 	Click Button  ${MAINPAGE_NEXT_ID}
 
-Click On Top Seat View Button
-	Click Button  ${MAINPAGE_ORDER_TAB_TOP_SEAT_VIEW_TOGGLEBUTTON}
+Toggle On Top Seat View Toggle Button
+	Toggle Button  ${MAINPAGE_ORDER_TAB_TOP_SEAT_VIEW_TOGGLEBUTTON}
 
-Click On Botton Seat View Button
-	Click Button  ${MAINPAGE_ORDER_TAB_BOTTOM_SEAT_VIEW_TOGGLEBUTTON}
+Top Seat View Toggle Button State Is On
+	Toggle Button Is On  ${MAINPAGE_ORDER_TAB_TOP_SEAT_VIEW_TOGGLEBUTTON}
 
-Click On Left Seat View Button
-	Click Button  ${MAINPAGE_ORDER_TAB_LEFT_SEAT_VIEW_TOGGLEBUTTON}
+Toggle On Bottom Seat View Toggle Button
+	Toggle Button  ${MAINPAGE_ORDER_TAB_BOTTOM_SEAT_VIEW_TOGGLEBUTTON}
 
-Click On Right Seat View Button
-	Click Button  ${MAINPAGE_ORDER_TAB_RIGHT_SEAT_VIEW_TOGGLEBUTTON}
+Bottom Seat View Toggle Button State Is On
+	Toggle Button Is On  ${MAINPAGE_ORDER_TAB_BOTTOM_SEAT_VIEW_TOGGLEBUTTON}
 
-Click On Center Seat View Button
-	Click Button  ${MAINPAGE_ORDER_TAB_CENTER_SEAT_VIEW_TOGGLEBUTTON}
+Toggle On Left Seat View Toggle Button
+	Toggle Button  ${MAINPAGE_ORDER_TAB_LEFT_SEAT_VIEW_TOGGLEBUTTON}
+
+Left Seat View Toggle Button State Is On
+	Toggle Button Is On  ${MAINPAGE_ORDER_TAB_LEFT_SEAT_VIEW_TOGGLEBUTTON}
+
+Toggle On Right Seat View Toggle Button
+	Toggle Button  ${MAINPAGE_ORDER_TAB_RIGHT_SEAT_VIEW_TOGGLEBUTTON}
+
+Right Seat View Toggle Button State Is On
+	Toggle Button Is On  ${MAINPAGE_ORDER_TAB_RIGHT_SEAT_VIEW_TOGGLEBUTTON}
+
+Toggle On Center Seat View Toggle Button
+	Toggle Button  ${MAINPAGE_ORDER_TAB_CENTER_SEAT_VIEW_TOGGLEBUTTON}
+
+Center Seat View Toggle Button State Is On
+	Toggle Button Is On  ${MAINPAGE_ORDER_TAB_CENTER_SEAT_VIEW_TOGGLEBUTTON}
 
 Select Value In Date Person Combobox
 	[Arguments]  ${value}
@@ -86,3 +101,9 @@ Click On Order Tab
 
 Click On Summary Tab
 	Select Tab Page  ${MAINPAGE_TABCONTROL}  ${MAINPAGE_SUMMARY_TAB}
+
+Click On Regular Customer Register Button
+	Click Button  ${MAINPAGE_ORDER_TAB_REGULAR_CUSTOMER_REGISTER_BUTTON}
+
+
+

@@ -11,11 +11,17 @@ User Click On Main Page Next Button
 	Click Main Pape Next Button
 
 User Can Interact Controls On Main Page
-    Click On Top Seat View Button
-    Click On Botton Seat View Button
-    Click On Left Seat View Button
-    Click On Right Seat View Button
-    Click On Center Seat View Button
+    #Click On Regular Customer Register Button
+    Toggle On Top Seat View Toggle Button
+    Top Seat View Toggle Button State Is On
+    Toggle On Bottom Seat View Toggle Button
+    Bottom Seat View Toggle Button State Is On
+    Toggle On Left Seat View Toggle Button
+    Left Seat View Toggle Button State Is On
+    Toggle On Right Seat View Toggle Button
+    Right Seat View Toggle Button State Is On
+    Toggle On Center Seat View Toggle Button
+    Center Seat View Toggle Button State Is On
     Click On Watermelon Dessert Radio Button
     Click On Banana Dessert Radio Button
     Click On Pinapple Dessert Radio Button

@@ -31,11 +31,9 @@ class WindowManagement(LibraryComponent):
         return ""
 
     @keyword
-    def window_title_should_equal_to(self, title):
+    def window_title_should_be(self, title):
         full_title = self.get_window_full_title()
-        if full_title == title:
-            return True
-        return False
+        self.ctx._verify_string_value(title, full_title)
 
     @keyword
     def window_tooltip_should_equal_to(self, title):

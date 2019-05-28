@@ -1,6 +1,7 @@
 from builtins import staticmethod
 import logging
 from ..base import LibraryComponent
+from ..utils import Utilities
 from WhiteLibrary.keywords.robotlibcore import keyword
 from WhiteLibrary.keywords import ApplicationKeywords
 
@@ -22,6 +23,14 @@ class ApplicationManagement(LibraryComponent):
         self.application_management = ApplicationKeywords(ctx)
 
     @keyword
+    def setup_application(self, settings):
+        # Run or Attach application depends on Setting file
+        self.run_or_attach_application(settings)
+
+        # Attach main window
+        self.ctx.window_manager.attach_main_window(settings)
+
+    @keyword
     def run_or_attach_application(self, settings):
         """
         Open application or attach the already-opened application
@@ -35,7 +44,7 @@ class ApplicationManagement(LibraryComponent):
           DEFAULT_PASSWORD: password
         """
         # init application
-        application_type = settings.get(_APPLICATION_TYPE_KEY).strip().lower()
+        # application_type = settings.get(_APPLICATION_TYPE_KEY).strip().lower()
         application_path = settings.get(_APPLICATION_PATH_KEY, None)
         application_name = settings.get(_APPLICATION_NAME_KEY, None)
         application_opened = settings.get(_APPLICATION_ALREADY_OPENED_KEY, "no").lower()
@@ -47,6 +56,10 @@ class ApplicationManagement(LibraryComponent):
                 self.application_management.attach_application_by_name(application_name)
         else:
             self.application_management.launch_application(application_path)
+
+    @keyword
+    def get_applicable_name(self, name):
+        return name + "_" + Utilities.get_current_datetime_as_name()
 
     @staticmethod
     def _is_process_id(temp):

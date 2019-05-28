@@ -59,7 +59,7 @@ class Utilities(object):
         try:
             list_files = os.listdir(directory)
             return list_files != []
-        except:
+        except EnvironmentError:
             return False
 
     @staticmethod
@@ -71,7 +71,7 @@ class Utilities(object):
                     if f.endswith(ext):
                         return True
             return False
-        except:
+        except EnvironmentError:
             return False
 
     @staticmethod
