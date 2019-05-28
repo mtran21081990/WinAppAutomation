@@ -1,5 +1,4 @@
 from ..base import LibraryComponent
-from .element import ElementManagement
 from WhiteLibrary.keywords.robotlibcore import keyword
 from WhiteLibrary.keywords.items import ButtonKeywords
 from WhiteLibrary.utils.click import Clicks
@@ -13,7 +12,56 @@ class ButtonManagement(LibraryComponent):
     def __init__(self, ctx):
         LibraryComponent.__init__(self, ctx)
         self.button_management = ButtonKeywords(ctx)
-        self.element_manager = ElementManagement(ctx)
+
+    @keyword
+    def get_button_text(self, locator):
+        button = self._get_button(locator)
+        return button.Text
+
+    @keyword
+    def get_button_name(self, locator):
+        button = self._get_button(locator)
+        return button.Name
+
+    @keyword
+    def get_button_help_text(self, locator):
+        button = self._get_button(locator)
+        return button.HelpText
+
+    @keyword
+    def get_button_access_key(self, locator):
+        button = self._get_button(locator)
+        return button.AccessKey
+
+    @keyword
+    def get_button_location(self, locator):
+        button = self._get_button(locator)
+        return button.Location
+
+    @keyword
+    def get_button_bound(self, locator):
+        button = self._get_button(locator)
+        return button.Bounds
+
+    @keyword
+    def get_button_image(self, locator):
+        button = self._get_button(locator)
+        return button.VisibleImage
+
+    @keyword
+    def is_button_enabled(self, locator):
+        button = self._get_button(locator)
+        return button.Enabled
+
+    @keyword
+    def is_button_visible(self, locator):
+        button = self._get_button(locator)
+        return button.Visible
+
+    @keyword
+    def is_button_focused(self, locator):
+        button = self._get_button(locator)
+        return button.IsFocussed
 
     @keyword
     def click_button(self, locator, x_offset=0, y_offset=0):
@@ -38,8 +86,64 @@ class ButtonManagement(LibraryComponent):
         self.button_management.button_text_should_contain(locator, expected_text, case_sensitive)
 
     @keyword
+    def get_radio_button_text(self, locator):
+        radio_button = self._get_radio_button(locator)
+        return radio_button.Text
+
+    @keyword
+    def get_radio_button_name(self, locator):
+        radio_button = self._get_radio_button(locator)
+        return radio_button.Name
+
+    @keyword
+    def get_radio_button_help_text(self, locator):
+        radio_button = self._get_radio_button(locator)
+        return radio_button.HelpText
+
+    @keyword
+    def get_radio_button_access_key(self, locator):
+        radio_button = self._get_radio_button(locator)
+        return radio_button.AccessKey
+
+    @keyword
+    def get_radio_button_location(self, locator):
+        radio_button = self._get_radio_button(locator)
+        return radio_button.Location
+
+    @keyword
+    def get_radio_button_bound(self, locator):
+        radio_button = self._get_radio_button(locator)
+        return radio_button.Bounds
+
+    @keyword
+    def get_radio_button_image(self, locator):
+        radio_button = self._get_radio_button(locator)
+        return radio_button.VisibleImage
+
+    @keyword
+    def is_radio_button_enabled(self, locator):
+        radio_button = self._get_radio_button(locator)
+        return radio_button.Enabled
+
+    @keyword
+    def is_radio_button_visible(self, locator):
+        radio_button = self._get_radio_button(locator)
+        return radio_button.Visible
+
+    @keyword
+    def is_radio_button_focused(self, locator):
+        radio_button = self._get_radio_button(locator)
+        return radio_button.IsFocussed
+
+    @keyword
     def select_radio_button(self, locator):
         self.button_management.select_radio_button(locator)
+
+    @keyword
+    def click_radio_button_text(self, locator):
+        radio_button = self._get_radio_button(locator)
+        child_text_element = self.ctx.element_manager.get_child_ui_item(radio_button, "class_name=TextBlock")
+        Clicks.click(child_text_element, 1, 1)
 
     @keyword
     def right_click_radio_button(self, locator, x_offset=0, y_offset=0):
@@ -70,8 +174,76 @@ class ButtonManagement(LibraryComponent):
         return self.button_management.get_radio_button_state(locator)
 
     @keyword
+    def radio_button_should_be_selected(self, locator):
+        state = self.get_radio_button_state(locator)
+        if not state:
+            raise AssertionError("Radio button {} is not selected as expected".format(locator))
+
+    @keyword
+    def radio_button_should_be_unselect(self, locator):
+        state = self.get_radio_button_state(locator)
+        if state:
+            raise AssertionError("Check box {} is not unselect as expected".format(locator))
+
+    @keyword
+    def get_check_box_text(self, locator):
+        check_box = self._get_check_box(locator)
+        return check_box.Text
+
+    @keyword
+    def get_check_box_name(self, locator):
+        check_box = self._get_check_box(locator)
+        return check_box.Name
+
+    @keyword
+    def get_check_box_help_text(self, locator):
+        check_box = self._get_check_box(locator)
+        return check_box.HelpText
+
+    @keyword
+    def get_check_box_access_key(self, locator):
+        check_box = self._get_check_box(locator)
+        return check_box.AccessKey
+
+    @keyword
+    def get_check_box_location(self, locator):
+        check_box = self._get_check_box(locator)
+        return check_box.Location
+
+    @keyword
+    def get_check_box_bound(self, locator):
+        check_box = self._get_check_box(locator)
+        return check_box.Bounds
+
+    @keyword
+    def get_check_box_image(self, locator):
+        check_box = self._get_check_box(locator)
+        return check_box.VisibleImage
+
+    @keyword
+    def is_check_box_enabled(self, locator):
+        check_box = self._get_check_box(locator)
+        return check_box.Enabled
+
+    @keyword
+    def is_check_box_visible(self, locator):
+        check_box = self._get_check_box(locator)
+        return check_box.Visible
+
+    @keyword
+    def is_check_box_focused(self, locator):
+        check_box = self._get_check_box(locator)
+        return check_box.IsFocussed
+
+    @keyword
     def toggle_check_box(self, locator):
         self.button_management.toggle_check_box(locator)
+
+    @keyword
+    def click_check_box_text(self, locator):
+        check_box = self._get_check_box(locator)
+        child_text_element = self.ctx.element_manager.get_child_ui_item(check_box, "class_name=TextBlock")
+        Clicks.click(child_text_element, 1, 1)
 
     @keyword
     def right_click_check_box(self, locator, x_offset=0, y_offset=0):
@@ -102,16 +274,66 @@ class ButtonManagement(LibraryComponent):
         return self.button_management.get_check_box_state(locator)
 
     @keyword
-    def check_box_is_checked(self, locator):
+    def check_box_should_be_checked(self, locator):
         state = self.get_check_box_state(locator)
         if not state:
             raise AssertionError("Check box {} is not checked as expected".format(locator))
 
     @keyword
-    def check_box_is_uncheck(self, locator):
+    def check_box_should_be_uncheck(self, locator):
         state = self.get_check_box_state(locator)
         if state:
             raise AssertionError("Check box {} is not uncheck as expected".format(locator))
+
+    @keyword
+    def get_toggle_button_text(self, locator):
+        toggle_button = self._get_toggle_button(locator)
+        return toggle_button.Text
+
+    @keyword
+    def get_toggle_button_name(self, locator):
+        toggle_button = self._get_toggle_button(locator)
+        return toggle_button.Name
+
+    @keyword
+    def get_toggle_button_help_text(self, locator):
+        toggle_button = self._get_toggle_button(locator)
+        return toggle_button.HelpText
+
+    @keyword
+    def get_toggle_button_access_key(self, locator):
+        toggle_button = self._get_toggle_button(locator)
+        return toggle_button.AccessKey
+
+    @keyword
+    def get_toggle_button_location(self, locator):
+        toggle_button = self._get_toggle_button(locator)
+        return toggle_button.Location
+
+    @keyword
+    def get_toggle_button_bound(self, locator):
+        toggle_button = self._get_toggle_button(locator)
+        return toggle_button.Bounds
+
+    @keyword
+    def get_toggle_button_image(self, locator):
+        toggle_button = self._get_toggle_button(locator)
+        return toggle_button.VisibleImage
+
+    @keyword
+    def is_toggle_button_enabled(self, locator):
+        toggle_button = self._get_toggle_button(locator)
+        return toggle_button.Enabled
+
+    @keyword
+    def is_toggle_button_visible(self, locator):
+        toggle_button = self._get_toggle_button(locator)
+        return toggle_button.Visible
+
+    @keyword
+    def is_toggle_button_focused(self, locator):
+        toggle_button = self._get_toggle_button(locator)
+        return toggle_button.IsFocussed
 
     @keyword
     def toggle_button(self, locator):
@@ -120,20 +342,21 @@ class ButtonManagement(LibraryComponent):
 
     @keyword
     def verify_toggle_button(self, locator, expected):
-        button = self._get_toggle_button(locator)
-        if button.State != expected:
+        toggle_button = self._get_toggle_button(locator)
+        if toggle_button.State != expected:
             raise AssertionError("Toggle Button {} State is {}, not as expected {}.".format(locator,button.State, expected))
 
     @keyword
-    def toggle_button_is_on(self, locator):
-        button = self._get_toggle_button(locator)
-        if button.State != 1:
+    def toggle_button_should_be_on(self, locator):
+        toggle_button = self._get_toggle_button(locator)
+        if toggle_button.State != 1:
+            toggle_button.Capture()
             raise AssertionError("Toggle Button {} is not ON as expected".format(locator))
 
     @keyword
-    def toggle_button_is_off(self, locator):
-        button = self._get_toggle_button(locator)
-        if button.State != 0:
+    def toggle_button_should_be_off(self, locator):
+        toggle_button = self._get_toggle_button(locator)
+        if toggle_button.State != 0:
             raise AssertionError("Toggle Button {} is not OFF as expected".format(locator))
 
     @keyword
