@@ -182,12 +182,4 @@ Select Person Datetime Picker
     Sleep  1s
     Click Button  text=Show Calendar
 
-Select Available Calendar
-    #Set Calendar  ${MAINPAGE_ORDER_TAB_AVAILABLE_DATE_CALENDAR_LABEL}  2019-05-30
-    ${date}  Get Calendar Date  ${MAINPAGE_ORDER_TAB_AVAILABLE_DATE_CALENDAR_LABEL}  #${MAINPAGE_ORDER_TAB_AVAILABLE_DATE_CALENDAR}
-    Sleep  1s
-    #Set Datetime Picker  ${MAINPAGE_ORDER_TAB_AVAILABLE_DATE_CALENDAR}  2019-05-10
-    Sleep  1s
-    #Set Datetime Picker  ${MAINPAGE_ORDER_TAB_AVAILABLE_DATE_CALENDAR}  2019-05-12
-
 

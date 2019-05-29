@@ -70,13 +70,11 @@ class CalendarManagement(LibraryComponent):
 
     @keyword
     def set_calendar(self, locator, date):
-        calendar = self._get_calendar(locator)
-        calendar.Date = DateTime.Parse(date)
+        """TODO"""
 
     @keyword
     def get_calendar_date(self, locator):
-        calendar = self._get_calendar(locator)
-        return calendar.Property(AutomationElement.ValueProperty)
+        """TODO"""
 
     def _get_calendar(self, locator):
         return self.ctx.element_manager.get_ui_item_from_tree_walker(locator)
