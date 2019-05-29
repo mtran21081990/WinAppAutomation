@@ -116,7 +116,7 @@
 
                         <StackPanel Grid.Row="0" Grid.Column="2" >
                             <TextBlock Margin="0 0 0 5" FontWeight="Bold" TextWrapping="Wrap">Select An Available Date</TextBlock>
-                            <Calendar Name="AvailableDateCalendar" HorizontalAlignment="Left" SelectedDatesChanged="AvailableDateCalendar_SelectedDatesChanged"/>
+                            <Calendar Name="AvailableDateCalendarName" HorizontalAlignment="Left" SelectedDatesChanged="AvailableDateCalendar_SelectedDatesChanged" AutomationProperties.AutomationId="AvailableDateCalendarId" AutomationProperties.Name="AvailableDateCalendarAutoName"/>
                             <TextBox Name="AvailableDateTextBox" HorizontalAlignment="Left" IsEnabled="False" Width="180" BorderBrush="Black" Margin="0 0 0 0"/>
                         </StackPanel>
 

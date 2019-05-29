@@ -37,7 +37,7 @@ namespace SampleWpfApplication.Views
 
         private void AvailableDateCalendar_SelectedDatesChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            AvailableDateTextBox.Text = AvailableDateCalendar.SelectedDate.ToString();
+            AvailableDateTextBox.Text = AvailableDateCalendarName.SelectedDate.ToString();
         }
 
         private void WindowColorMenuItem_Click(object sender, RoutedEventArgs e)

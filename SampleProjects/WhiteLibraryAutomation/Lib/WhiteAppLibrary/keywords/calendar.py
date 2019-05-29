@@ -1,12 +1,7 @@
-import clr
-clr.AddReference('UIAutomationClient')
-clr.AddReference('UIAutomationTypes')
-from System.Windows.Automation import *
-from datetime import datetime
 from ..base import LibraryComponent
 from WhiteLibrary.keywords.robotlibcore import keyword
 from System import DateTime
-from TestStack.White.UIItems.TableItems import Table
+from datetime import datetime
 
 __version__ = '1.0.1'
 
@@ -84,5 +79,4 @@ class CalendarManagement(LibraryComponent):
         return calendar.Property(AutomationElement.ValueProperty)
 
     def _get_calendar(self, locator):
-        return self.ctx.get_item_by_locator(locator)
-
+        return self.ctx.element_manager.get_ui_item_from_tree_walker(locator)

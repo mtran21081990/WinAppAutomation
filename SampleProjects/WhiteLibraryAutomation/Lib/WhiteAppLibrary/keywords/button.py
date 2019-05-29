@@ -392,7 +392,8 @@ class ButtonManagement(LibraryComponent):
     def verify_toggle_button(self, locator, expected):
         toggle_button = self._get_toggle_button(locator)
         if toggle_button.State != expected:
-            raise AssertionError("Toggle Button {} State is {}, not as expected {}.".format(locator,button.State, expected))
+            err = "Toggle Button {} State is {}, not as expected {}.".format(locator, toggle_button.State, expected)
+            raise AssertionError(err)
 
     @keyword
     def toggle_button_should_be_on(self, locator):

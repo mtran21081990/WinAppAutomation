@@ -6,6 +6,8 @@ from ..utils import is_noney, timestr_to_secs
 from WhiteLibrary.keywords.robotlibcore import PY2
 
 clr.AddReference("TestStack.White")
+clr.AddReference('UIAutomationClient')
+clr.AddReference('UIAutomationTypes')
 
 
 class LibraryComponent(object):

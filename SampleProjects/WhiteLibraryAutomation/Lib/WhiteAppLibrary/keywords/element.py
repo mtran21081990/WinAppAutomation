@@ -1,7 +1,8 @@
-from TestStack.White.UIItems import UIItem
 from ..base import LibraryComponent
 from WhiteLibrary.keywords.robotlibcore import keyword
 from WhiteLibrary.keywords.items import UiItemKeywords
+from System.Windows.Automation import TreeWalker
+from TestStack.White.UIItems import UIItem
 
 __version__ = '1.0.1'
 
@@ -59,3 +60,12 @@ class ElementManagement(LibraryComponent):
         child_automation_element = ui_item.GetElement(criteria)
         child_ui_element = UIItem(child_automation_element, None)
         return child_ui_element
+
+    def get_ui_item_from_tree_walker(self, locator, next_or_first="next"):
+        ele = self.ctx.get_item_by_locator(locator)
+        if next_or_first == "next":
+            ele_auto = TreeWalker.RawViewWalker.GetNextSibling(ele.AutomationElement)
+        else:
+            ele_auto = TreeWalker.RawViewWalker.GetFirstChild(ele.AutomationElement)
+        return UIItem(ele_auto, None)
+
