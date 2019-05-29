@@ -135,7 +135,12 @@ class ListManagement(LibraryComponent):
 
     @keyword
     def get_listbox_multiple_selection(self, locator):
-        return self._get_listbox(locator).SelectedItemText
+        arr = self._get_listbox(locator).Items
+        list_selected = []
+        for itm in arr:
+            if itm.IsSelected:
+                list_selected.append(itm.Text)
+        return list_selected
 
     @keyword
     def select_listbox_value(self, locator, value):

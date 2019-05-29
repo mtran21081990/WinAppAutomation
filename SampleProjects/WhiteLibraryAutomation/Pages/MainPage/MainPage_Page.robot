@@ -13,10 +13,17 @@ User Click On Main Page Next Button
 User Can Interact Controls On Main Page
     #Click On Regular Customer Register Button
     Select Item In Drink List Box  Tea
+    Drink List Box Selection Should Be  Tea
     Select Item In Drink List Box  Milk
+    Drink List Box Selection Should Be  Milk
     Select Item In Drink List Box  Coffee
+    Drink List Box Selection Should Be  Coffee
     Select Item In Dishes List Box  Pizza
+    @{list}  Create List  Pizza
+    Dishes List Box Selection Should Be  @{list}
     Select Item In Dishes List Box  Hamburger
+    @{list}  Create List  Pizza  Hamburger
+    Dishes List Box Selection Should Be  @{list}
     Toggle On Top Seat View Toggle Button
     Top Seat View Toggle Button State Is On
     Toggle On Bottom Seat View Toggle Button
