@@ -129,6 +129,58 @@ class ListManagement(LibraryComponent):
         self.listview_management.select_listview_row_by_index(locator, row_index)
 
     @keyword
+    def get_listbox_name(self, locator):
+        listbox = self._get_listbox(locator)
+        return listbox.Name
+
+    @keyword
+    def get_listbox_help_text(self, locator):
+        listbox = self._get_listbox(locator)
+        return listbox.HelpText
+
+    @keyword
+    def get_listbox_access_key(self, locator):
+        listbox = self._get_listbox(locator)
+        return listbox.AccessKey
+
+    @keyword
+    def get_listbox_location(self, locator):
+        listbox = self._get_listbox(locator)
+        return listbox.Location
+
+    @keyword
+    def get_listbox_bound(self, locator):
+        listbox = self._get_listbox(locator)
+        return listbox.Bounds
+
+    @keyword
+    def get_listbox_image(self, locator):
+        listbox = self._get_listbox(locator)
+        return listbox.VisibleImage
+
+    @keyword
+    def is_listbox_enabled(self, locator):
+        listbox = self._get_listbox(locator)
+        return listbox.Enabled
+
+    @keyword
+    def is_listbox_visible(self, locator):
+        listbox = self._get_listbox(locator)
+        return listbox.Visible
+
+    @keyword
+    def is_listbox_focused(self, locator):
+        listbox = self._get_listbox(locator)
+        return listbox.IsFocussed
+
+    @keyword
+    def focus_on_listbox(self, locator):
+        listbox = self._get_listbox(locator)
+        if not listbox.Enabled:
+            raise AssertionError("Listbox '{}' is not enabled to be focused.".format(locator))
+        listbox.Focus()
+
+    @keyword
     def get_listbox_item(self, locator):
         arr = self._get_listbox(locator).Items
         arr_text = []
@@ -240,6 +292,58 @@ class ListManagement(LibraryComponent):
         else:
             if expected in arr:
                 raise AssertionError("ListBox '{}' Item '{}' should not contain '{}'".format(locator, arr, expected))
+
+    @keyword
+    def get_combobox_name(self, locator):
+        combobox = self._get_combobox(locator)
+        return combobox.Name
+
+    @keyword
+    def get_combobox_help_text(self, locator):
+        combobox = self._get_combobox(locator)
+        return combobox.HelpText
+
+    @keyword
+    def get_combobox_access_key(self, locator):
+        combobox = self._get_combobox(locator)
+        return combobox.AccessKey
+
+    @keyword
+    def get_combobox_location(self, locator):
+        combobox = self._get_combobox(locator)
+        return combobox.Location
+
+    @keyword
+    def get_combobox_bound(self, locator):
+        combobox = self._get_combobox(locator)
+        return combobox.Bounds
+
+    @keyword
+    def get_combobox_image(self, locator):
+        combobox = self._get_combobox(locator)
+        return combobox.VisibleImage
+
+    @keyword
+    def is_combobox_enabled(self, locator):
+        combobox = self._get_combobox(locator)
+        return combobox.Enabled
+
+    @keyword
+    def is_combobox_visible(self, locator):
+        combobox = self._get_combobox(locator)
+        return combobox.Visible
+
+    @keyword
+    def is_combobox_focused(self, locator):
+        combobox = self._get_combobox(locator)
+        return combobox.IsFocussed
+
+    @keyword
+    def focus_on_combobox(self, locator):
+        combobox = self._get_combobox(locator)
+        if not combobox.Enabled:
+            raise AssertionError("Combobox '{}' is not enabled to be focused.".format(locator))
+        combobox.Focus()
 
     @keyword
     def select_combobox_value(self, locator, value):

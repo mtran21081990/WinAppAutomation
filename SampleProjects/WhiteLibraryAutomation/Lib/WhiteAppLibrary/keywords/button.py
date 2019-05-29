@@ -64,6 +64,13 @@ class ButtonManagement(LibraryComponent):
         return button.IsFocussed
 
     @keyword
+    def focus_on_button(self, locator):
+        button = self._get_button(locator)
+        if not button.Enabled:
+            raise AssertionError("Button '{}' is not enabled to be focused.".format(locator))
+        button.Focus()
+
+    @keyword
     def click_button(self, locator, x_offset=0, y_offset=0):
         self.button_management.click_button(locator, x_offset, y_offset)
 
@@ -134,6 +141,13 @@ class ButtonManagement(LibraryComponent):
     def is_radio_button_focused(self, locator):
         radio_button = self._get_radio_button(locator)
         return radio_button.IsFocussed
+
+    @keyword
+    def focus_on_radio_button(self, locator):
+        radio_button = self._get_radio_button(locator)
+        if not radio_button.Enabled:
+            raise AssertionError("Radio Button '{}' is not enabled to be focused.".format(locator))
+        radio_button.Focus()
 
     @keyword
     def select_radio_button(self, locator):
@@ -246,6 +260,13 @@ class ButtonManagement(LibraryComponent):
         return check_box.IsFocussed
 
     @keyword
+    def focus_on_check_box(self, locator):
+        check_box = self._get_check_box(locator)
+        if not check_box.Enabled:
+            raise AssertionError("Check Box '{}' is not enabled to be focused.".format(locator))
+        check_box.Focus()
+
+    @keyword
     def toggle_check_box(self, locator):
         self.button_management.toggle_check_box(locator)
 
@@ -354,6 +375,13 @@ class ButtonManagement(LibraryComponent):
     def is_toggle_button_focused(self, locator):
         toggle_button = self._get_toggle_button(locator)
         return toggle_button.IsFocussed
+
+    @keyword
+    def focus_on_toggle_button(self, locator):
+        toggle_button = self._get_toggle_button(locator)
+        if not toggle_button.Enabled:
+            raise AssertionError("Toggle Button '{}' is not enabled to be focused.".format(locator))
+        toggle_button.Focus()
 
     @keyword
     def toggle_button(self, locator):
