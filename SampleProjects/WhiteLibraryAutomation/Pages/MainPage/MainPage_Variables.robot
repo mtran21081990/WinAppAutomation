@@ -17,6 +17,7 @@ ${MAINPAGE_SUMMARY_TAB}  Summary Tab
 
 # Order Tab Locators
 
+${MAINPAGE_MENU_ID}  id=MainPageMenu
 ${MAINPAGE_ORDER_TAB_DRINK_LISTBOX}  id=DrinkListBox
 ${MAINPAGE_ORDER_TAB_DISHES_LISTBOX}  id=DishesListBox
 ${MAINPAGE_ORDER_TAB_AVAILABLE_DATE_CALENDAR}  id=AvailableDateCalendar

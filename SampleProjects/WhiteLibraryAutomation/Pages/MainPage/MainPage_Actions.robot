@@ -14,12 +14,15 @@ Main Page Content Should Appears
 Click Main Pape Next Button
 	Click Button  ${MAINPAGE_NEXT_ID}
 
+Click Main Pape Menu
+	Click Menu Button  text=Menu 1  Item 2  Sub Item 3  Sub Sub Item 1
+
 Select Item In Drink List Box
 	[Arguments]  ${value}
     Select ListBox Value  ${MAINPAGE_ORDER_TAB_DRINK_LISTBOX}  ${value}
 
 Drink List Box Selection Should Be
-	[Arguments]  ${value}
+	[Arguments]  @{value}
     ListBox Selection Should Be  ${MAINPAGE_ORDER_TAB_DRINK_LISTBOX}  @{value}
 
 Select Item In Dishes List Box
