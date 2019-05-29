@@ -1,8 +1,6 @@
 from ..base import LibraryComponent
-import logging
 from WhiteLibrary.keywords.robotlibcore import keyword
 from WhiteLibrary.keywords.items import ListViewKeywords, ListKeywords
-from WhiteLibrary.utils.click import Clicks
 from TestStack.White.UIItems import ListView
 from TestStack.White.UIItems.ListBoxItems import ComboBox, ListBox
 
