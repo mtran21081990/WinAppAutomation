@@ -183,10 +183,11 @@ Select Person Datetime Picker
     Click Button  text=Show Calendar
 
 Select Available Calendar
-    Set Datetime Picker  ${MAINPAGE_ORDER_TAB_AVAILABLE_DATE_CALENDAR}  2019-05-30
+    #Set Calendar  ${MAINPAGE_ORDER_TAB_AVAILABLE_DATE_CALENDAR}  2019-05-30
+    ${date}  Get Calendar Date  class_name=Calendar  #${MAINPAGE_ORDER_TAB_AVAILABLE_DATE_CALENDAR}
     Sleep  1s
-    Set Datetime Picker  ${MAINPAGE_ORDER_TAB_AVAILABLE_DATE_CALENDAR}  2019-05-10
+    #Set Datetime Picker  ${MAINPAGE_ORDER_TAB_AVAILABLE_DATE_CALENDAR}  2019-05-10
     Sleep  1s
-    Set Datetime Picker  ${MAINPAGE_ORDER_TAB_AVAILABLE_DATE_CALENDAR}  2019-05-12
+    #Set Datetime Picker  ${MAINPAGE_ORDER_TAB_AVAILABLE_DATE_CALENDAR}  2019-05-12
 
 
