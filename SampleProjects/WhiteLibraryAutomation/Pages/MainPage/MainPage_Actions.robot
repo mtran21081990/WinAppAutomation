@@ -121,10 +121,16 @@ Click On Change Dessert Optional Request Checkbox
 	Click Check Box Text  ${MAINPAGE_ORDER_TAB_CHANGE_DESSERT_OPTIONAL_REQUESTS_CHECKBOX}
 
 Click On Order Tab
-	Select Tab Page  ${MAINPAGE_TABCONTROL}  ${MAINPAGE_ORDER_TAB}
+	Select Tab Page By Title  ${MAINPAGE_TABCONTROL}  ${MAINPAGE_ORDER_TAB}
+
+Order Tab Is Selected
+	Selected Tab Page Should Be  ${MAINPAGE_TABCONTROL}  ${MAINPAGE_ORDER_TAB}
 
 Click On Summary Tab
-	Select Tab Page  ${MAINPAGE_TABCONTROL}  ${MAINPAGE_SUMMARY_TAB}
+	Select Tab Page By Title  ${MAINPAGE_TABCONTROL}  ${MAINPAGE_SUMMARY_TAB}
+
+Summary Tab Is Selected
+	Selected Tab Page Should Be  ${MAINPAGE_TABCONTROL}  ${MAINPAGE_SUMMARY_TAB}
 
 Click On Regular Customer Register Button
 	Click Button  ${MAINPAGE_ORDER_TAB_REGULAR_CUSTOMER_REGISTER_BUTTON}
