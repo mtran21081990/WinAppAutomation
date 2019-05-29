@@ -12,6 +12,11 @@ class TextBoxManagement(LibraryComponent):
         LibraryComponent.__init__(self, ctx)
         self.textbox_management = TextBoxKeywords(ctx)
 
+    @staticmethod
+    def get_textbox_from_ui_item(ui_item):
+        textbox = TextBox(ui_item.AutomationElement, None)
+        return textbox
+
     @keyword
     def get_textbox_text(self, locator):
         textbox = self._get_textbox(locator)

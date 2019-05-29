@@ -1,7 +1,8 @@
-import logging
+from datetime import datetime
 from ..base import LibraryComponent
 from WhiteLibrary.keywords.robotlibcore import keyword
 from TestStack.White.UIItems import DateTimePicker
+from System import DateTime
 
 __version__ = '1.0.1'
 
@@ -71,7 +72,12 @@ class DateTimePickerManagement(LibraryComponent):
     @keyword
     def set_datetime_picker(self, locator, date):
         datetime_picker = self._get_datetime_picker(locator)
-        datetime_picker.Value = date
+        datetime_picker.Date = DateTime.Parse(date)
+
+    @keyword
+    def get_datetime_picker_date(self, locator):
+        datetime_picker = self._get_datetime_picker(locator)
+        return datetime_picker.Date
 
     def _get_datetime_picker(self, locator):
         return self.ctx.get_typed_item_by_locator(DateTimePicker, locator)

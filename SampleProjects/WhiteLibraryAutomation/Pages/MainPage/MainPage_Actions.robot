@@ -171,9 +171,16 @@ Test On Summary Tab User Table
     Sleep  1s
     Double Click Listview Cell By Column Index  ${MAINPAGE_SUMMARY_TAB_TABLE}  0  1
 
-#Select Available Date Calendar
-#    ${date} =	Convert Date	2019-05-30
-#    Set Datetime Picker  ${MAINPAGE_ORDER_TAB_AVAILABLE_DATE_CALENDAR}  ${date}
+Select Person Datetime Picker
+    Click Button  text=Show Calendar
+    Sleep  1s
+    Set Datetime Picker  ${MAINPAGE_ORDER_TAB_PERSON_DATETIME_PICKER}  2019-05-30
+    Sleep  1s
+    Set Datetime Picker  ${MAINPAGE_ORDER_TAB_PERSON_DATETIME_PICKER}  2019-05-10
+    Sleep  1s
+    Set Datetime Picker  ${MAINPAGE_ORDER_TAB_PERSON_DATETIME_PICKER}  2019-05-12
+    Sleep  1s
+    Click Button  text=Show Calendar
 
 
 
