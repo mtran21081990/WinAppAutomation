@@ -17,6 +17,8 @@ class WhiteAppLibrary(WhiteLibrary):
 
         WhiteLibrary.__init__(self)
 
+        self.sikuli_manager = SikuliWrapper(self)
+        self.screenshot_manager = ScreenshotManagement(self)
         self.application_manager = ApplicationManagement(self)
         self.window_manager = WindowManagement(self)
         self.element_manager = ElementManagement(self)
@@ -24,13 +26,12 @@ class WhiteAppLibrary(WhiteLibrary):
         self.label_manager = LabelManagement(self)
         self.list_manager = ListManagement(self)
         self.menu_manager = MenuManagement(self)
-        self.sikuli_manager = SikuliWrapper(self)
-        self.screenshot_manager = ScreenshotManagement(self)
+        self.slider_manager = SliderManagement(self)
         self.utils = Utilities()
 
-        arr_libraries = [self.sikuli_manager, self.application_manager, self.window_manager, self.label_manager,
-                         self.element_manager, self.button_manager, self.screenshot_manager, self.list_manager,
-                         self.menu_manager]
+        arr_libraries = [self.sikuli_manager, self.screenshot_manager, self.application_manager, self.window_manager,
+                         self.element_manager, self.button_manager, self.label_manager, self.list_manager,
+                         self.menu_manager, self.slider_manager]
         self.libraries.append(arr_libraries)
         self.add_library_components(arr_libraries)
 

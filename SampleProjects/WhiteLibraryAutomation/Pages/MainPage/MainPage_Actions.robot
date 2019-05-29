@@ -128,5 +128,11 @@ Click On Summary Tab
 Click On Regular Customer Register Button
 	Click Button  ${MAINPAGE_ORDER_TAB_REGULAR_CUSTOMER_REGISTER_BUTTON}
 
+Set Rate Slider Value
+	[Arguments]  ${value}
+    Set Slider Value  ${MAINPAGE_ORDER_TAB_RATE_SLIDER}  ${value}
 
+Rate Slider Value Should Be
+	[Arguments]  ${value}
+    Verify Slider Value  ${MAINPAGE_ORDER_TAB_RATE_SLIDER}  ${value}
 

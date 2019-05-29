@@ -12,7 +12,9 @@ User Click On Main Page Next Button
 
 User Can Interact Controls On Main Page
     #Click On Regular Customer Register Button
-    Click Main Pape Menu
+#    Click Main Pape Menu
+    Set Rate Slider Value  3
+    Rate Slider Value Should Be  3
 #    Select Item In Drink List Box  Tea
 #    Drink List Box Selection Should Be  Tea
 #    Select Item In Drink List Box  Milk
