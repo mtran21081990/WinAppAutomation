@@ -164,6 +164,13 @@ Click Ok Button On Register Dialog
     Click Button  ${REGISTER_DIALOG_OK_BUTTON}
     Attach Window  ${MAINPAGE_TITLE}
 
+Test On Summary Tab User Table
+    Select Listview Row By Row Index  ${MAINPAGE_SUMMARY_TAB_TABLE}  1
+    Sleep  1s
+    Select Listview Row By Cell Text  ${MAINPAGE_SUMMARY_TAB_TABLE}  Name  Sammy Doe
+    Sleep  1s
+    Double Click Listview Cell By Column Index  ${MAINPAGE_SUMMARY_TAB_TABLE}  0  1
+
 #Select Available Date Calendar
 #    ${date} =	Convert Date	2019-05-30
 #    Set Datetime Picker  ${MAINPAGE_ORDER_TAB_AVAILABLE_DATE_CALENDAR}  ${date}

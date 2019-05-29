@@ -15,20 +15,20 @@ class ListManagement(LibraryComponent):
         self.list_management = ListKeywords(ctx)
 
     @keyword
-    def double_click_listview_cell(self, locator, column_name, row_index, x_offset=0, y_offset=0):
+    def double_click_listview_cell_by_column_name(self, locator, row_index, column_name, x_offset=0, y_offset=0):
         self.listview_management.double_click_listview_cell(locator, column_name, row_index, x_offset, y_offset)
 
     @keyword
-    def right_click_listview_cell(self, locator, column_name, row_index, x_offset=0, y_offset=0):
+    def right_click_listview_cell_by_column_name(self, locator, row_index, column_name, x_offset=0, y_offset=0):
         self.listview_management.right_click_listview_cell(locator, column_name, row_index, x_offset, y_offset)
 
     @keyword
-    def double_click_listview_cell_by_index(self, locator, row_index, column_index, x_offset=0, y_offset=0):
+    def double_click_listview_cell_by_column_index(self, locator, row_index, column_index, x_offset=0, y_offset=0):
         self.listview_management.double_click_listview_cell_by_index(locator, row_index, column_index, x_offset,
                                                                      y_offset)
 
     @keyword
-    def right_click_listview_cell_by_index(self, locator, row_index, column_index, x_offset=0, y_offset=0):
+    def right_click_listview_cell_by_column_index(self, locator, row_index, column_index, x_offset=0, y_offset=0):
         self.listview_management.right_click_listview_cell_by_index(locator, row_index, column_index, x_offset,
                                                                     y_offset)
 

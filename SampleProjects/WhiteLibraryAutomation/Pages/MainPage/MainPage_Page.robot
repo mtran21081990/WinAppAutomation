@@ -67,7 +67,8 @@ User Can Interact Controls On Main Page
 #    Click On Change Date Person Optional Request Checkbox
 #    Click On Change Seat View Optional Request Checkbox
 #    Click On Change Dessert Optional Request Checkbox
-#    Click On Summary Tab
+    Click On Summary Tab
+    Test On Summary Tab User Table
 #    Summary Tab Is Selected
 #    Click On Order Tab
 #    Order Tab Is Selected
