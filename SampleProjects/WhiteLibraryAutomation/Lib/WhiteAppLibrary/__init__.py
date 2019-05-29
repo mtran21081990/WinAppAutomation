@@ -27,11 +27,12 @@ class WhiteAppLibrary(WhiteLibrary):
         self.list_manager = ListManagement(self)
         self.menu_manager = MenuManagement(self)
         self.slider_manager = SliderManagement(self)
+        self.spinner_manager = SpinnerManagement(self)
         self.utils = Utilities()
 
         arr_libraries = [self.sikuli_manager, self.screenshot_manager, self.application_manager, self.window_manager,
                          self.element_manager, self.button_manager, self.label_manager, self.list_manager,
-                         self.menu_manager, self.slider_manager]
+                         self.menu_manager, self.slider_manager, self.spinner_manager]
         self.libraries.append(arr_libraries)
         self.add_library_components(arr_libraries)
 

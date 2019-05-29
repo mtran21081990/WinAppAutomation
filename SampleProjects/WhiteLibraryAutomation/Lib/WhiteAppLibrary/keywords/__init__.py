@@ -8,3 +8,4 @@ from .label import LabelManagement
 from .list import ListManagement
 from .menu import MenuManagement
 from .slider import SliderManagement
+from .spinner import SpinnerManagement
