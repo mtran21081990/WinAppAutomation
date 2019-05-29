@@ -29,11 +29,13 @@ class WhiteAppLibrary(WhiteLibrary):
         self.slider_manager = SliderManagement(self)
         self.spinner_manager = SpinnerManagement(self)
         self.tree_manager = TreeManagement(self)
+        self.datetime_picker_manager = DateTimePickerManagement(self)
         self.utils = Utilities()
 
         arr_libraries = [self.sikuli_manager, self.screenshot_manager, self.application_manager, self.window_manager,
                          self.element_manager, self.button_manager, self.label_manager, self.list_manager,
-                         self.menu_manager, self.slider_manager, self.spinner_manager, self.tree_manager]
+                         self.menu_manager, self.slider_manager, self.spinner_manager, self.tree_manager,
+                         self.datetime_picker_manager]
         self.libraries.append(arr_libraries)
         self.add_library_components(arr_libraries)
 
@@ -60,6 +62,9 @@ class WhiteAppLibrary(WhiteLibrary):
 
     def get_typed_item_by_locator(self, item_type, locator):
         return self._get_typed_item_by_locator(item_type, locator)
+
+    def get_item_by_locator(self, locator):
+        return self._get_item_by_locator(locator)
 
     def get_search_criteria(self, locator):
         return self._get_search_criteria(locator)

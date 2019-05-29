@@ -1,5 +1,6 @@
 *** Settings ***
 Resource  MainPage_Variables.robot
+Library  DateTime
 
 *** Keywords ***
 
@@ -135,4 +136,9 @@ Set Rate Slider Value
 Rate Slider Value Should Be
 	[Arguments]  ${value}
     Verify Slider Value  ${MAINPAGE_ORDER_TAB_RATE_SLIDER}  ${value}
+
+#Select Available Date Calendar
+#    ${date} =	Convert Date	2019-05-30
+#    Set Datetime Picker  ${MAINPAGE_ORDER_TAB_AVAILABLE_DATE_CALENDAR}  ${date}
+
 

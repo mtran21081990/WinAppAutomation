@@ -10,3 +10,4 @@ from .menu import MenuManagement
 from .slider import SliderManagement
 from .spinner import SpinnerManagement
 from .tree import TreeManagement
+from .datetimepicker import DateTimePickerManagement
