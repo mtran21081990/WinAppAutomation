@@ -143,8 +143,30 @@ Rate Slider Value Should Be
 	[Arguments]  ${value}
     Verify Slider Value  ${MAINPAGE_ORDER_TAB_RATE_SLIDER}  ${value}
 
+Switch to Register Dialog
+    Attach Window  ${REGISTER_DIALOG_TITLE}
+
+Input Text Into Register Dialog Name Textbox
+	[Arguments]  ${value}
+    Input Text To Textbox  ${REGISTER_DIALOG_NAME_TEXTBOX}  ${value}
+
+Clear Value In Name Textbox
+    Clear Textbox  ${REGISTER_DIALOG_NAME_TEXTBOX}
+
+Input Text Into Register Dialog Birthday Textbox
+	[Arguments]  ${value}
+    Input Text To Textbox  ${REGISTER_DIALOG_BIRTHDAY_TEXTBOX}  ${value}
+
+Clear Value In Birthday Textbox
+    Clear Textbox  ${REGISTER_DIALOG_BIRTHDAY_TEXTBOX}
+
+Click Ok Button On Register Dialog
+    Click Button  ${REGISTER_DIALOG_OK_BUTTON}
+    Attach Window  ${MAINPAGE_TITLE}
+
 #Select Available Date Calendar
 #    ${date} =	Convert Date	2019-05-30
 #    Set Datetime Picker  ${MAINPAGE_ORDER_TAB_AVAILABLE_DATE_CALENDAR}  ${date}
+
 
 

@@ -31,12 +31,13 @@ class WhiteAppLibrary(WhiteLibrary):
         self.tree_manager = TreeManagement(self)
         self.datetime_picker_manager = DateTimePickerManagement(self)
         self.tab_manager = TabManagement(self)
+        self.textbox_manager = TextBoxManagement(self)
         self.utils = Utilities()
 
         arr_libraries = [self.sikuli_manager, self.screenshot_manager, self.application_manager, self.window_manager,
                          self.element_manager, self.button_manager, self.label_manager, self.list_manager,
                          self.menu_manager, self.slider_manager, self.spinner_manager, self.tree_manager,
-                         self.datetime_picker_manager, self.tab_manager]
+                         self.datetime_picker_manager, self.tab_manager, self.textbox_manager]
         self.libraries.append(arr_libraries)
         self.add_library_components(arr_libraries)
 

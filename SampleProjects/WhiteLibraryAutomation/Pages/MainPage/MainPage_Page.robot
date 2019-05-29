@@ -11,7 +11,13 @@ User Click On Main Page Next Button
 	Click Main Pape Next Button
 
 User Can Interact Controls On Main Page
-    #Click On Regular Customer Register Button
+#    Click On Regular Customer Register Button
+#    Switch to Register Dialog
+#    Input Text Into Register Dialog Name Textbox  name
+#    Input Text Into Register Dialog Birthday Textbox  birthday
+#    Clear Value In Name Textbox
+#    Clear Value In Birthday Textbox
+#    Click Ok Button On Register Dialog
 #    Click Main Pape Menu
 #    Set Rate Slider Value  3
 #    Rate Slider Value Should Be  3
@@ -61,7 +67,7 @@ User Can Interact Controls On Main Page
 #    Click On Change Date Person Optional Request Checkbox
 #    Click On Change Seat View Optional Request Checkbox
 #    Click On Change Dessert Optional Request Checkbox
-    Click On Summary Tab
-    Summary Tab Is Selected
-    Click On Order Tab
-    Order Tab Is Selected
+#    Click On Summary Tab
+#    Summary Tab Is Selected
+#    Click On Order Tab
+#    Order Tab Is Selected
