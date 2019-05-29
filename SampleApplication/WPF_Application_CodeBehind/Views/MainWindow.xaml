@@ -146,13 +146,16 @@
                         </StackPanel>
 
                         <StackPanel Grid.Row="2" Grid.Column="1">
-                            <TextBlock FontWeight="Bold" HorizontalAlignment="Left" Margin="0 0 0 5">Choose Your Date</TextBlock>
+                            <TextBlock FontWeight="Bold" HorizontalAlignment="Left" Margin="0 0 0 5">Choose Your Date Person</TextBlock>
                             <ComboBox Name="DatePersonCombobox" HorizontalAlignment="Stretch" >
                                 <ComboBoxItem Content="Brad Pitt"/>
                                 <ComboBoxItem Content="Angelina Jolie"/>
                                 <ComboBoxItem Content="Tom Cruise"/>
                                 <ComboBoxItem Content="Jennifer Aniston"/>
                             </ComboBox>
+                            <TextBlock FontWeight="Bold" HorizontalAlignment="Left" Margin="0 5 0 5">Choose Your Date</TextBlock>
+                            <DatePicker Name="PersonDatePicker" />
+                            <TextBlock FontWeight="Bold" HorizontalAlignment="Left" Margin="0 5 0 5" ToolTip="Click here and something will happen!" >Hover for tooltip</TextBlock>
                         </StackPanel>
 
                         <StackPanel Grid.Row="2" Grid.Column="2">
