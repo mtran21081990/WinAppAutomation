@@ -20,15 +20,15 @@ Select Item In Drink List Box
 
 Drink List Box Selection Should Be
 	[Arguments]  ${value}
-    ListBox Selection Should Be  ${MAINPAGE_ORDER_TAB_DRINK_LISTBOX}  ${value}
+    ListBox Selection Should Be  ${MAINPAGE_ORDER_TAB_DRINK_LISTBOX}  @{value}
 
 Select Item In Dishes List Box
 	[Arguments]  ${value}
     Select ListBox Value  ${MAINPAGE_ORDER_TAB_DISHES_LISTBOX}  ${value}
 
 Dishes List Box Selection Should Be
-	[Arguments]  ${value}
-    ListBox Selection Should Be  ${MAINPAGE_ORDER_TAB_DISHES_LISTBOX}  ${value}
+	[Arguments]  @{value}
+    ListBox Selection Should Be  ${MAINPAGE_ORDER_TAB_DISHES_LISTBOX}  @{value}
 
 Toggle On Top Seat View Toggle Button
 	Toggle Button  ${MAINPAGE_ORDER_TAB_TOP_SEAT_VIEW_TOGGLEBUTTON}

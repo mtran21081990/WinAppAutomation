@@ -1,4 +1,5 @@
 from ..base import LibraryComponent
+import logging
 from WhiteLibrary.keywords.robotlibcore import keyword
 from WhiteLibrary.keywords.items import ListViewKeywords, ListKeywords
 from WhiteLibrary.utils.click import Clicks
@@ -130,11 +131,15 @@ class ListManagement(LibraryComponent):
         self.listview_management.select_listview_row_by_index(locator, row_index)
 
     @keyword
-    def get_listbox_single_selection(self, locator):
-        return self._get_listbox(locator).SelectedItemText
+    def get_listbox_item(self, locator):
+        arr = self._get_listbox(locator).Items
+        arr_text = []
+        for itm in arr:
+            arr_text.append(itm.Text)
+        return arr_text
 
     @keyword
-    def get_listbox_multiple_selection(self, locator):
+    def get_listbox_selection(self, locator):
         arr = self._get_listbox(locator).Items
         list_selected = []
         for itm in arr:
@@ -152,15 +157,91 @@ class ListManagement(LibraryComponent):
 
     @keyword
     def listbox_selection_should_be(self, locator, expected):
-        self.list_management.listbox_selection_should_be(locator, expected)
+        arr = self.get_listbox_selection(locator)
+        if type(expected) is list:
+            if len(expected) != len(arr):
+                err = "ListBox '{}' Selection is '{}', not as expected: '{}'".format(locator, arr, expected)
+                raise AssertionError(err)
+            for expected_item in expected:
+                if expected_item not in arr:
+                    err = "ListBox '{}' Selection is '{}', not as expected: '{}'".format(locator, arr, expected)
+                    raise AssertionError(err)
+        else:
+            if expected not in arr:
+                err = "ListBox '{}' Selection is '{}', not as expected: '{}'".format(locator, arr, expected)
+                raise AssertionError(err)
+
+    @keyword
+    def listbox_selection_should_contain(self, locator, expected):
+        arr = self.get_listbox_selection(locator)
+        if type(expected) is list:
+            temp = []
+            for expected_item in expected:
+                if expected_item not in arr:
+                    temp.append(expected_item)
+            if len(temp) > 0:
+                raise AssertionError("ListBox '{}' Selection '{}' should contain '{}'".format(locator, arr, temp))
+        else:
+            if expected not in arr:
+                raise AssertionError("ListBox '{}' Selection '{}' should contain '{}'".format(locator, arr, expected))
+
+    @keyword
+    def listbox_selection_should_not_contain(self, locator, expected):
+        arr = self.get_listbox_selection(locator)
+        if type(expected) is list:
+            temp = []
+            for expected_item in expected:
+                if expected_item in arr:
+                    temp.append(expected_item)
+            if len(temp) > 0:
+                raise AssertionError("ListBox '{}' Selection '{}' should not contain '{}'".format(locator, arr, temp))
+        else:
+            if expected in arr:
+                raise AssertionError("ListBox '{}' Selection '{}' should not contain '{}'".format(locator, arr, expected))
+
+    @keyword
+    def listbox_items_should_be(self, locator, expected):
+        arr = self.get_listbox_item(locator)
+        if type(expected) is list:
+            if len(expected) != len(arr):
+                err = "ListBox '{}' Items are '{}', not as expected: '{}'".format(locator, arr, expected)
+                raise AssertionError(err)
+            for expected_item in expected:
+                if expected_item not in arr:
+                    err = "ListBox '{}' Items are '{}', not as expected: '{}'".format(locator, arr, expected)
+                    raise AssertionError(err)
+        else:
+            if expected not in arr:
+                err = "ListBox '{}' Items are '{}', not as expected: '{}'".format(locator, arr, expected)
+                raise AssertionError(err)
 
     @keyword
     def listbox_should_contain(self, locator, expected):
-        self.list_management.listbox_should_contain(locator, expected)
+        arr = self.get_listbox_item(locator)
+        if type(expected) is list:
+            temp = []
+            for expected_item in expected:
+                if expected_item not in arr:
+                    temp.append(expected_item)
+            if len(temp) > 0:
+                raise AssertionError("ListBox '{}' Item '{}' should contain '{}'".format(locator, arr, temp))
+        else:
+            if expected not in arr:
+                raise AssertionError("ListBox '{}' Item '{}' should contain '{}'".format(locator, arr, expected))
 
     @keyword
     def listbox_should_not_contain(self, locator, expected):
-        self.list_management.listbox_should_not_contain(locator, expected)
+        arr = self.get_listbox_item(locator)
+        if type(expected) is list:
+            temp = []
+            for expected_item in expected:
+                if expected_item in arr:
+                    temp.append(expected_item)
+            if len(temp) > 0:
+                raise AssertionError("ListBox '{}' Item '{}' should not contain '{}'".format(locator, arr, temp))
+        else:
+            if expected in arr:
+                raise AssertionError("ListBox '{}' Item '{}' should not contain '{}'".format(locator, arr, expected))
 
     @keyword
     def select_combobox_value(self, locator, value):

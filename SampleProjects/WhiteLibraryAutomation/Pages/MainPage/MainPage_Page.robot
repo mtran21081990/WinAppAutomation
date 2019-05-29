@@ -19,11 +19,11 @@ User Can Interact Controls On Main Page
     Select Item In Drink List Box  Coffee
     Drink List Box Selection Should Be  Coffee
     Select Item In Dishes List Box  Pizza
-    @{list}  Create List  Pizza
-    Dishes List Box Selection Should Be  @{list}
+    ${list}=  Create List  Pizza
+    Dishes List Box Selection Should Be  ${list}
     Select Item In Dishes List Box  Hamburger
-    @{list}  Create List  Pizza  Hamburger
-    Dishes List Box Selection Should Be  @{list}
+    ${list2}=  Create List  Pizza  Hamburger
+    Dishes List Box Selection Should Be  ${list2}
     Toggle On Top Seat View Toggle Button
     Top Seat View Toggle Button State Is On
     Toggle On Bottom Seat View Toggle Button
