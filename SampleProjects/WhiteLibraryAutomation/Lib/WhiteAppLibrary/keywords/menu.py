@@ -75,8 +75,49 @@ class MenuManagement(LibraryComponent):
         self.menu_management.click_item_in_popup_menu(*text_path)
 
     @keyword
+    def get_popup_menu_name(self):
+        popup_menu = self._get_popup_menu()
+        return popup_menu.Name
+
+    @keyword
+    def get_popup_menu_help_text(self):
+        popup_menu = self._get_popup_menu()
+        return popup_menu.HelpText
+
+    @keyword
+    def get_popup_menu_access_key(self):
+        popup_menu = self._get_popup_menu()
+        return popup_menu.AccessKey
+
+    @keyword
+    def get_popup_menu_location(self):
+        popup_menu = self._get_popup_menu()
+        return popup_menu.Location
+
+    @keyword
+    def get_popup_menu_bound(self):
+        popup_menu = self._get_popup_menu()
+        return popup_menu.Bounds
+
+    @keyword
+    def get_popup_menu_image(self):
+        popup_menu = self._get_popup_menu()
+        return popup_menu.VisibleImage
+
+    @keyword
+    def is_popup_menu_visible(self):
+        popup_menu = self._get_popup_menu()
+        return popup_menu.Visible
+
+    @keyword
     def click_item_in_popup_menu(self, *text_path):
         self.menu_management.click_item_in_popup_menu(*text_path)
+
+    def _get_popup_menu(self):
+        popup_menu = self.ctx.window.Popup
+        if popup_menu is None:
+            raise AssertionError("There is no Popup Menu")
+        return popup_menu
 
     def _get_menu(self, locator):
         return self.ctx.get_typed_item_by_locator(Menu, locator)
