@@ -1,5 +1,4 @@
 from builtins import staticmethod
-import logging
 from ..base import LibraryComponent
 from ..utils import Utilities
 from WhiteLibrary.keywords.robotlibcore import keyword

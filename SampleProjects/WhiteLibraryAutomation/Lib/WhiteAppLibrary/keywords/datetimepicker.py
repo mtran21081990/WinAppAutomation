@@ -1,4 +1,3 @@
-from datetime import datetime
 from ..base import LibraryComponent
 from WhiteLibrary.keywords.robotlibcore import keyword
 from TestStack.White.UIItems import DateTimePicker

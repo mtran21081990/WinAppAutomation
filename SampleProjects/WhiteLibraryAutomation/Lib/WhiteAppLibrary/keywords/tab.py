@@ -1,7 +1,6 @@
 from ..base import LibraryComponent
 from WhiteLibrary.keywords.robotlibcore import keyword
 from WhiteLibrary.keywords.items import TabKeywords
-from WhiteLibrary.utils.click import Clicks
 from TestStack.White.UIItems.TabItems import Tab
 
 __version__ = '1.0.1'

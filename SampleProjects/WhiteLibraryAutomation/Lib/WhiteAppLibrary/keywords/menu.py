@@ -1,7 +1,6 @@
 from ..base import LibraryComponent
 from WhiteLibrary.keywords.robotlibcore import keyword
 from WhiteLibrary.keywords.items import MenuKeywords
-from WhiteLibrary.utils.click import Clicks
 from TestStack.White.UIItems.MenuItems import Menu
 
 __version__ = '1.0.1'

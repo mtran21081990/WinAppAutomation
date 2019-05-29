@@ -1,8 +1,6 @@
-from robot.utils import is_truthy
 from WhiteLibrary import WhiteLibrary
 from .keywords import *
 from .utils import *
-
 import sys
 
 __version__ = '1.0.0'

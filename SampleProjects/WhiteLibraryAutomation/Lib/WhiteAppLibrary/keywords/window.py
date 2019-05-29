@@ -1,5 +1,4 @@
 from ..base import LibraryComponent
-import logging
 from WhiteLibrary.keywords.robotlibcore import keyword
 from WhiteLibrary.keywords import WindowKeywords
 

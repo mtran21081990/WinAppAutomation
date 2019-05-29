@@ -11,7 +11,8 @@ User Click On Main Page Next Button
 	Click Main Pape Next Button
 
 User Can Interact Controls On Main Page
-    Select Person Datetime Picker
+#    Select Person Datetime Picker
+    Select Available Calendar
 #    Click On Regular Customer Register Button
 #    Switch to Register Dialog
 #    Input Text Into Register Dialog Name Textbox  name
