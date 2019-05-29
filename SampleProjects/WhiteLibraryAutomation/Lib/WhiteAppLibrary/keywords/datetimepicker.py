@@ -65,7 +65,7 @@ class DateTimePickerManagement(LibraryComponent):
     def focus_on_datetime_picker(self, locator):
         datetime_picker = self._get_datetime_picker(locator)
         if not datetime_picker.Enabled:
-            raise AssertionError("Tree '{}' is not enabled to be focused.".format(locator))
+            raise AssertionError("Datetime Picker '{}' is not enabled to be focused.".format(locator))
         datetime_picker.Focus()
 
     @keyword
