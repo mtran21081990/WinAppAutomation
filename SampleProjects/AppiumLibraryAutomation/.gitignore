@@ -1,7 +1,7 @@
 Results/
+Results*/
 *.pyc
 .idea/
 debug.log
 venv/
-
 __pycache__

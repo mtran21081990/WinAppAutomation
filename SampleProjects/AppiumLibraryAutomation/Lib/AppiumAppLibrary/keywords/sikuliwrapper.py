@@ -4,7 +4,7 @@ from AppiumLibrary.keywords.keywordgroup import KeywordGroup
 __version__ = '1.0.0'
 
 
-class SikuliWrapperKeywords(KeywordGroup):
+class SikuliWrapper(KeywordGroup):
 
     def __init__(self):
         self.sikuli = SikuliLibrary(mode='NEW')
