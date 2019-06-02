@@ -1,17 +1,19 @@
 from AppiumLibrary import AppiumLibrary
+from selenium.webdriver.common.action_chains import ActionChains
 from .keywords import *
 from .utils import *
+import logging
 import sys
 
 __version__ = '1.0.0'
 
 
-class AppiumAppLibrary(AppiumLibrary, SikuliWrapper, ApplicationManagement, WindowManagement, ElementManagement):
+class AppiumAppLibrary(AppiumLibrary, SikuliWrapper, ApplicationManagement, WindowManagement, ButtonManagement):
 
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
     ROBOT_LIBRARY_VERSION = __version__
 
-    def __init__(self, timeout=30.0, implicit_wait=0.0):
+    def __init__(self, timeout=60.0, implicit_wait=0.0):
 
         self.utils = Utilities()
         self.timeout = timestr_to_secs(timeout)
@@ -22,7 +24,7 @@ class AppiumAppLibrary(AppiumLibrary, SikuliWrapper, ApplicationManagement, Wind
         SikuliWrapper.__init__(self)
         ApplicationManagement.__init__(self)
         WindowManagement.__init__(self)
-        ElementManagement.__init__(self)
+        ButtonManagement.__init__(self)
 
         ####################################################################################
         # Make sure pydevd installed: pip install pydevd
@@ -32,12 +34,55 @@ class AppiumAppLibrary(AppiumLibrary, SikuliWrapper, ApplicationManagement, Wind
         # pydevd.settrace('localhost', port=12345, stdoutToServer=True, stderrToServer=True)
         ####################################################################################
 
-    def switch_to_new_window(self, new_window_locator, new_window_alias):
-        self.switch_application("Root")
-        new_window = self._element_find(new_window_locator, True, True)
-        new_window_handle = new_window.get_attribute("NativeWindowHandle")
-        hex_handle = hex(int(new_window_handle))
-        kwargs = {"platformName": "Windows", "deviceName": "tbd", "appTopLevelWindow": hex_handle}
-        self.open_application(self.appium_url, new_window_alias, **kwargs)
+    def _get_element_with_type(self, locator, control_type):
+        eles = self._element_find(locator, False, True)
+        ele_len = len(eles)
+        if ele_len == 0:
+            raise AssertionError("Element '%s' could not be found" % locator)
+        elif ele_len > 1:
+            arr = []
+            for ele in eles:
+                if str(ele.get_attribute("ClassName")).lower() == str(control_type).lower():
+                    arr.append(ele)
+            logging.warning("CAUTION: Locator '{}' matched {} elements with type '{}'. Use the first element.".format(
+                locator, ele_len, control_type))
+            return arr[0]
+        else:
+            ele_type = eles[0].get_attribute("ClassName")
+            if str(ele_type).lower() != str(control_type).lower():
+                raise AssertionError("Element '{}' is not a {}. Its type is {}".format(locator, control_type, ele_type))
+            return eles[0]
 
+    def _get_element_attribute(self, locator, control_type, attribute):
+        ele = self._get_element_with_type(locator, control_type)
+        try:
+            attr_val = ele.get_attribute(attribute)
+            self._info("Element '%s' attribute '%s' value '%s' " % (locator, attribute, attr_val))
+            return attr_val
+        except Exception:
+            raise AssertionError("Attribute '%s' is not valid for element '%s'" % (attribute, locator))
 
+    def _double_click(self, ele):
+        actions = ActionChains(self._current_application())
+        actions.double_click(ele)
+        actions.perform()
+
+    def _right_click(self, ele):
+        actions = ActionChains(self._current_application())
+        actions.context_click(ele)
+        actions.perform()
+
+    def _drag_and_drop(self, source_element, target_element):
+        actions = ActionChains(self._current_application())
+        actions.drag_and_drop(source_element, target_element)
+        actions.perform()
+
+    def _drag_and_drop_by_offset(self, source_element, x_offset, y_offset):
+        actions = ActionChains(self._current_application())
+        actions.drag_and_drop_by_offset(source_element, x_offset, y_offset)
+        actions.perform()
+
+    def _send_keys(self, source_element, value):
+        actions = ActionChains(self._current_application())
+        actions.send_keys_to_element(source_element, value)
+        actions.perform()
