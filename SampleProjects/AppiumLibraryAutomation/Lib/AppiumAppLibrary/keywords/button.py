@@ -1,27 +1,24 @@
 from AppiumLibrary.keywords.keywordgroup import KeywordGroup
-import logging
-__version__ = '1.0.0'
+
+__TYPE__ = "Button"
 
 
 class ButtonManagement(KeywordGroup):
 
-	def __init__(self):
-		self.type = "Button"
-
 	def get_button_text(self, locator):
-		return self._get_element_attribute(locator, self.type, "Name")
+		return self._get_element_attribute(locator, __TYPE__, "Name")
 
 	def get_button_helptext(self, locator):
-		return self._get_element_attribute(locator, self.type, "HelpText")
+		return self._get_element_attribute(locator, __TYPE__, "HelpText")
 
 	def is_button_enabled(self, locator):
-		is_enabled = self._get_element_attribute(locator, self.type, "IsEnabled")
+		is_enabled = self._get_element_attribute(locator, __TYPE__, "IsEnabled")
 		if str(is_enabled).lower() != "true":
 			return False
 		return True
 
 	def is_button_visible(self, locator):
-		is_enabled = self._get_element_attribute(locator, self.type, "IsOffscreen")
+		is_enabled = self._get_element_attribute(locator, __TYPE__, "IsOffscreen")
 		if str(is_enabled).lower() != "false":
 			return False
 		return True
@@ -49,20 +46,20 @@ class ButtonManagement(KeywordGroup):
 
 	def click_on_button(self, locator):
 		try:
-			self._get_element_with_type(locator, self.type).click()
+			self._get_element_with_type(locator, __TYPE__).click()
 		except Exception:
 			raise AssertionError("Cannot click on Button '{}'.".format(locator))
 
 	def double_click_button(self, locator):
 		try:
-			ele = self._get_element_with_type(locator, self.type)
+			ele = self._get_element_with_type(locator, __TYPE__)
 			self._double_click(ele)
 		except Exception:
 			raise AssertionError("Cannot double click on Button '{}'.".format(locator))
 
 	def right_click_button(self, locator):
 		try:
-			ele = self._get_element_with_type(locator, self.type)
+			ele = self._get_element_with_type(locator, __TYPE__)
 			self._right_click(ele)
 		except Exception:
 			raise AssertionError("Cannot right click on Button '{}'.".format(locator))

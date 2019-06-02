@@ -1,30 +1,27 @@
 from AppiumLibrary.keywords.keywordgroup import KeywordGroup
 
-__version__ = '1.0.0'
+__TYPE__ = "Window"
 
 
 class WindowManagement(KeywordGroup):
 
-	def __init__(self):
-		self.type = "Window"
-
 	def get_window_title(self, locator):
-		return self._get_element_attribute(locator, self.type, "Name")
+		return self._get_element_attribute(locator, __TYPE__, "Name")
 
 	def get_window_handle(self, locator):
-		return self._get_element_attribute(locator, self.type, "NativeWindowHandle")
+		return self._get_element_attribute(locator, __TYPE__, "NativeWindowHandle")
 
 	def get_window_helptext(self, locator):
-		return self._get_element_attribute(locator, self.type, "HelpText")
+		return self._get_element_attribute(locator, __TYPE__, "HelpText")
 
 	def is_window_enabled(self, locator):
-		is_enabled = self._get_element_attribute(locator, self.type, "IsEnabled")
+		is_enabled = self._get_element_attribute(locator, __TYPE__, "IsEnabled")
 		if str(is_enabled).lower() != "true":
 			return False
 		return True
 
 	def is_window_visible(self, locator):
-		is_enabled = self._get_element_attribute(locator, self.type, "IsOffscreen")
+		is_enabled = self._get_element_attribute(locator, __TYPE__, "IsOffscreen")
 		if str(is_enabled).lower() != "false":
 			return False
 		return True

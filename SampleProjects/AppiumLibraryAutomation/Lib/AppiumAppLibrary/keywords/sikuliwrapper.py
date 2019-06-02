@@ -1,8 +1,6 @@
 from SikuliLibrary import SikuliLibrary
 from AppiumLibrary.keywords.keywordgroup import KeywordGroup
 
-__version__ = '1.0.0'
-
 
 class SikuliWrapper(KeywordGroup):
 

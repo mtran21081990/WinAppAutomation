@@ -1,7 +1,5 @@
 from AppiumLibrary.keywords.keywordgroup import KeywordGroup
 
-__version__ = '1.0.0'
-
 _APPLICATION_APPIUM_URL_KEY = "APPIUM_URL"
 _APPLICATION_PATH_KEY = "PATH"
 
