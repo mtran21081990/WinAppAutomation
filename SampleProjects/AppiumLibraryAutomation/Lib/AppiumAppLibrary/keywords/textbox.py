@@ -6,11 +6,16 @@ __TYPE__ = "TextBox"
 class TextboxManagement(KeywordGroup):
 
 	def get_textbox_text(self, locator):
-		ele = self._get_element_with_type(locator, __TYPE__)
-		return ele.text
+		return self._get_element_with_type(locator, __TYPE__).text
 
 	def get_textbox_helptext(self, locator):
 		return self._get_element_attribute(locator, __TYPE__, "HelpText")
+
+	def get_textbox_location(self, locator):
+		return self._get_element_with_type(locator, __TYPE__).location
+
+	def get_textbox_size(self, locator):
+		return self._get_element_with_type(locator, __TYPE__).size
 
 	def is_textbox_enabled(self, locator):
 		is_enabled = self._get_element_attribute(locator, __TYPE__, "IsEnabled")
