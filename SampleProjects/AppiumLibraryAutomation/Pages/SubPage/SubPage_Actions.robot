@@ -17,35 +17,35 @@ Sub Page Content Should Appears
 
 Input Text Into Sub Page Text Box 1
 	[Arguments]  ${value}
-	Input Text  ${SUBPAGE_TEXTBOX1_ID}  ${value}
+	Input Into Textbox  ${SUBPAGE_TEXTBOX1_ID}  ${value}
 
 Input Text Into Sub Page Text Box 2
 	[Arguments]  ${value}
-	Input Text  ${SUBPAGE_TEXTBOX2_ID}  ${value}
+	Input Into Textbox  ${SUBPAGE_TEXTBOX2_ID}  ${value}
 
 Input Text Into Sub Page Text Box 3
 	[Arguments]  ${value}
-	Input Text  ${SUBPAGE_TEXTBOX3_ID}  ${value}
+	Input Into Textbox  ${SUBPAGE_TEXTBOX3_ID}  ${value}
 
 Input Text Into Sub Page Text Box 4
 	[Arguments]  ${value}
-	Input Text  ${SUBPAGE_TEXTBOX4_ID}  ${value}
+	Input Into Textbox  ${SUBPAGE_TEXTBOX4_ID}  ${value}
 
 Sub Page Text Box 1 Value Must Be
 	[Arguments]  ${value}
-	Element Text Should Be  ${SUBPAGE_TEXTBOX1_ID}  ${value}
+	Textbox Text Should Equal To  ${SUBPAGE_TEXTBOX1_ID}  ${value}
 
 Sub Page Text Box 2 Value Must Be
 	[Arguments]  ${value}
-	Element Text Should Be  ${SUBPAGE_TEXTBOX2_ID}  ${value}
+	Textbox Text Should Equal To  ${SUBPAGE_TEXTBOX2_ID}  ${value}
 
 Sub Page Text Box 3 Value Must Be
 	[Arguments]  ${value}
-	Element Text Should Be  ${SUBPAGE_TEXTBOX3_ID}  ${value}
+	Textbox Text Should Equal To  ${SUBPAGE_TEXTBOX3_ID}  ${value}
 
 Sub Page Text Box 4 Value Must Be
 	[Arguments]  ${value}
-	Element Text Should Be  ${SUBPAGE_TEXTBOX4_ID}  ${value}
+	Textbox Text Should Equal To  ${SUBPAGE_TEXTBOX4_ID}  ${value}
 
 
 

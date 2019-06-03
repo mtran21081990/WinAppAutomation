@@ -12,22 +12,22 @@ Main Page Content Should Appears
 	Element Text Should Be  ${MAINPAGE_HEADER_ID}   ${MAINPAGE_HEADER_TEXT}
 
 Click Main Pape Next Button
-	Click Element  ${MAINPAGE_NEXT_ID}
+	Click On Button  ${MAINPAGE_NEXT_ID}
 
 Click On Top Seat View Button
-	Click Element  ${MAINPAGE_ORDER_TAB_TOP_SEAT_VIEW_TOGGLEBUTTON}
+	Click On Button  ${MAINPAGE_ORDER_TAB_TOP_SEAT_VIEW_TOGGLEBUTTON}
 
 Click On Botton Seat View Button
-	Click Element  ${MAINPAGE_ORDER_TAB_BOTTOM_SEAT_VIEW_TOGGLEBUTTON}
+	Click On Button  ${MAINPAGE_ORDER_TAB_BOTTOM_SEAT_VIEW_TOGGLEBUTTON}
 
 Click On Left Seat View Button
-	Click Element  ${MAINPAGE_ORDER_TAB_LEFT_SEAT_VIEW_TOGGLEBUTTON}
+	Click On Button  ${MAINPAGE_ORDER_TAB_LEFT_SEAT_VIEW_TOGGLEBUTTON}
 
 Click On Right Seat View Button
-	Click Element  ${MAINPAGE_ORDER_TAB_RIGHT_SEAT_VIEW_TOGGLEBUTTON}
+	Click On Button  ${MAINPAGE_ORDER_TAB_RIGHT_SEAT_VIEW_TOGGLEBUTTON}
 
 Click On Center Seat View Button
-	Click Element  ${MAINPAGE_ORDER_TAB_CENTER_SEAT_VIEW_TOGGLEBUTTON}
+	Click On Button  ${MAINPAGE_ORDER_TAB_CENTER_SEAT_VIEW_TOGGLEBUTTON}
 
 Select Value In Date Person Combobox
 	[Arguments]  ${value}

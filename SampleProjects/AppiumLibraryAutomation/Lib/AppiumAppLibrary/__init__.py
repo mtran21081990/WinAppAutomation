@@ -8,7 +8,8 @@ import sys
 __version__ = '1.0.0'
 
 
-class AppiumAppLibrary(AppiumLibrary, SikuliWrapper, ApplicationManagement, WindowManagement, ButtonManagement):
+class AppiumAppLibrary(AppiumLibrary, SikuliWrapper, ApplicationManagement, WindowManagement, ButtonManagement,
+                       TextboxManagement):
 
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
     ROBOT_LIBRARY_VERSION = __version__
