@@ -12,7 +12,9 @@ SET Sec=%dt:~12,2%
 set stamp=%YYYY%-%MM%-%DD%_%HH%-%Min%-%Sec%
 
 IF EXIST "Results" RENAME "Results" "Results-%stamp%"
-    IF "%~1"=="" GOTO RUN_ALL
+
+IF "%~1"=="" GOTO RUN_ALL
+
 IF NOT "%~1"=="" GOTO RUN_TAG
 
 :RUN_ALL

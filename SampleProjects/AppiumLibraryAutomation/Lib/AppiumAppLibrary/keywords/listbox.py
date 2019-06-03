@@ -1,6 +1,7 @@
 from AppiumLibrary.keywords.keywordgroup import KeywordGroup
 
 __TYPE__ = "ListBox"
+__ITEM_TYPE__ = "ListBoxItem"
 
 
 class ListboxManagement(KeywordGroup):
@@ -46,6 +47,8 @@ class ListboxManagement(KeywordGroup):
 
 	def select_item_on_listbox(self, locator, item):
 		try:
-			self.element_click("name="+item)
+			x_locator = "//*[@ClassName='"+__TYPE__+"']["+self._change_locator_to_xpath(locator)+"]"
+			locator_item = x_locator + "/*[@ClassName='"+__ITEM_TYPE__+"'][@Name='"+item+"']"
+			self.click_element(locator_item)
 		except Exception:
 			raise AssertionError("Cannot select '{}' on Listbox '{}'.".format(item, locator))

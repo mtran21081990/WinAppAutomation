@@ -9,7 +9,8 @@ __version__ = '1.0.0'
 
 
 class AppiumAppLibrary(AppiumLibrary, SikuliWrapper, ApplicationManagement, WindowManagement, ButtonManagement,
-                       TextboxManagement, ComboboxManagement, RadioButtonManagement, CheckboxManagement):
+                       TextboxManagement, ComboboxManagement, RadioButtonManagement, CheckboxManagement,
+                       ListboxManagement):
 
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
     ROBOT_LIBRARY_VERSION = __version__
@@ -30,6 +31,7 @@ class AppiumAppLibrary(AppiumLibrary, SikuliWrapper, ApplicationManagement, Wind
         ComboboxManagement.__init__(self)
         RadioButtonManagement.__init__(self)
         CheckboxManagement.__init__(self)
+        ListboxManagement.__init__(self)
 
         ####################################################################################
         # Make sure pydevd installed: pip install pydevd
@@ -91,3 +93,20 @@ class AppiumAppLibrary(AppiumLibrary, SikuliWrapper, ApplicationManagement, Wind
         actions = ActionChains(self._current_application())
         actions.send_keys_to_element(source_element, value)
         actions.perform()
+
+    def _change_locator_to_xpath(self, locator):
+        if locator.startswith('//'):
+            return locator
+        else:
+            prefix = ""
+            criteria = ""
+            locator_parts = locator.partition('=')
+            if len(locator_parts[1]) > 0:
+                prefix = locator_parts[0].strip().lower()
+                criteria = "='" + locator_parts[2].strip() + "'"
+            switcher = {
+                "accessibility_id": "@AutomationId",
+                "name": "@Name",
+            }
+            x_locator = switcher.get(prefix) + criteria
+            return x_locator
