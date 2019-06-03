@@ -11,6 +11,17 @@ class ButtonManagement(KeywordGroup):
 	def get_button_helptext(self, locator):
 		return self._get_element_attribute(locator, __TYPE__, "HelpText")
 
+	def get_button_toggle_state(self, locator):
+		if self.is_button_toggleable:
+			return self._get_element_attribute(locator, __TYPE__, "Toggle.ToggleState")
+		return None
+
+	def is_button_toggleable(self, locator):
+		is_enabled = self._get_element_attribute(locator, __TYPE__, "IsTogglePatternAvailable")
+		if str(is_enabled).lower() != "true":
+			return False
+		return True
+
 	def is_button_enabled(self, locator):
 		is_enabled = self._get_element_attribute(locator, __TYPE__, "IsEnabled")
 		if str(is_enabled).lower() != "true":
@@ -43,6 +54,16 @@ class ButtonManagement(KeywordGroup):
 		actual = self.get_button_text(locator)
 		if str(text).lower() != actual.lower():
 			raise AssertionError("Button '{}' has Text: '{}'. Expected: '{}'.".format(locator, text, actual))
+
+	def button_should_be_toggled(self, locator):
+		state = self.get_button_toggle_state(locator)
+		if int(state) != 1:
+			raise AssertionError("Button '{}' is not toggled. Toggle State value: '{}'.".format(locator, state))
+
+	def button_should_not_be_toggled(self, locator):
+		state = self.get_button_toggle_state(locator)
+		if int(state) == 1:
+			raise AssertionError("Button '{}' should not be toggled. Toggle State value: '{}'.".format(locator, state))
 
 	def click_on_button(self, locator):
 		try:

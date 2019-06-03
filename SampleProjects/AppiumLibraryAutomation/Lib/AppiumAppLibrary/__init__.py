@@ -9,7 +9,7 @@ __version__ = '1.0.0'
 
 
 class AppiumAppLibrary(AppiumLibrary, SikuliWrapper, ApplicationManagement, WindowManagement, ButtonManagement,
-                       TextboxManagement):
+                       TextboxManagement, ComboboxManagement, RadioButtonManagement, CheckboxManagement):
 
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
     ROBOT_LIBRARY_VERSION = __version__
@@ -26,6 +26,10 @@ class AppiumAppLibrary(AppiumLibrary, SikuliWrapper, ApplicationManagement, Wind
         ApplicationManagement.__init__(self)
         WindowManagement.__init__(self)
         ButtonManagement.__init__(self)
+        TextboxManagement.__init__(self)
+        ComboboxManagement.__init__(self)
+        RadioButtonManagement.__init__(self)
+        CheckboxManagement.__init__(self)
 
         ####################################################################################
         # Make sure pydevd installed: pip install pydevd
