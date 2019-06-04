@@ -13,6 +13,10 @@ User Click On Main Page Next Button
 User Can Interact Controls On Main Page
     Select Drink ListBox Value  Tea
     Drink ListBox Value Is  Tea
+    Select Drink ListBox Value  Tea
+    Drink ListBox Value Is  Tea
+    Select Drink ListBox Value  Tea
+    Drink ListBox Value Is  Tea
 #    Click On Top Seat View Button
 #    Top Seat View Button Should Be Toggled
 #    Click On Botton Seat View Button
