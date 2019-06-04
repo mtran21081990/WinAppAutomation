@@ -93,12 +93,16 @@
                         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
                             <TextBlock HorizontalAlignment="Right" Margin="10 0 10 0" MaxWidth="100" FontWeight="Bold" TextWrapping="Wrap">Select One Drink</TextBlock>
                             <ListBox Name="DrinkListBox" VerticalAlignment="Top" SelectionMode="Single" MaxHeight="120" MinWidth="120">
-                                <ListBoxItem Content="Coffee"/>
+                                <ListBoxItem Content="Hot Coffee"/>
                                 <ListBoxItem Content="Tea"/>
                                 <ListBoxItem Content="Orange Juice"/>
                                 <ListBoxItem Content="Milk"/>
                                 <ListBoxItem Content="Iced Tea"/>
-                                <ListBoxItem Content="Mango Shake"/>
+                                <ListBoxItem Content="Banana Smoothy"/>
+                                <ListBoxItem Content="Pineapple Juice"/>
+                                <ListBoxItem Content="Apple Juice"/>
+                                <ListBoxItem Content="Milk Tea"/>
+                                <ListBoxItem Content="Ice Coffee"/>
                             </ListBox>
                         </StackPanel>
 
@@ -107,10 +111,14 @@
                             <ListBox Name="DishesListBox" VerticalAlignment="Top" SelectionMode="Multiple" Height="120" MinWidth="120">
                                 <ListBoxItem Content="Pizza"/>
                                 <ListBoxItem Content="Omelette"/>
-                                <ListBoxItem Content="Rice"/>
+                                <ListBoxItem Content="Fried Rice"/>
                                 <ListBoxItem Content="Spaghetti"/>
                                 <ListBoxItem Content="Triple Cheese Twists"/>
                                 <ListBoxItem Content="Hamburger"/>
+                                <ListBoxItem Content="Fried Chicken"/>
+                                <ListBoxItem Content="Beefsteak"/>
+                                <ListBoxItem Content="Cheese Sandwich"/>
+                                <ListBoxItem Content="Ham Sandwich"/>
                             </ListBox>
                         </StackPanel>
 
