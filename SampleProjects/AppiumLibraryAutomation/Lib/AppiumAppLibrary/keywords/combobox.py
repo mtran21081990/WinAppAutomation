@@ -1,4 +1,5 @@
 from AppiumLibrary.keywords.keywordgroup import KeywordGroup
+from selenium.webdriver.common.keys import Keys
 import time
 
 __TYPE__ = "ComboBox"
@@ -49,6 +50,8 @@ class ComboboxManagement(KeywordGroup):
 		try:
 			self._get_element_with_type(locator, __TYPE__).click()
 			time.sleep(1)
+			self._send_keys_on_element(Keys.END)
+			self._send_keys_on_element(Keys.HOME)
 			self.click_element("name="+value)
 		except Exception:
 			raise AssertionError("Cannot select value '{}' on ComboBox '{}'.".format(value, locator))

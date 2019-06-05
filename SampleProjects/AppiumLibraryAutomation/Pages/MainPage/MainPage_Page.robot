@@ -17,12 +17,12 @@ User Can Interact Controls On Main Page
 #    Drink ListBox Value Is  Hot Coffee
 #    Select Drink ListBox Value  Banana Smoothy
 #    Drink ListBox Value Is  Banana Smoothy
-    Select Dishes ListBox Value  Ham Sandwich
-    Dishes ListBox Value Is  Ham Sandwich
-    Select Dishes ListBox Value  Pizza
-    Dishes ListBox Value Is  Ham Sandwich, Pizza
-    Select Dishes ListBox Value  Hamburger
-    Dishes ListBox Value Is  Ham Sandwich, Pizza, Hamburger
+#    Select Dishes ListBox Value  Ham Sandwich
+#    Dishes ListBox Value Is  Ham Sandwich
+#    Select Dishes ListBox Value  Pizza
+#    Dishes ListBox Value Is  Ham Sandwich, Pizza
+#    Select Dishes ListBox Value  Hamburger
+#    Dishes ListBox Value Is  Ham Sandwich, Pizza, Hamburger
 #    Click On Top Seat View Button
 #    Top Seat View Button Should Be Toggled
 #    Click On Botton Seat View Button
@@ -33,8 +33,8 @@ User Can Interact Controls On Main Page
 #    Right Seat View Button Should Be Toggled
 #    Click On Center Seat View Button
 #    Center Seat View Button Should Be Toggled
-#    Select Value In Date Person Combobox  Tom Cruise
-#    Date Person Combobox Selection Should Be  Tom Cruise
+    Select Value In Date Person Combobox  Tom Cruise
+    Date Person Combobox Selection Should Be  Tom Cruise
 #    Click On Watermelon Dessert Radio Button
 #    Watermelon Dessert Radio Button Should Be Selected
 #    Click On Banana Dessert Radio Button

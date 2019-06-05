@@ -160,14 +160,16 @@
                                 <ComboBoxItem Content="Angelina Jolie"/>
                                 <ComboBoxItem Content="Tom Cruise"/>
                                 <ComboBoxItem Content="Jennifer Aniston"/>
-                                <ComboBoxItem Content="Brad Pitt"/>
-                                <ComboBoxItem Content="Angelina Jolie"/>
-                                <ComboBoxItem Content="Tom Cruise"/>
-                                <ComboBoxItem Content="Jennifer Aniston"/>
-                                <ComboBoxItem Content="Brad Pitt"/>
-                                <ComboBoxItem Content="Angelina Jolie"/>
-                                <ComboBoxItem Content="Tom Cruise"/>
-                                <ComboBoxItem Content="Jennifer Aniston"/>
+                                <ComboBoxItem Content="Taylor Swift"/>
+                                <ComboBoxItem Content="Selena Gomez"/>
+                                <ComboBoxItem Content="Adele"/>
+                                <ComboBoxItem Content="Bruno Mars"/>
+                                <ComboBoxItem Content="Beyoncé"/>
+                                <ComboBoxItem Content="Rihanna"/>
+                                <ComboBoxItem Content="Lady Gaga"/>
+                                <ComboBoxItem Content="Miley Cyrus"/>
+                                <ComboBoxItem Content="Demi Lovato"/>
+                                <ComboBoxItem Content="Justin Bieber"/>
                             </ComboBox>
                             <TextBlock FontWeight="Bold" HorizontalAlignment="Left" Margin="0 5 0 5">Choose Your Date</TextBlock>
                             <DatePicker Name="PersonDatePicker" />
