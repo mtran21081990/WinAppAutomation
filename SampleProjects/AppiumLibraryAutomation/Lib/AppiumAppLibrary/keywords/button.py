@@ -53,7 +53,7 @@ class ButtonManagement(KeywordGroup):
 	def button_text_should_equal_to(self, locator, text):
 		actual = self.get_button_text(locator)
 		if str(text).lower() != actual.lower():
-			raise AssertionError("Button '{}' has Text: '{}'. Expected: '{}'.".format(locator, text, actual))
+			raise AssertionError("Button '{}' has Text: '{}'. Expected: '{}'.".format(locator, actual, text))
 
 	def button_should_be_toggled(self, locator):
 		state = self.get_button_toggle_state(locator)
@@ -68,19 +68,19 @@ class ButtonManagement(KeywordGroup):
 	def click_on_button(self, locator):
 		try:
 			self._get_element_with_type(locator, __TYPE__).click()
-		except Exception:
-			raise AssertionError("Cannot click on Button '{}'.".format(locator))
+		except Exception as e:
+			raise AssertionError("Cannot click on Button '{}'. Exception: {}".format(locator, e))
 
 	def double_click_button(self, locator):
 		try:
 			ele = self._get_element_with_type(locator, __TYPE__)
 			self._double_click(ele)
-		except Exception:
-			raise AssertionError("Cannot double click on Button '{}'.".format(locator))
+		except Exception as e:
+			raise AssertionError("Cannot double click on Button '{}'. Exception: {}".format(locator, e))
 
 	def right_click_button(self, locator):
 		try:
 			ele = self._get_element_with_type(locator, __TYPE__)
 			self._right_click(ele)
-		except Exception:
-			raise AssertionError("Cannot right click on Button '{}'.".format(locator))
+		except Exception as e:
+			raise AssertionError("Cannot right click on Button '{}'. Exception: {}".format(locator, e))

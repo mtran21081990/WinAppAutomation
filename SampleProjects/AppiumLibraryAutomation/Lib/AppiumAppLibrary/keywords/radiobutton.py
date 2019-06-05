@@ -48,7 +48,7 @@ class RadioButtonManagement(KeywordGroup):
 	def radio_button_text_should_equal_to(self, locator, text):
 		actual = self.get_radio_button_text(locator)
 		if str(text).lower() != actual.lower():
-			raise AssertionError("RadioButton '{}' has Text: '{}'. Expected: '{}'.".format(locator, text, actual))
+			raise AssertionError("RadioButton '{}' has Text: '{}'. Expected: '{}'.".format(locator, actual, text))
 
 	def radio_button_should_be_selected(self, locator):
 		if not self.is_radio_button_selected:

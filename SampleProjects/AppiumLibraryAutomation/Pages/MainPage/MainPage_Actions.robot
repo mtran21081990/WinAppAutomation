@@ -22,6 +22,14 @@ Drink ListBox Value Is
 	[Arguments]  ${value}
     ListBox Selection Should Equal To  ${MAINPAGE_ORDER_TAB_DRINK_LISTBOX}  ${value}
 
+Select Dishes ListBox Value
+	[Arguments]  ${value}
+    Select Item On ListBox  ${MAINPAGE_ORDER_TAB_DISHES_LISTBOX}  ${value}
+
+Dishes ListBox Value Is
+	[Arguments]  ${value}
+    ListBox Selection Should Equal To  ${MAINPAGE_ORDER_TAB_DISHES_LISTBOX}  ${value}
+
 Click On Top Seat View Button
 	Click On Button  ${MAINPAGE_ORDER_TAB_TOP_SEAT_VIEW_TOGGLEBUTTON}
 

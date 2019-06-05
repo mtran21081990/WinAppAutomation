@@ -48,7 +48,7 @@ class TextboxManagement(KeywordGroup):
 	def textbox_text_should_equal_to(self, locator, text):
 		actual = self.get_textbox_text(locator)
 		if str(text).lower() != actual.lower():
-			raise AssertionError("Textbox '{}' has Text: '{}'. Expected: '{}'.".format(locator, text, actual))
+			raise AssertionError("Textbox '{}' has Text: '{}'. Expected: '{}'.".format(locator, actual, text))
 
 	def input_into_textbox(self, locator, text):
 		try:

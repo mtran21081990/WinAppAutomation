@@ -41,12 +41,24 @@ class AppiumAppLibrary(AppiumLibrary, SikuliWrapper, ApplicationManagement, Wind
         # pydevd.settrace('localhost', port=12345, stdoutToServer=True, stderrToServer=True)
         ####################################################################################
 
-    def _get_element_with_type(self, locator, control_type):
+    def _get_element(self, locator):
+        eles = self._get_elements(locator)
+        if len(eles) > 1:
+            message = "CAUTION: Locator '{}' matched {} elements. Use the 1st element.".format(locator, len(eles))
+            logging.warning(message)
+        return eles[0]
+
+    def _get_elements(self, locator):
         eles = self._element_find(locator, False, True)
-        ele_len = len(eles)
-        if ele_len == 0:
+        if len(eles) == 0:
             raise AssertionError("Element '%s' could not be found" % locator)
-        elif ele_len > 1:
+        else:
+            return eles
+
+    def _get_element_with_type(self, locator, control_type):
+        eles = self._get_elements(locator)
+        ele_len = len(eles)
+        if ele_len > 1:
             arr = []
             for ele in eles:
                 if str(ele.get_attribute("ClassName")).lower() == str(control_type).lower():
@@ -66,15 +78,21 @@ class AppiumAppLibrary(AppiumLibrary, SikuliWrapper, ApplicationManagement, Wind
             attr_val = ele.get_attribute(attribute)
             self._info("Element '%s' attribute '%s' value '%s' " % (locator, attribute, attr_val))
             return attr_val
-        except Exception:
-            raise AssertionError("Attribute '%s' is not valid for element '%s'" % (attribute, locator))
+        except Exception as e:
+            raise AssertionError("Attribute '{}' is not valid for element '{}'. Exception: ".format(
+                attribute, locator, e))
 
-    def _double_click(self, ele):
+    def _click(self, ele=None):
         actions = ActionChains(self._current_application())
         actions.double_click(ele)
         actions.perform()
 
-    def _right_click(self, ele):
+    def _double_click(self, ele=None):
+        actions = ActionChains(self._current_application())
+        actions.double_click(ele)
+        actions.perform()
+
+    def _right_click(self, ele=None):
         actions = ActionChains(self._current_application())
         actions.context_click(ele)
         actions.perform()
@@ -89,12 +107,13 @@ class AppiumAppLibrary(AppiumLibrary, SikuliWrapper, ApplicationManagement, Wind
         actions.drag_and_drop_by_offset(source_element, x_offset, y_offset)
         actions.perform()
 
-    def _send_keys(self, source_element, value):
+    def _send_keys_on_element(self, value):
         actions = ActionChains(self._current_application())
-        actions.send_keys_to_element(source_element, value)
+        actions.send_keys(value)
         actions.perform()
 
-    def _change_locator_to_xpath(self, locator):
+    @staticmethod
+    def _change_locator_to_xpath(locator):
         if locator.startswith('//'):
             return locator
         else:

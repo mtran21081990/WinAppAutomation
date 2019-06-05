@@ -1,4 +1,6 @@
 from AppiumLibrary.keywords.keywordgroup import KeywordGroup
+from selenium.webdriver.common.keys import Keys
+import logging
 
 __TYPE__ = "ListBox"
 __ITEM_TYPE__ = "ListBoxItem"
@@ -11,6 +13,12 @@ class ListboxManagement(KeywordGroup):
 
 	def get_listbox_helptext(self, locator):
 		return self._get_element_attribute(locator, __TYPE__, "HelpText")
+
+	def get_listbox_items(self, locator):
+		x_locator = "//*[@ClassName='" + __TYPE__ + "'][" + self._change_locator_to_xpath(locator) + "]"
+		locator_item = x_locator + "/*[@ClassName='" + __ITEM_TYPE__ + "']"
+		eles = self._get_elements(locator_item)
+		return eles
 
 	def is_listbox_enabled(self, locator):
 		is_enabled = self._get_element_attribute(locator, __TYPE__, "IsEnabled")
@@ -43,12 +51,23 @@ class ListboxManagement(KeywordGroup):
 	def listbox_selection_should_equal_to(self, locator, text):
 		actual = self.get_listbox_selection(locator)
 		if str(text).lower() != actual.lower():
-			raise AssertionError("ListBox '{}' has Selection: '{}'. Expected: '{}'.".format(locator, text, actual))
+			raise AssertionError("ListBox '{}' has Selection: '{}'. Expected: '{}'.".format(locator, actual, text))
 
-	def select_item_on_listbox(self, locator, item):
+	def select_item_on_listbox(self, locator, value):
 		try:
 			x_locator = "//*[@ClassName='"+__TYPE__+"']["+self._change_locator_to_xpath(locator)+"]"
-			locator_item = x_locator + "/*[@ClassName='"+__ITEM_TYPE__+"'][@Name='"+item+"']"
+			locator_item = x_locator + "/*[@ClassName='"+__ITEM_TYPE__+"'][@Name='"+value+"']"
 			self.click_element(locator_item)
-		except Exception:
-			raise AssertionError("Cannot select '{}' on Listbox '{}'.".format(item, locator))
+		except ValueError:
+			self._loop_through_listbox_items(locator)
+			list_items = self.get_listbox_items(locator)
+			for item in list_items:
+				if str(item.get_attribute("Name")).lower() == str(value).lower():
+					item.click()
+					break
+
+	def _loop_through_listbox_items(self, locator):
+		ele = self._get_element_with_type(locator, __TYPE__)
+		self._double_click(ele)
+		self._send_keys_on_element(Keys.END)
+		self._send_keys_on_element(Keys.HOME)

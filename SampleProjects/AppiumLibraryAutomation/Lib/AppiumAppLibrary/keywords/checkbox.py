@@ -53,7 +53,7 @@ class CheckboxManagement(KeywordGroup):
 	def checkbox_text_should_equal_to(self, locator, text):
 		actual = self.get_checkbox_text(locator)
 		if str(text).lower() != actual.lower():
-			raise AssertionError("CheckBox '{}' has Text: '{}'. Expected: '{}'.".format(locator, text, actual))
+			raise AssertionError("CheckBox '{}' has Text: '{}'. Expected: '{}'.".format(locator, actual, text))
 
 	def checkbox_should_be_checked(self, locator):
 		state = self.get_checkbox_check_state(locator)

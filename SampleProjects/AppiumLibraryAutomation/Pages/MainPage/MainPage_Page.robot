@@ -11,12 +11,18 @@ User Click On Main Page Next Button
 	Click Main Pape Next Button
 
 User Can Interact Controls On Main Page
-    Select Drink ListBox Value  Tea
-    Drink ListBox Value Is  Tea
-    Select Drink ListBox Value  Tea
-    Drink ListBox Value Is  Tea
-    Select Drink ListBox Value  Tea
-    Drink ListBox Value Is  Tea
+#    Select Drink ListBox Value  Ice Coffee
+#    Drink ListBox Value Is  Ice Coffee
+#    Select Drink ListBox Value  Hot Coffee
+#    Drink ListBox Value Is  Hot Coffee
+#    Select Drink ListBox Value  Banana Smoothy
+#    Drink ListBox Value Is  Banana Smoothy
+    Select Dishes ListBox Value  Ham Sandwich
+    Dishes ListBox Value Is  Ham Sandwich
+    Select Dishes ListBox Value  Pizza
+    Dishes ListBox Value Is  Ham Sandwich, Pizza
+    Select Dishes ListBox Value  Hamburger
+    Dishes ListBox Value Is  Ham Sandwich, Pizza, Hamburger
 #    Click On Top Seat View Button
 #    Top Seat View Button Should Be Toggled
 #    Click On Botton Seat View Button

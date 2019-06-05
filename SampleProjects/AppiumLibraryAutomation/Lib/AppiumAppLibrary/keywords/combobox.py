@@ -43,7 +43,7 @@ class ComboboxManagement(KeywordGroup):
 	def combobox_selection_should_equal_to(self, locator, text):
 		actual = self.get_combobox_selection(locator)
 		if str(text).lower() != actual.lower():
-			raise AssertionError("ComboBox '{}' has Selection: '{}'. Expected: '{}'.".format(locator, text, actual))
+			raise AssertionError("ComboBox '{}' has Selection: '{}'. Expected: '{}'.".format(locator, actual, text))
 
 	def select_value_on_combobox(self, locator, value):
 		try:
