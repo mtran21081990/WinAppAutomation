@@ -35,8 +35,8 @@ User Can Interact Controls On Main Page
 #    Center Seat View Button Should Be Toggled
     Select Value In Date Person Combobox  Justin Bieber
     Date Person Combobox Selection Should Be  Justin Bieber
-    Select Value In Date Person Combobox  Tom Cruise
-    Date Person Combobox Selection Should Be  Tom Cruise
+    #Select Value In Date Person Combobox  Tom Cruise
+    #Date Person Combobox Selection Should Be  Tom Cruise
 #    Click On Watermelon Dessert Radio Button
 #    Watermelon Dessert Radio Button Should Be Selected
 #    Click On Banana Dessert Radio Button

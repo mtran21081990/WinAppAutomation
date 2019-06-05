@@ -10,6 +10,8 @@ class ApplicationManagement(KeywordGroup):
 
 	def __init__(self):
 		self.appium_url = ""
+		self.current_context = None
+		self.desktop_context = None
 
 	def setup_application(self, settings):
 		"""
@@ -29,22 +31,20 @@ class ApplicationManagement(KeywordGroup):
 
 		# init desktop session
 		kwargs = {"platformName": "Windows", "deviceName": "tbd", "app": "Root"}
-		self.open_application(self.appium_url, "Root", **kwargs)
+		index = self.open_application(self.appium_url, "Root", **kwargs)
+		self.desktop_context = self._cache.get_connection(index)
 
 		# Init application-under-test
 		kwargs = {"platformName": "Windows", "deviceName": "tbd", "app": application_path}
 		self.open_application(self.appium_url, "Main", **kwargs)
+		self.current_context = self._cache.get_connection(index)
 
 	def switch_to_new_window(self, new_window_locator, new_window_alias):
-		logging.warning("Begin switch_to_new_window: " + str(datetime.datetime.now()))
 		self.switch_application("Root")
-		logging.warning("Switch to Root - Done. " + str(datetime.datetime.now()))
-		new_window = self._element_find(new_window_locator, True, True)
-		logging.warning("Find SubWindow - Done. " + str(datetime.datetime.now()))
+		new_window = self._element_find(new_window_locator, False, True)
 		new_window_handle = new_window.get_attribute("NativeWindowHandle")
 		hex_handle = hex(int(new_window_handle))
 		kwargs = {"platformName": "Windows", "deviceName": "tbd", "appTopLevelWindow": hex_handle}
 		self.open_application(self.appium_url, new_window_alias, **kwargs)
-		logging.warning("End switch_to_new_window: " + str(datetime.datetime.now()))
 
 
