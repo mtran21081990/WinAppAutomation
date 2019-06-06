@@ -222,7 +222,7 @@
                                 <TextBox Name="RateScoreTextBox" IsEnabled="False" TextAlignment="Center" Margin="10 0 0 0" Text="{Binding ElementName=RateSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" Width="40" />
                                 <TextBlock HorizontalAlignment="Left" Margin="5 0 0 5">Star</TextBlock>
                             </StackPanel>
-                            <Slider Name="RateSlider" Maximum="5" Width="200" HorizontalAlignment="Left" TickPlacement="TopLeft" TickFrequency="1" IsSnapToTickEnabled="True" />
+                            <Slider Name="RateSlider" Maximum="6.0" Width="200" HorizontalAlignment="Left" SmallChange="0.2" LargeChange="0.5" Minimum="0.0" AutoToolTipPlacement="TopLeft" Cursor="Cross" />
                         </StackPanel>
 
                         <StackPanel Grid.Row="4" Grid.Column="3">

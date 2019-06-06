@@ -10,7 +10,7 @@ __version__ = '1.0.0'
 
 class AppiumAppLibrary(AppiumLibrary, SikuliWrapper, ApplicationManagement, WindowManagement, ButtonManagement,
                        TextboxManagement, ComboboxManagement, RadioButtonManagement, CheckboxManagement,
-                       ListboxManagement):
+                       ListboxManagement, SliderManagement):
 
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
     ROBOT_LIBRARY_VERSION = __version__
@@ -32,6 +32,7 @@ class AppiumAppLibrary(AppiumLibrary, SikuliWrapper, ApplicationManagement, Wind
         RadioButtonManagement.__init__(self)
         CheckboxManagement.__init__(self)
         ListboxManagement.__init__(self)
+        SliderManagement.__init__(self)
 
         ####################################################################################
         # Make sure pydevd installed: pip install pydevd
@@ -76,7 +77,7 @@ class AppiumAppLibrary(AppiumLibrary, SikuliWrapper, ApplicationManagement, Wind
         ele = self._get_element_with_type(locator, control_type)
         try:
             attr_val = ele.get_attribute(attribute)
-            self._info("Element '%s' attribute '%s' value '%s' " % (locator, attribute, attr_val))
+            self._info("Element '{}' attribute '{}' value '{}' ".format(locator, attribute, attr_val))
             return attr_val
         except Exception as e:
             raise AssertionError("Attribute '{}' is not valid for element '{}'. Exception: ".format(

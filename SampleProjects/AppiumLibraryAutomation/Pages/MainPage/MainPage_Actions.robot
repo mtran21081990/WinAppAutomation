@@ -164,6 +164,14 @@ Click On Change Dessert Optional Request Checkbox
 Change Dessert Optional Request Checkbox Should Be Checked
 	Checkbox Should Be Checked  ${MAINPAGE_ORDER_TAB_CHANGE_DESSERT_OPTIONAL_REQUESTS_CHECKBOX}
 
+Set Rate Slider Value
+	[Arguments]  ${value}
+	Set Slider Value  ${MAINPAGE_ORDER_TAB_RATE_SLIDER}  ${value}
+
+Rate Slider Value Should Be
+	[Arguments]  ${value}
+	Slider Value Should Equal To  ${MAINPAGE_ORDER_TAB_RATE_SLIDER}  ${value}
+
 Click On Order Tab
 	Click Element  ${MAINPAGE_ORDER_TAB}
 

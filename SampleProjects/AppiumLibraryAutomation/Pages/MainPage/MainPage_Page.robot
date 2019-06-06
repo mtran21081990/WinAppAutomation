@@ -69,5 +69,11 @@ User Can Interact Controls On Main Page
 #    Change Seat View Optional Request Checkbox Should Be Checked
 #    Click On Change Dessert Optional Request Checkbox
 #    Change Dessert Optional Request Checkbox Should Be Checked
+    Set Rate Slider Value  2.0
+    Rate Slider Value Should Be  2.0
+    Set Rate Slider Value  1.0
+    Rate Slider Value Should Be  1.0
+    Set Rate Slider Value  3.6
+    Rate Slider Value Should Be  3.6
 #    Click On Summary Tab
 #    Click On Order Tab
