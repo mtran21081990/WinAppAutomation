@@ -12,9 +12,7 @@ class CheckboxManagement(KeywordGroup):
 		return self._get_element_attribute(locator, __TYPE__, "HelpText")
 
 	def get_checkbox_check_state(self, locator):
-		if self.is_checkbox_toggleable:
-			return self._get_element_attribute(locator, __TYPE__, "Toggle.ToggleState")
-		return None
+		return self._get_element_attribute(locator, __TYPE__, "Toggle.ToggleState")
 
 	def is_checkbox_toggleable(self, locator):
 		is_enabled = self._get_element_attribute(locator, __TYPE__, "IsTogglePatternAvailable")
@@ -35,19 +33,19 @@ class CheckboxManagement(KeywordGroup):
 		return True
 
 	def checkbox_should_be_enabled(self, locator):
-		if not self.is_checkbox_enabled:
+		if not self.is_checkbox_enabled(locator):
 			raise AssertionError("CheckBox '{}' is not enabled".format(locator))
 
 	def checkbox_should_be_disabled(self, locator):
-		if self.is_checkbox_enabled:
+		if self.is_checkbox_enabled(locator):
 			raise AssertionError("CheckBox '{}' is not disabled".format(locator))
 
 	def checkbox_should_be_visible(self, locator):
-		if not self.is_checkbox_visible:
+		if not self.is_checkbox_visible(locator):
 			raise AssertionError("CheckBox '{}' is not visible".format(locator))
 
 	def checkbox_should_not_be_visible(self, locator):
-		if self.is_checkbox_visible:
+		if self.is_checkbox_visible(locator):
 			raise AssertionError("CheckBox '{}' is not hidden".format(locator))
 
 	def checkbox_text_should_equal_to(self, locator, text):

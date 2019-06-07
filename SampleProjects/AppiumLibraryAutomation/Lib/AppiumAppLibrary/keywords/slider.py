@@ -39,19 +39,19 @@ class SliderManagement(KeywordGroup):
 		return True
 
 	def slider_should_be_enabled(self, locator):
-		if not self.is_slider_enabled:
+		if not self.is_slider_enabled(locator):
 			raise AssertionError("Slider '{}' is not enabled".format(locator))
 
 	def slider_should_be_disabled(self, locator):
-		if self.is_slider_enabled:
+		if self.is_slider_enabled(locator):
 			raise AssertionError("Slider '{}' is not disabled".format(locator))
 
 	def slider_should_be_visible(self, locator):
-		if not self.is_slider_visible:
+		if not self.is_slider_visible(locator):
 			raise AssertionError("Slider '{}' is not visible".format(locator))
 
 	def slider_should_not_be_visible(self, locator):
-		if self.is_slider_visible:
+		if self.is_slider_visible(locator):
 			raise AssertionError("Slider '{}' is not hidden".format(locator))
 
 	def slider_value_should_equal_to(self, locator, expected):
@@ -82,23 +82,17 @@ class SliderManagement(KeywordGroup):
 			if "." in temp:
 				is_float = True
 
-			logging.warning("HERE 1")
-
 			# Verify whether Slider value is float or integer
 			if is_float:
 				max_value = float(slider.get_attribute("RangeValue.Maximum"))
 				min_value = float(slider.get_attribute("RangeValue.Minimum"))
 				cur_value = float(slider.get_attribute("RangeValue.Value"))
 				inp_value = float(value)
-				avg_value = float((max_value - min_value) / 2)
 			else:
 				max_value = int(slider.get_attribute("RangeValue.Maximum"))
 				min_value = int(slider.get_attribute("RangeValue.Minimum"))
 				cur_value = int(slider.get_attribute("RangeValue.Value"))
 				inp_value = int(value)
-				avg_value = int((max_value - min_value) / 2)
-
-			logging.warning("HERE 2")
 
 			# Return or raise exception if input value is not valid
 			if not (min_value <= inp_value <= max_value):
@@ -106,16 +100,11 @@ class SliderManagement(KeywordGroup):
 			if inp_value == cur_value:
 				return
 
-			logging.warning("HERE 3")
-
 			# Click on Thump button of Slider
 			thump_button = self._get_thump_button(locator)
 			thump_button.click()
 
-			logging.warning("HERE 4")
-
 			if is_float:
-				logging.warning("HERE 5.1")
 				if cur_value < inp_value:
 					while inp_value != float(self.get_slider_value(locator)):
 						self._send_keys_on_element(Keys.UP)
@@ -125,7 +114,6 @@ class SliderManagement(KeywordGroup):
 						self._send_keys_on_element(Keys.DOWN)
 						time.sleep(2)
 			else:
-				logging.warning("HERE 5.2")
 				if cur_value < inp_value:
 					while inp_value != int(self.get_slider_value(locator)):
 						self._send_keys_on_element(Keys.UP)

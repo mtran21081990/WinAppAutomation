@@ -12,15 +12,7 @@ class ButtonManagement(KeywordGroup):
 		return self._get_element_attribute(locator, __TYPE__, "HelpText")
 
 	def get_button_toggle_state(self, locator):
-		if self.is_button_toggleable:
-			return self._get_element_attribute(locator, __TYPE__, "Toggle.ToggleState")
-		return None
-
-	def is_button_toggleable(self, locator):
-		is_enabled = self._get_element_attribute(locator, __TYPE__, "IsTogglePatternAvailable")
-		if str(is_enabled).lower() != "true":
-			return False
-		return True
+		return self._get_element_attribute(locator, __TYPE__, "Toggle.ToggleState")
 
 	def is_button_enabled(self, locator):
 		is_enabled = self._get_element_attribute(locator, __TYPE__, "IsEnabled")
@@ -35,19 +27,19 @@ class ButtonManagement(KeywordGroup):
 		return True
 
 	def button_should_be_enabled(self, locator):
-		if not self.is_button_enabled:
+		if not self.is_button_enabled(locator):
 			raise AssertionError("Button '{}' is not enabled".format(locator))
 
 	def button_should_be_disabled(self, locator):
-		if self.is_button_enabled:
+		if self.is_button_enabled(locator):
 			raise AssertionError("Button '{}' is not disabled".format(locator))
 
 	def button_should_be_visible(self, locator):
-		if not self.is_button_visible:
+		if not self.is_button_visible(locator):
 			raise AssertionError("Button '{}' is not visible".format(locator))
 
 	def button_should_not_be_visible(self, locator):
-		if self.is_button_visible:
+		if self.is_button_visible(locator):
 			raise AssertionError("Button '{}' is not hidden".format(locator))
 
 	def button_text_should_equal_to(self, locator, text):

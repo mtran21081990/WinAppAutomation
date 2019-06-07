@@ -27,19 +27,19 @@ class WindowManagement(KeywordGroup):
 		return True
 
 	def window_should_be_enabled(self, locator):
-		if not self.is_window_enabled:
+		if not self.is_window_enabled(locator):
 			raise AssertionError("Window '{}' is not enabled".format(locator))
 
 	def window_should_be_disabled(self, locator):
-		if self.is_window_enabled:
+		if self.is_window_enabled(locator):
 			raise AssertionError("Window '{}' is not disabled".format(locator))
 
 	def window_should_be_visible(self, locator):
-		if not self.is_window_visible:
+		if not self.is_window_visible(locator):
 			raise AssertionError("Window '{}' is not visible".format(locator))
 
 	def window_should_not_be_visible(self, locator):
-		if self.is_window_visible:
+		if self.is_window_visible(locator):
 			raise AssertionError("Window '{}' is not hidden".format(locator))
 
 	def window_title_should_equal_to(self, locator, title):

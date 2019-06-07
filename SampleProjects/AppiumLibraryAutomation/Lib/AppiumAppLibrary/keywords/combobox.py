@@ -35,19 +35,19 @@ class ComboboxManagement(KeywordGroup):
 		return True
 
 	def combobox_should_be_enabled(self, locator):
-		if not self.is_combobox_enabled:
+		if not self.is_combobox_enabled(locator):
 			raise AssertionError("ComboBox '{}' is not enabled".format(locator))
 
 	def combobox_should_be_disabled(self, locator):
-		if self.is_combobox_enabled:
+		if self.is_combobox_enabled(locator):
 			raise AssertionError("ComboBox '{}' is not disabled".format(locator))
 
 	def combobox_should_be_visible(self, locator):
-		if not self.is_combobox_visible:
+		if not self.is_combobox_visible(locator):
 			raise AssertionError("ComboBox '{}' is not visible".format(locator))
 
 	def combobox_should_not_be_visible(self, locator):
-		if self.is_combobox_visible:
+		if self.is_combobox_visible(locator):
 			raise AssertionError("ComboBox '{}' is not hidden".format(locator))
 
 	def combobox_selection_should_equal_to(self, locator, text):

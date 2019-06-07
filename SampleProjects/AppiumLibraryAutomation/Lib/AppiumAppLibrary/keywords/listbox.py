@@ -33,19 +33,19 @@ class ListboxManagement(KeywordGroup):
 		return True
 
 	def listbox_should_be_enabled(self, locator):
-		if not self.is_listbox_enabled:
+		if not self.is_listbox_enabled(locator):
 			raise AssertionError("ListBox '{}' is not enabled".format(locator))
 
 	def listbox_should_be_disabled(self, locator):
-		if self.is_listbox_enabled:
+		if self.is_listbox_enabled(locator):
 			raise AssertionError("ListBox '{}' is not disabled".format(locator))
 
 	def listbox_should_be_visible(self, locator):
-		if not self.is_listbox_visible:
+		if not self.is_listbox_visible(locator):
 			raise AssertionError("ListBox '{}' is not visible".format(locator))
 
 	def listbox_should_not_be_visible(self, locator):
-		if self.is_listbox_visible:
+		if self.is_listbox_visible(locator):
 			raise AssertionError("Listbox '{}' is not hidden".format(locator))
 
 	def listbox_selection_should_equal_to(self, locator, text):

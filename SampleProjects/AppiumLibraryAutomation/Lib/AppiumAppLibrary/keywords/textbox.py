@@ -30,19 +30,19 @@ class TextboxManagement(KeywordGroup):
 		return True
 
 	def textbox_should_be_enabled(self, locator):
-		if not self.is_textbox_enabled:
+		if not self.is_textbox_enabled(locator):
 			raise AssertionError("Textbox '{}' is not enabled".format(locator))
 
 	def textbox_should_be_disabled(self, locator):
-		if self.is_textbox_enabled:
+		if self.is_textbox_enabled(locator):
 			raise AssertionError("Textbox '{}' is not disabled".format(locator))
 
 	def textbox_should_be_visible(self, locator):
-		if not self.is_textbox_visible:
+		if not self.is_textbox_visible(locator):
 			raise AssertionError("Textbox '{}' is not visible".format(locator))
 
 	def textbox_should_not_be_visible(self, locator):
-		if self.is_textbox_visible:
+		if self.is_textbox_visible(locator):
 			raise AssertionError("Textbox '{}' is not hidden".format(locator))
 
 	def textbox_text_should_equal_to(self, locator, text):
@@ -52,14 +52,12 @@ class TextboxManagement(KeywordGroup):
 
 	def input_into_textbox(self, locator, text):
 		try:
-			ele = self._get_element_with_type(locator, __TYPE__)
-			ele.send_keys(text)
-		except Exception:
-			raise AssertionError("Cannot input '{}' into Textbox '{}'.".format(text, locator))
+			self._get_element_with_type(locator, __TYPE__).send_keys(text)
+		except Exception as e:
+			raise AssertionError("Cannot input '{}' into Textbox '{}'. Exception: {}".format(text, locator, e))
 
 	def clear_textbox(self, locator):
 		try:
-			ele = self._get_element_with_type(locator, __TYPE__)
-			ele.clear()
-		except Exception:
-			raise AssertionError("Cannot clear Textbox '{}'.".format(locator))
+			self._get_element_with_type(locator, __TYPE__).clear()
+		except Exception as e:
+			raise AssertionError("Cannot clear Textbox '{}'. Exception: {}".format(locator, e))
