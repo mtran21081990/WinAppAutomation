@@ -8,3 +8,4 @@ from .radiobutton import RadioButtonManagement
 from .checkbox import CheckboxManagement
 from .listbox import ListboxManagement
 from .slider import SliderManagement
+from .tab import TabManagement

@@ -10,7 +10,7 @@ __version__ = '1.0.0'
 
 class AppiumAppLibrary(AppiumLibrary, SikuliWrapper, ApplicationManagement, WindowManagement, ButtonManagement,
                        TextboxManagement, ComboboxManagement, RadioButtonManagement, CheckboxManagement,
-                       ListboxManagement, SliderManagement):
+                       ListboxManagement, SliderManagement, TabManagement):
 
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
     ROBOT_LIBRARY_VERSION = __version__
@@ -22,17 +22,24 @@ class AppiumAppLibrary(AppiumLibrary, SikuliWrapper, ApplicationManagement, Wind
         self.implicit_wait = timestr_to_secs(implicit_wait)
         self.speed = 0.0
 
-        AppiumLibrary.__init__(self, self.timeout)
-        SikuliWrapper.__init__(self)
-        ApplicationManagement.__init__(self)
-        WindowManagement.__init__(self)
-        ButtonManagement.__init__(self)
-        TextboxManagement.__init__(self)
-        ComboboxManagement.__init__(self)
-        RadioButtonManagement.__init__(self)
-        CheckboxManagement.__init__(self)
-        ListboxManagement.__init__(self)
-        SliderManagement.__init__(self)
+        for base in AppiumAppLibrary.__bases__:
+            if base.__name__ == AppiumLibrary:
+                base.__init__(self, self.timeout)
+            else:
+                base.__init__(self)
+
+        # AppiumLibrary.__init__(self, self.timeout)
+        # SikuliWrapper.__init__(self)
+        # ApplicationManagement.__init__(self)
+        # WindowManagement.__init__(self)
+        # ButtonManagement.__init__(self)
+        # TextboxManagement.__init__(self)
+        # ComboboxManagement.__init__(self)
+        # RadioButtonManagement.__init__(self)
+        # CheckboxManagement.__init__(self)
+        # ListboxManagement.__init__(self)
+        # SliderManagement.__init__(self)
+        # TabManagement.__init__(self)
 
         ####################################################################################
         # Make sure pydevd installed: pip install pydevd
