@@ -172,8 +172,14 @@ Rate Slider Value Should Be
 	[Arguments]  ${value}
 	Slider Value Should Equal To  ${MAINPAGE_ORDER_TAB_RATE_SLIDER}  ${value}
 
-Click On Order Tab
-	Click Element  ${MAINPAGE_ORDER_TAB}
+Open Order Tab
+	Click On Tab  ${MAINPAGE_ORDER_TAB}
 
-Click On Summary Tab
-	Click Element  ${MAINPAGE_SUMMARY_TAB}
+Order Tab Should Be Selected
+	Tab Should Be Selected  ${MAINPAGE_ORDER_TAB}
+
+Open Summary Tab
+	Click On Tab  ${MAINPAGE_SUMMARY_TAB}
+
+Summary Tab Should Be Selected
+	Tab Should Be Selected  ${MAINPAGE_SUMMARY_TAB}

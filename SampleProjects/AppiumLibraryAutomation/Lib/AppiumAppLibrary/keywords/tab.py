@@ -85,12 +85,12 @@ class TabManagement(KeywordGroup):
 	def tab_should_be_selected(self, tab_name):
 		state = self.get_tab_selection_state(tab_name)
 		if int(state) != 1:
-			raise AssertionError("Tab '{}' is not toggled. Toggle State value: '{}'.".format(tab_name, state))
+			raise AssertionError("Tab '{}' is not selected. Selection State value: '{}'.".format(tab_name, state))
 
 	def tab_should_not_be_selected(self, tab_name):
 		state = self.get_tab_selection_state(tab_name)
 		if int(state) == 1:
-			raise AssertionError("Tab '{}' should not be toggled. Toggle State value: '{}'.".format(tab_name, state))
+			raise AssertionError("Tab '{}' should not be selected. Selection State value: '{}'.".format(tab_name, state))
 
 	def click_on_tab(self, tab_name):
 		try:

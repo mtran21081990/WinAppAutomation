@@ -11,8 +11,8 @@ ${MAINPAGE_ID}  accessibility_id=MainPageWindow
 ${MAINPAGE_HEADER_ID}  accessibility_id=MainPageTitle
 ${MAINPAGE_NEXT_ID}  accessibility_id=NextButton
 ${MAINPAGE_PREVIOUS_ID}  accessibility_id=PreviousButton
-${MAINPAGE_ORDER_TAB}  accessibility_id=OrderTabItem
-${MAINPAGE_SUMMARY_TAB}  accessibility_id=SummaryTabItem
+${MAINPAGE_ORDER_TAB}  Order Tab
+${MAINPAGE_SUMMARY_TAB}  Summary Tab
 
 # Order Tab Locators
 
