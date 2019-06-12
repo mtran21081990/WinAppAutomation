@@ -1,3 +1,4 @@
 APPLICATION:
   APPIUM_URL: "http://localhost:4723/wd/hub"
-  PATH: "E:\\GitHub\\WinAppAutomation\\SampleApplication\\Restaurant_Order_Application\\SampleWpfApplication.exe"
+  PATH: "D:\\GitHub\\WinAppAutomation\\SampleApplication\\Restaurant_Order_Application\\SampleWpfApplication.exe"
+  FIRST_PAGE_TITLE: "Restaurant Order Application"

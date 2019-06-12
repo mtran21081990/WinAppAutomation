@@ -28,6 +28,8 @@ class AppiumAppLibrary(AppiumLibrary, SikuliWrapper, ApplicationManagement, Wind
             else:
                 base.__init__(self)
 
+        self.switch_application()
+
         # AppiumLibrary.__init__(self, self.timeout)
         # SikuliWrapper.__init__(self)
         # ApplicationManagement.__init__(self)
@@ -122,7 +124,7 @@ class AppiumAppLibrary(AppiumLibrary, SikuliWrapper, ApplicationManagement, Wind
 
     @staticmethod
     def _change_locator_to_xpath(locator):
-        if locator.startswith('//'):
+        if locator.startswith("//") or locator.startswith("xpath="):
             return locator
         else:
             prefix = ""
@@ -137,3 +139,20 @@ class AppiumAppLibrary(AppiumLibrary, SikuliWrapper, ApplicationManagement, Wind
             }
             x_locator = switcher.get(prefix) + criteria
             return x_locator
+
+    @staticmethod
+    def _check_locator(locator):
+        arr = {}
+        if locator.startswith("//"):
+            arr["key"] = "xpath"
+            arr["value"] = locator
+        else:
+            locator_parts = locator.partition('=')
+            if len(locator_parts[1]) > 0:
+                arr["key"] = locator_parts[0].strip().lower()
+                arr["value"] = locator_parts[2].strip()
+            else:
+                arr["key"] = "id"
+                arr["value"] = locator
+        return arr
+

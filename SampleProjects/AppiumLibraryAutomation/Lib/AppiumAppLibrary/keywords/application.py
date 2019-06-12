@@ -2,49 +2,65 @@ from AppiumLibrary.keywords.keywordgroup import KeywordGroup
 import logging
 import datetime
 
-_APPLICATION_APPIUM_URL_KEY = "APPIUM_URL"
-_APPLICATION_PATH_KEY = "PATH"
+_APPLICATION_APPIUM_URL = "APPIUM_URL"
+_APPLICATION_PATH = "PATH"
+_APPLICATION_FIRST_PAGE_TITLE = "FIRST_PAGE_TITLE"
 
 
 class ApplicationManagement(KeywordGroup):
 
 	def __init__(self):
 		self.appium_url = ""
-		self.current_context = None
-		self.desktop_context = None
+		self.contexts = {}
 
 	def setup_application(self, settings):
 		"""
 		Open application or attach the already-opened application
-		:settings: dictionary of browser setting. Sample:
-		APPLICATION:
-		TYPE: wpf
-		ALREADY_OPENED: No
-		NAME: WpfTestApplication
-		PATH: absolute/path/to/app.exe
-		DEFAULT_USERNAME: admin
-		DEFAULT_PASSWORD: password
+		APPIUM_URL: URL of Appium Desktop server
+		PATH: Application directory path
+		MAIN_PAGE_TITLE: Title of Main Page
 		"""
 		# Get setting value
-		self.appium_url = settings.get(_APPLICATION_APPIUM_URL_KEY).strip().lower()
-		application_path = settings.get(_APPLICATION_PATH_KEY, None)
+		self.appium_url = settings.get(_APPLICATION_APPIUM_URL).strip().lower()
+		application_path = settings.get(_APPLICATION_PATH, None)
+		first_page_title = settings.get(_APPLICATION_FIRST_PAGE_TITLE, None)
 
 		# init desktop session
 		kwargs = {"platformName": "Windows", "deviceName": "tbd", "app": "Root"}
-		index = self.open_application(self.appium_url, "Root", **kwargs)
-		self.desktop_context = self._cache.get_connection(index)
+		self.contexts["Desktop"] = self.open_application(self.appium_url, None, **kwargs)
 
 		# Init application-under-test
 		kwargs = {"platformName": "Windows", "deviceName": "tbd", "app": application_path}
-		self.open_application(self.appium_url, "Main", **kwargs)
-		self.current_context = self._cache.get_connection(index)
+		self.contexts[first_page_title] = self.open_application(self.appium_url, None, **kwargs)
 
-	def switch_to_new_window(self, new_window_locator, new_window_alias):
-		self.switch_application("Root")
-		new_window = self._element_find(new_window_locator, False, True)
+	def switch_window(self, window_locator, is_title=True):
+		# If window_locator is title
+		if is_title:
+			# Switch to a newly opening Window
+			if self.contexts.get(window_locator) is None:
+				self.contexts[window_locator] = self._switch_window("name="+window_locator)
+			# Switch to an existing window
+			else:
+				try:
+					self.switch_application(self.contexts[window_locator])
+				except ValueError:
+					self.contexts[window_locator] = self._switch_window("name=" + window_locator)
+		# If window_locator is a locator
+		else:
+			index = self._switch_window(window_locator)
+			title = self.get_window_title(window_locator)
+			self.contexts[title] = index
+
+	def _switch_window(self, window_locator):
+		self.switch_application(self.contexts["Desktop"])
+		new_window = self._get_element(window_locator)
 		new_window_handle = new_window.get_attribute("NativeWindowHandle")
 		hex_handle = hex(int(new_window_handle))
 		kwargs = {"platformName": "Windows", "deviceName": "tbd", "appTopLevelWindow": hex_handle}
-		self.open_application(self.appium_url, new_window_alias, **kwargs)
+		return self.open_application(self.appium_url, None, **kwargs)
+
+
+
+
 
 
